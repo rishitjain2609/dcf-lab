@@ -1,0 +1,21 @@
+---
+title: Income statement to EBIT
+description: From revenue to EBITDA to EBIT.
+---
+
+TODO(Harsh): explain EBITDA vs. EBIT and why D&A is subtracted here even though it gets added back
+later in UFCF — it still needs to reduce taxable income first.
+
+## Worked example
+
+| Year | 1 | 2 | 3 | 4 | 5 |
+| --- | --- | --- | --- | --- | --- |
+| Revenue (₹ cr) | 1,120.00 | 1,243.20 | 1,367.52 | 1,490.60 | 1,609.84 |
+| EBITDA (22% margin) | 246.40 | 273.50 | 300.85 | 327.93 | 354.17 |
+| D&A (4% of revenue) | 44.80 | 49.73 | 54.70 | 59.62 | 64.39 |
+| EBIT | 201.60 | 223.78 | 246.15 | 268.31 | 289.77 |
+
+```
+ebitda[t] = revenue[t] × ebitdaMargin
+ebit[t]   = ebitda[t] - da[t]
+```

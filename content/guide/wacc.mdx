@@ -1,0 +1,40 @@
+---
+title: WACC
+description: The discount rate — cost of equity via CAPM, blended with after-tax cost of debt.
+---
+
+TODO(Harsh): explain CAPM in plain terms (risk-free rate + beta × equity risk premium) and why debt
+is tax-affected in the WACC formula but equity isn't (interest is tax-deductible, dividends aren't).
+Also flag the circularity risk: WACC uses market weights of equity and debt, but a DCF is often
+trying to tell you the market price is wrong — so which market cap do you weight with?
+
+## Worked example
+
+**Cost of equity (CAPM)**
+
+```
+costOfEquity = riskFreeRate + beta × equityRiskPremium
+             = 7% + 1.1 × 6%
+             = 13.6%
+```
+
+**WACC**
+
+| Input | Value |
+| --- | --- |
+| Market cap (equity weight) | ₹6,000 cr |
+| Total debt (debt weight) | ₹300 cr |
+| Cost of equity | 13.6% |
+| Cost of debt | 9.0% |
+| Tax rate | 25% |
+
+```
+weightOfEquity = 6,000 / (6,000 + 300) = 95.2%
+weightOfDebt   = 300 / (6,000 + 300)   = 4.8%
+afterTaxCostOfDebt = 9.0% × (1 - 25%) = 6.75%
+
+WACC = 13.6% × 95.2% + 6.75% × 4.8%
+     = 13.27%
+```
+
+Computed by `wacc()` in [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

@@ -1,0 +1,19 @@
+---
+title: Checks
+description: The sanity checks to run before publishing any model.
+---
+
+TODO(Harsh): write the actual checklist used before a model goes on [/models](/models) — at
+minimum this should cover:
+
+- Does `terminalGrowth < WACC`? (If not, `terminalValueGordon()` already throws.)
+- Is terminal growth below long-run nominal GDP growth? Growing a company faster than the economy
+  forever is usually not defensible.
+- What % of enterprise value comes from the terminal value vs. the explicit forecast? (In the
+  running example: ₹1,247.68 cr of ₹1,767.15 cr — about 71% — is terminal value. Worth knowing
+  before trusting the number.)
+- Does the Gordon growth terminal value roughly agree with an exit-multiple cross-check?
+- Do the implied margins and growth rates in year 5 look like a steady-state business, or still
+  like a company in hypergrowth that got cut off arbitrarily at year 5?
+- Rerun with WACC and terminal growth both nudged — does the conclusion survive, or does it flip
+  on assumptions nobody would notice changing?

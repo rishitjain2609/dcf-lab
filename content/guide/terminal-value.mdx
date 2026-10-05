@@ -1,0 +1,32 @@
+---
+title: Terminal value (Gordon + exit multiple)
+description: Valuing every cash flow after the explicit forecast window, two different ways.
+---
+
+TODO(Harsh): explain why terminal value exists (you can't forecast forever), why it usually
+dominates total value (most of the cash flow a going concern will ever generate sits beyond year
+5), and the two standard methods — Gordon growth (perpetuity) and exit multiple (what a buyer
+would pay for the business in year 5, as a multiple of some metric).
+
+## Gordon growth method
+
+```
+TV = UFCF_year5 × (1 + terminalGrowth) / (WACC - terminalGrowth)
+   = 183.34 × 1.05 / (13.27% - 5%)
+   = 2,326.75
+```
+
+The guard: `terminalGrowth` must be strictly less than `WACC`, or the formula divides by a
+negative number and the terminal value comes out negative — a sign that something upstream is
+wrong, not a valid result. `terminalValueGordon()` in
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) throws rather than
+return it.
+
+## Exit multiple method
+
+TODO(Harsh): pick a comparable EV/EBITDA (or EV/Revenue) multiple for this company's sector and
+show the same year-5 metric valued that way instead — `terminalValueExitMultiple()` in
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) is
+`finalMetric × multiple`. Worth triangulating: if Gordon growth and a reasonable exit multiple
+give very different terminal values, that's usually a sign the growth/WACC spread in the Gordon
+formula is doing something unrealistic.

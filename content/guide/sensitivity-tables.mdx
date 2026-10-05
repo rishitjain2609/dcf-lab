@@ -1,0 +1,30 @@
+---
+title: Sensitivity tables
+description: Showing how much the answer moves when WACC or terminal growth moves a little.
+---
+
+TODO(Harsh): explain why a single implied value without a sensitivity table is close to
+meaningless — WACC and terminal growth are both estimates, not facts, and a DCF should show how
+fragile its answer is to small, defensible changes in either one.
+
+## Worked example
+
+Implied value per share (end-year discounting), varying WACC by ±1 percentage point and terminal
+growth by ±0.5 percentage points around the base case (WACC 13.27% → shown rounded to 13.3%,
+terminal growth 5.0%):
+
+| WACC ↓ / g → | 4.5% | 5.0% | 5.5% |
+| --- | --- | --- | --- |
+| 12.3% | ₹32.30 | ₹34.34 | ₹36.68 |
+| 13.3% (base) | ₹27.81 | **₹29.34** | ₹31.07 |
+| 14.3% | ₹24.24 | ₹25.43 | ₹26.75 |
+
+A 2-point swing in WACC (12.3% → 14.3%, holding terminal growth at 5.0%) moves the implied value
+from ₹34.34 to ₹25.43 — about ₹9/share, or roughly 30% of the base case — without changing a single
+operating assumption. That sensitivity is the real output of a DCF, not the single number in the
+middle.
+
+Built with `buildSensitivityTable()` in
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts), which takes a
+list of row values, a list of column values, and a function to compute each cell — reused as-is
+for the [models](/models) and the [game](/game).

@@ -1,0 +1,30 @@
+---
+title: Discounting (mid-year)
+description: Why end-year discounting slightly understates value, and what mid-year fixes.
+---
+
+TODO(Harsh): explain the intuition — cash doesn't arrive in one lump at year-end, it arrives
+throughout the year, so discounting as if it all lands on day 365 slightly understates its present
+value. The mid-year convention discounts each cash flow by half a period less.
+
+## Worked example
+
+Same UFCFs and WACC (13.27%) as [UFCF](/guide/ufcf) and [WACC](/guide/wacc), discounted both ways:
+
+| Year | UFCF | PV, end-year | PV, mid-year |
+| --- | --- | --- | --- |
+| 1 | 122.00 | 107.70 | 114.63 |
+| 2 | 136.92 | 106.71 | 113.57 |
+| 3 | 152.29 | 104.78 | 111.52 |
+| 4 | 167.86 | 101.96 | 108.52 |
+| 5 | 183.34 | 98.31 | 104.64 |
+| **Sum** | | **519.47** | **552.88** |
+
+```
+PV_end-year[t] = cashFlow / (1 + WACC)^t
+PV_mid-year[t] = cashFlow / (1 + WACC)^(t - 0.5)
+```
+
+Mid-year consistently gives a higher present value for the same cash flows — in this example, about
+6.4% higher on the explicit-period sum. Both conventions are implemented in `presentValue()` and
+`discountCashFlows()` in [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

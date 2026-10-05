@@ -1,0 +1,42 @@
+---
+title: Setup & conventions
+description: The conventions this guide uses before any numbers show up.
+---
+
+TODO(Harsh): explain why conventions matter before the math — a model is only checkable if a
+reader knows what every number means without asking.
+
+## Conventions used throughout this guide
+
+- Currency: ₹ crore, unless stated otherwise.
+- Explicit forecast period: 5 years.
+- Discounting convention: end-year by default; mid-year is covered separately in
+  [Discounting (mid-year)](/guide/discounting-mid-year).
+- Risk-free rate: the 10-year Indian G-sec yield.
+- A single running example carries through every step in this guide — a hypothetical company,
+  not a real one. The two real models are in [/models](/models).
+
+## The running example — starting assumptions
+
+| Assumption | Value |
+| --- | --- |
+| Base revenue (Year 0) | ₹1,000 cr |
+| Revenue growth, Years 1–5 | 12%, 11%, 10%, 9%, 8% |
+| EBITDA margin | 22% |
+| D&A, % of revenue | 4% |
+| Capex, % of revenue | 5% |
+| Δ NWC, % of revenue increase | 15% |
+| Tax rate | 25% |
+| Risk-free rate (10-yr G-sec) | 7% |
+| Beta | 1.1 |
+| Equity risk premium | 6% |
+| Cost of debt | 9% |
+| Market cap (for WACC weights) | ₹6,000 cr |
+| Total debt (for WACC weights) | ₹300 cr |
+| Net debt (for the equity bridge) | ₹300 cr |
+| Diluted shares | 50 cr |
+| Terminal growth | 5% |
+
+Every number in the steps that follow is computed from this table using
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) — not typed in by
+hand — so it stays consistent end to end.

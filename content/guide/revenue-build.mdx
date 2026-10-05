@@ -1,0 +1,24 @@
+---
+title: Revenue build
+description: Compounding growth assumptions into a 5-year revenue forecast.
+---
+
+TODO(Harsh): explain the mechanics — each year's revenue is the prior year times (1 + growth) —
+and the judgment call underneath it: is a single top-line growth rate even granular enough, or
+should revenue be built bottom-up from volume × price, or segment by segment?
+
+## Worked example
+
+Starting from ₹1,000 cr and the growth rates from [Assumptions](/guide/assumptions):
+
+| Year | 1 | 2 | 3 | 4 | 5 |
+| --- | --- | --- | --- | --- | --- |
+| Revenue (₹ cr) | 1,120.00 | 1,243.20 | 1,367.52 | 1,490.60 | 1,609.84 |
+
+```
+revenue[t] = revenue[t-1] × (1 + growth[t])
+1,120.00 = 1,000.00 × 1.12
+1,243.20 = 1,120.00 × 1.11
+```
+
+Computed by `projectUnleveredFreeCashFlow` in [`/lib/dcf.ts`](/guide/ufcf).

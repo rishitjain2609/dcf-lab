@@ -1,0 +1,29 @@
+---
+title: Unlevered free cash flow
+description: NOPAT, plus D&A, minus capex, minus the increase in net working capital.
+---
+
+TODO(Harsh): explain why UFCF is unlevered — no interest expense anywhere in this calculation —
+and what that buys you (a cash flow that doesn't depend on how the company happens to be financed
+today, so it can be discounted at WACC and compared across companies with different capital
+structures).
+
+## Worked example
+
+| Year | 1 | 2 | 3 | 4 | 5 |
+| --- | --- | --- | --- | --- | --- |
+| EBIT | 201.60 | 223.78 | 246.15 | 268.31 | 289.77 |
+| NOPAT (× (1 − 25% tax)) | 151.20 | 167.83 | 184.62 | 201.23 | 217.33 |
+| + D&A | 44.80 | 49.73 | 54.70 | 59.62 | 64.39 |
+| − Capex (5% of revenue) | 56.00 | 62.16 | 68.38 | 74.53 | 80.49 |
+| − Δ NWC (15% of revenue increase) | 18.00 | 18.48 | 18.65 | 18.46 | 17.89 |
+| **UFCF** | **122.00** | **136.92** | **152.29** | **167.86** | **183.34** |
+
+```
+nopat[t]  = ebit[t] × (1 - taxRate)
+ufcf[t]   = nopat[t] + da[t] - capex[t] - nwcChange[t]
+```
+
+This matches `projectUnleveredFreeCashFlow` in
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) — the same function
+the [game](/game) uses once it's live.
