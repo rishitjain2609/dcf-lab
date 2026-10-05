@@ -1,69 +1,72 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Todo } from "@/components/todo";
+
+const SECTIONS = [
+  {
+    href: "/guide",
+    title: "Guide",
+    description: "A step-by-step build guide for a full DCF, with worked numbers at every step.",
+  },
+  {
+    href: "/models",
+    title: "Models",
+    description: "Two real DCFs on Indian listed companies, with version history and downloadable Excel.",
+  },
+  {
+    href: "/ledger",
+    title: "Ledger",
+    description: "Every published model tracked against what actually happened. Including when it was wrong.",
+  },
+  {
+    href: "/game",
+    title: "Game",
+    description: "Build your own DCF on a real company and see how close you get, with a concept quiz either side.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="mx-auto max-w-5xl px-4 py-16">
+      <section className="max-w-2xl">
+        <p className="font-mono text-sm text-accent">DCF Lab</p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
+          Can a student&apos;s DCF beat the market price, and why are DCFs wrong?
+        </h1>
+      </section>
+
+      <section className="mt-16 grid gap-4 sm:grid-cols-2">
+        {SECTIONS.map((s) => (
+          <Link
+            key={s.href}
+            href={s.href}
+            className="group rounded-lg border border-border bg-card p-5 transition hover:border-accent"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <h2 className="font-medium group-hover:text-accent">{s.title}</h2>
+            <p className="mt-1 text-sm text-muted">{s.description}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className="mt-16">
+        <h2 className="text-sm font-medium uppercase tracking-wide text-muted">So far</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          {[
+            { label: "Students", value: "—" },
+            { label: "Valuations submitted", value: "—" },
+            { label: "Schools", value: "—" },
+          ].map((stat) => (
+            <div key={stat.label} className="rounded-lg border border-border bg-card p-5">
+              <p className="font-mono text-2xl font-semibold">{stat.value}</p>
+              <p className="mt-1 text-sm text-muted">{stat.label}</p>
+            </div>
+          ))}
         </div>
-      </main>
+        <div className="mt-4">
+          <Todo>
+            Live counters go live once Supabase logging and the /impact page are wired up (build phase 5).
+          </Todo>
+        </div>
+      </section>
     </div>
   );
 }
