@@ -1,0 +1,71 @@
+[
+  {
+    "slug": "sample-co",
+    "company": "Sample Co Ltd",
+    "ticker": "NSE: SAMPLECO",
+    "sector": "Consumer / Retail (illustrative placeholder)",
+    "snapshotDate": "2026-09-01",
+    "lastFYRevenue": 1000,
+    "ebitdaMargin": 0.2,
+    "daPct": 0.05,
+    "capexPct": 0.06,
+    "nwcPct": 0.1,
+    "taxRate": 0.25,
+    "netDebt": 200,
+    "dilutedShares": 40,
+    "marketCapAtSnapshot": 1000,
+    "reference": {
+      "revenueGrowth": 0.1,
+      "ebitdaMargin": 0.2,
+      "capexPct": 0.06,
+      "wacc": 0.123,
+      "terminalGrowth": 0.04
+    }
+  },
+  {
+    "slug": "demo-industries",
+    "company": "Demo Industries Ltd",
+    "ticker": "NSE: DEMOIND",
+    "sector": "Industrials (illustrative placeholder)",
+    "snapshotDate": "2026-09-15",
+    "lastFYRevenue": 2200,
+    "ebitdaMargin": 0.18,
+    "daPct": 0.05,
+    "capexPct": 0.06,
+    "nwcPct": 0.1,
+    "taxRate": 0.25,
+    "netDebt": 150,
+    "dilutedShares": 20,
+    "marketCapAtSnapshot": 2400,
+    "reference": {
+      "revenueGrowth": 0.08,
+      "ebitdaMargin": 0.18,
+      "capexPct": 0.06,
+      "wacc": 0.12,
+      "terminalGrowth": 0.04
+    }
+  },
+  {
+    "slug": "placeholder-motors",
+    "company": "Placeholder Motors Ltd",
+    "ticker": "NSE: PLACEMOT",
+    "sector": "Automotive (illustrative placeholder)",
+    "snapshotDate": "2026-06-10",
+    "lastFYRevenue": 3000,
+    "ebitdaMargin": 0.15,
+    "daPct": 0.07,
+    "capexPct": 0.09,
+    "nwcPct": 0.08,
+    "taxRate": 0.25,
+    "netDebt": 400,
+    "dilutedShares": 50,
+    "marketCapAtSnapshot": 19000,
+    "reference": {
+      "revenueGrowth": 0.07,
+      "ebitdaMargin": 0.15,
+      "capexPct": 0.09,
+      "wacc": 0.13,
+      "terminalGrowth": 0.04
+    }
+  }
+]
