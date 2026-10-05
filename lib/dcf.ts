@@ -191,6 +191,14 @@ export function projectUnleveredFreeCashFlow({
   return { revenue, ebitda, ebit, nopat, ufcf };
 }
 
+/** How far an actual price has diverged from an implied value, as a fraction (0.1 = 10% above). */
+export function percentGap(impliedValue: number, actual: number): number {
+  if (impliedValue === 0) {
+    throw new Error("Implied value must be non-zero to compute a percent gap.");
+  }
+  return (actual - impliedValue) / impliedValue;
+}
+
 export function buildSensitivityTable<T>(
   rows: number[],
   cols: number[],

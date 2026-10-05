@@ -6,6 +6,7 @@ import {
   discountCashFlows,
   enterpriseToEquityValue,
   impliedSharePrice,
+  percentGap,
   presentValue,
   projectUnleveredFreeCashFlow,
   terminalValueExitMultiple,
@@ -159,6 +160,20 @@ describe("projectUnleveredFreeCashFlow", () => {
     });
     expect(result.revenue).toHaveLength(2);
     expect(result.ebitda[1]).toBeCloseTo(result.revenue[1] * 0.32, 6);
+  });
+});
+
+describe("percentGap", () => {
+  it("is positive when the actual price is above the implied value", () => {
+    expect(percentGap(100, 110)).toBeCloseTo(0.1, 10);
+  });
+
+  it("is negative when the actual price is below the implied value", () => {
+    expect(percentGap(100, 90)).toBeCloseTo(-0.1, 10);
+  });
+
+  it("rejects a zero implied value", () => {
+    expect(() => percentGap(0, 10)).toThrow();
   });
 });
 

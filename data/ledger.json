@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sample-co-2026-09-01",
+    "company": "Sample Co Ltd",
+    "modelSlug": "sample-co",
+    "date": "2026-09-01",
+    "impliedValuePerShare": 29.34,
+    "priceAtPublish": 24.1,
+    "latestPrice": 26.5,
+    "postMortem": null
+  },
+  {
+    "id": "demo-industries-2026-09-15",
+    "company": "Demo Industries Ltd",
+    "modelSlug": "demo-industries",
+    "date": "2026-09-15",
+    "impliedValuePerShare": 112.5,
+    "priceAtPublish": 134.2,
+    "latestPrice": 121.0,
+    "postMortem": null
+  },
+  {
+    "id": "placeholder-motors-2026-06-10",
+    "company": "Placeholder Motors Ltd",
+    "modelSlug": null,
+    "date": "2026-06-10",
+    "impliedValuePerShare": 450.0,
+    "priceAtPublish": 400.0,
+    "latestPrice": 610.0,
+    "postMortem": "TODO(Harsh): this model was off by a wide margin — write the honest post-mortem (which assumption was wrong, by how much, and what you'd do differently) rather than deleting the entry."
+  }
+]

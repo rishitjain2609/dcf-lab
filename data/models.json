@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "sample-co",
+    "company": "Sample Co Ltd",
+    "ticker": "NSE: SAMPLECO",
+    "sector": "Consumer / Retail (illustrative placeholder)",
+    "publishDate": "2026-09-01",
+    "summary": "One-paragraph thesis — why this company, what the DCF says, and what would change your mind.",
+    "assumptions": [
+      { "label": "Revenue growth, Yr 1–5", "value": "12%, 11%, 10%, 9%, 8%" },
+      { "label": "EBITDA margin", "value": "22%" },
+      { "label": "D&A, % of revenue", "value": "4%" },
+      { "label": "Capex, % of revenue", "value": "5%" },
+      { "label": "Tax rate", "value": "25%" },
+      { "label": "WACC", "value": "13.3%" },
+      { "label": "Terminal growth", "value": "5.0%" }
+    ],
+    "impliedValuePerShare": 29.34,
+    "priceAtPublish": 24.1,
+    "latestPrice": 26.5,
+    "dilutedShares": 50,
+    "netDebt": 300,
+    "excelUrl": null,
+    "valuePickrUrl": null,
+    "substackUrl": null,
+    "versions": [
+      {
+        "version": "v1",
+        "date": "2026-09-01",
+        "changelog": "Initial publish — assumptions and first implied value. TODO(Harsh): replace with the real changelog."
+      }
+    ]
+  },
+  {
+    "slug": "demo-industries",
+    "company": "Demo Industries Ltd",
+    "ticker": "NSE: DEMOIND",
+    "sector": "Industrials (illustrative placeholder)",
+    "publishDate": "2026-09-15",
+    "summary": "One-paragraph thesis for the second model.",
+    "assumptions": [
+      { "label": "Revenue growth, Yr 1–5", "value": "9%, 9%, 8%, 8%, 7%" },
+      { "label": "EBITDA margin", "value": "18%" },
+      { "label": "D&A, % of revenue", "value": "5%" },
+      { "label": "Capex, % of revenue", "value": "6%" },
+      { "label": "Tax rate", "value": "25%" },
+      { "label": "WACC", "value": "12.8%" },
+      { "label": "Terminal growth", "value": "4.5%" }
+    ],
+    "impliedValuePerShare": 112.5,
+    "priceAtPublish": 134.2,
+    "latestPrice": 121.0,
+    "dilutedShares": 20,
+    "netDebt": 150,
+    "excelUrl": null,
+    "valuePickrUrl": null,
+    "substackUrl": null,
+    "versions": [
+      {
+        "version": "v1",
+        "date": "2026-09-15",
+        "changelog": "TODO(Harsh): initial publish."
+      }
+    ]
+  }
+]
