@@ -9,26 +9,28 @@ for shareholders. Also flag minority interest (value that belongs to minority sh
 subsidiary, not this company's own shareholders) and non-operating investments (assets that
 generate value but aren't in the UFCF forecast, so they get added back separately).
 
+> New to these terms? See the [glossary](/guide/setup-and-conventions#glossary).
+
 ## Worked example
 
 Using the end-year enterprise value from [Discounting (mid-year)](/guide/discounting-mid-year) —
-₹519.47 cr of explicit FCFs plus ₹1,247.68 cr of discounted terminal value:
+₹439.12 cr of explicit FCFs plus ₹1,055.38 cr of discounted terminal value:
 
 | Step | ₹ cr |
 | --- | --- |
-| Enterprise value | 1,767.15 |
-| − Net debt | 300.00 |
-| **Equity value** | **1,467.15** |
-| ÷ Diluted shares (cr) | 50 |
-| **Implied value per share** | **₹29.34** |
+| Enterprise value | 1,494.50 |
+| − Net debt | 200.00 |
+| **Equity value** | **1,294.50** |
+| ÷ Diluted shares (cr) | 40 |
+| **Implied value per share** | **₹32.36** |
 
 ```
 equityValue = enterpriseValue - netDebt - minorityInterest + investments
 impliedValuePerShare = equityValue / dilutedShares
 ```
 
-Using the mid-year enterprise value instead (₹1,880.78 cr) gives an implied value per share of
-₹31.62 — a reminder that the discounting convention alone can move the answer by a few percent.
+Using the mid-year enterprise value instead (₹1,583.75 cr) gives an implied value per share of
+₹34.59 — a reminder that the discounting convention alone can move the answer by a few percent.
 
 `enterpriseToEquityValue()` and `impliedSharePrice()` in
 [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

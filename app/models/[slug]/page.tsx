@@ -24,6 +24,9 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
     <div>
       <PageHeader title={model.company} description={`${model.ticker} — ${model.sector}`} />
       <div className="mx-auto max-w-5xl space-y-10 px-4 pb-16">
+        <Link href="/models" className="text-sm text-muted hover:text-accent">
+          ← Back to all models
+        </Link>
         <section>
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Summary</h2>
           <Todo>{model.summary}</Todo>

@@ -32,6 +32,16 @@ export default function Home() {
         <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
           Can a student&apos;s DCF beat the market price, and why are DCFs wrong?
         </h1>
+        <p className="mt-4 text-muted">
+          New here? A DCF is just a way of estimating what a company is worth from its cash flows.
+          No finance background needed to follow along.
+        </p>
+        <Link
+          href="/why-dcf"
+          className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 dark:text-background"
+        >
+          Start here: Why DCF →
+        </Link>
       </section>
 
       <section className="mt-16 grid gap-4 sm:grid-cols-2">

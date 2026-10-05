@@ -9,16 +9,16 @@ should revenue be built bottom-up from volume × price, or segment by segment?
 
 ## Worked example
 
-Starting from ₹1,000 cr and the growth rates from [Assumptions](/guide/assumptions):
+Starting from ₹1,000 cr, growing 10% every year:
 
 | Year | 1 | 2 | 3 | 4 | 5 |
 | --- | --- | --- | --- | --- | --- |
-| Revenue (₹ cr) | 1,120.00 | 1,243.20 | 1,367.52 | 1,490.60 | 1,609.84 |
+| Revenue (₹ cr) | 1,100.00 | 1,210.00 | 1,331.00 | 1,464.10 | 1,610.51 |
 
 ```
-revenue[t] = revenue[t-1] × (1 + growth[t])
-1,120.00 = 1,000.00 × 1.12
-1,243.20 = 1,120.00 × 1.11
+revenue[t] = revenue[t-1] × (1 + growth)
+1,100.00 = 1,000.00 × 1.10
+1,210.00 = 1,100.00 × 1.10
 ```
 
 Computed by `projectUnleveredFreeCashFlow` in [`/lib/dcf.ts`](/guide/ufcf).

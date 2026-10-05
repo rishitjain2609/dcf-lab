@@ -9,16 +9,16 @@ value. The mid-year convention discounts each cash flow by half a period less.
 
 ## Worked example
 
-Same UFCFs and WACC (13.27%) as [UFCF](/guide/ufcf) and [WACC](/guide/wacc), discounted both ways:
+Same UFCFs and WACC (12.3%) as [UFCF](/guide/ufcf) and [WACC](/guide/wacc), discounted both ways:
 
 | Year | UFCF | PV, end-year | PV, mid-year |
 | --- | --- | --- | --- |
-| 1 | 122.00 | 107.70 | 114.63 |
-| 2 | 136.92 | 106.71 | 113.57 |
-| 3 | 152.29 | 104.78 | 111.52 |
-| 4 | 167.86 | 101.96 | 108.52 |
-| 5 | 183.34 | 98.31 | 104.64 |
-| **Sum** | | **519.47** | **552.88** |
+| 1 | 102.75 | 91.50 | 96.96 |
+| 2 | 113.03 | 89.62 | 94.97 |
+| 3 | 124.33 | 87.79 | 93.03 |
+| 4 | 136.76 | 85.99 | 91.12 |
+| 5 | 150.44 | 84.23 | 89.26 |
+| **Sum** | | **439.12** | **465.34** |
 
 ```
 PV_end-year[t] = cashFlow / (1 + WACC)^t
@@ -26,5 +26,5 @@ PV_mid-year[t] = cashFlow / (1 + WACC)^(t - 0.5)
 ```
 
 Mid-year consistently gives a higher present value for the same cash flows — in this example, about
-6.4% higher on the explicit-period sum. Both conventions are implemented in `presentValue()` and
+6.0% higher on the explicit-period sum. Both conventions are implemented in `presentValue()` and
 `discountCashFlows()` in [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

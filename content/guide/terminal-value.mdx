@@ -8,12 +8,14 @@ dominates total value (most of the cash flow a going concern will ever generate 
 5), and the two standard methods — Gordon growth (perpetuity) and exit multiple (what a buyer
 would pay for the business in year 5, as a multiple of some metric).
 
+> New to these terms? See the [glossary](/guide/setup-and-conventions#glossary).
+
 ## Gordon growth method
 
 ```
 TV = UFCF_year5 × (1 + terminalGrowth) / (WACC - terminalGrowth)
-   = 183.34 × 1.05 / (13.27% - 5%)
-   = 2,326.75
+   = 150.44 × 1.04 / (12.3% - 4%)
+   = 1,884.98
 ```
 
 The guard: `terminalGrowth` must be strictly less than `WACC`, or the formula divides by a

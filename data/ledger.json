@@ -4,9 +4,9 @@
     "company": "Sample Co Ltd",
     "modelSlug": "sample-co",
     "date": "2026-09-01",
-    "impliedValuePerShare": 29.34,
-    "priceAtPublish": 24.1,
-    "latestPrice": 26.5,
+    "impliedValuePerShare": 30,
+    "priceAtPublish": 25,
+    "latestPrice": 28,
     "postMortem": null
   },
   {
@@ -14,9 +14,9 @@
     "company": "Demo Industries Ltd",
     "modelSlug": "demo-industries",
     "date": "2026-09-15",
-    "impliedValuePerShare": 112.5,
-    "priceAtPublish": 134.2,
-    "latestPrice": 121.0,
+    "impliedValuePerShare": 100,
+    "priceAtPublish": 120,
+    "latestPrice": 110,
     "postMortem": null
   },
   {
@@ -24,9 +24,9 @@
     "company": "Placeholder Motors Ltd",
     "modelSlug": null,
     "date": "2026-06-10",
-    "impliedValuePerShare": 450.0,
-    "priceAtPublish": 400.0,
-    "latestPrice": 610.0,
+    "impliedValuePerShare": 400,
+    "priceAtPublish": 380,
+    "latestPrice": 600,
     "postMortem": "TODO(Harsh): this model was off by a wide margin — write the honest post-mortem (which assumption was wrong, by how much, and what you'd do differently) rather than deleting the entry."
   }
 ]

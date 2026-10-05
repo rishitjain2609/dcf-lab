@@ -8,33 +8,35 @@ is tax-affected in the WACC formula but equity isn't (interest is tax-deductible
 Also flag the circularity risk: WACC uses market weights of equity and debt, but a DCF is often
 trying to tell you the market price is wrong — so which market cap do you weight with?
 
+> New to these terms? See the [glossary](/guide/setup-and-conventions#glossary).
+
 ## Worked example
 
 **Cost of equity (CAPM)**
 
 ```
 costOfEquity = riskFreeRate + beta × equityRiskPremium
-             = 7% + 1.1 × 6%
-             = 13.6%
+             = 7% + 1.0 × 6%
+             = 13%
 ```
 
 **WACC**
 
 | Input | Value |
 | --- | --- |
-| Market cap (equity weight) | ₹6,000 cr |
-| Total debt (debt weight) | ₹300 cr |
-| Cost of equity | 13.6% |
-| Cost of debt | 9.0% |
+| Market cap (equity weight) | ₹1,800 cr |
+| Total debt (debt weight) | ₹200 cr |
+| Cost of equity | 13% |
+| Cost of debt | 8% |
 | Tax rate | 25% |
 
 ```
-weightOfEquity = 6,000 / (6,000 + 300) = 95.2%
-weightOfDebt   = 300 / (6,000 + 300)   = 4.8%
-afterTaxCostOfDebt = 9.0% × (1 - 25%) = 6.75%
+weightOfEquity = 1,800 / (1,800 + 200) = 90%
+weightOfDebt   = 200 / (1,800 + 200)   = 10%
+afterTaxCostOfDebt = 8% × (1 - 25%) = 6%
 
-WACC = 13.6% × 95.2% + 6.75% × 4.8%
-     = 13.27%
+WACC = 13% × 90% + 6% × 10%
+     = 12.3%
 ```
 
 Computed by `wacc()` in [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

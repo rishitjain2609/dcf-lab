@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import matter from "gray-matter";
+import rehypeSlug from "rehype-slug";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -27,11 +28,15 @@ export function listContentFiles(relativeDir: string): string[] {
 }
 
 const mdxComponents = {
-  h1: (props: React.ComponentProps<"h1">) => <h1 className="mt-10 text-2xl font-semibold tracking-tight" {...props} />,
-  h2: (props: React.ComponentProps<"h2">) => (
-    <h2 className="mt-8 text-xl font-semibold tracking-tight" {...props} />
+  h1: (props: React.ComponentProps<"h1">) => (
+    <h1 className="mt-10 scroll-mt-20 text-2xl font-semibold tracking-tight" {...props} />
   ),
-  h3: (props: React.ComponentProps<"h3">) => <h3 className="mt-6 text-lg font-medium" {...props} />,
+  h2: (props: React.ComponentProps<"h2">) => (
+    <h2 className="mt-8 scroll-mt-20 text-xl font-semibold tracking-tight" {...props} />
+  ),
+  h3: (props: React.ComponentProps<"h3">) => (
+    <h3 className="mt-6 scroll-mt-20 text-lg font-medium" {...props} />
+  ),
   p: (props: React.ComponentProps<"p">) => <p className="mt-4 leading-7 text-foreground/90" {...props} />,
   ul: (props: React.ComponentProps<"ul">) => <ul className="mt-4 ml-5 list-disc space-y-1" {...props} />,
   ol: (props: React.ComponentProps<"ol">) => <ol className="mt-4 ml-5 list-decimal space-y-1" {...props} />,
@@ -56,5 +61,11 @@ const mdxComponents = {
 };
 
 export function Mdx({ source }: { source: string }) {
-  return <MDXRemote source={source} components={mdxComponents} />;
+  return (
+    <MDXRemote
+      source={source}
+      components={mdxComponents}
+      options={{ mdxOptions: { rehypePlugins: [rehypeSlug] } }}
+    />
+  );
 }

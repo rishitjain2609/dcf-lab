@@ -21,22 +21,42 @@ reader knows what every number means without asking.
 | Assumption | Value |
 | --- | --- |
 | Base revenue (Year 0) | ₹1,000 cr |
-| Revenue growth, Years 1–5 | 12%, 11%, 10%, 9%, 8% |
-| EBITDA margin | 22% |
-| D&A, % of revenue | 4% |
-| Capex, % of revenue | 5% |
-| Δ NWC, % of revenue increase | 15% |
+| Revenue growth, Years 1–5 | 10% every year |
+| EBITDA margin | 20% |
+| D&A, % of revenue | 5% |
+| Capex, % of revenue | 6% |
+| Δ NWC, % of revenue increase | 10% |
 | Tax rate | 25% |
 | Risk-free rate (10-yr G-sec) | 7% |
-| Beta | 1.1 |
+| Beta | 1.0 |
 | Equity risk premium | 6% |
-| Cost of debt | 9% |
-| Market cap (for WACC weights) | ₹6,000 cr |
-| Total debt (for WACC weights) | ₹300 cr |
-| Net debt (for the equity bridge) | ₹300 cr |
-| Diluted shares | 50 cr |
-| Terminal growth | 5% |
+| Cost of debt | 8% |
+| Market cap (for WACC weights) | ₹1,800 cr |
+| Total debt (for WACC weights) | ₹200 cr |
+| Net debt (for the equity bridge) | ₹200 cr |
+| Diluted shares | 40 cr |
+| Terminal growth | 4% |
+
+Every assumption is flat and round on purpose — the point of this guide is to see how the
+mechanics fit together, not to memorize a realistic set of numbers. Real companies rarely have the
+same growth rate five years running.
 
 Every number in the steps that follow is computed from this table using
 [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) — not typed in by
 hand — so it stays consistent end to end.
+
+## Glossary
+
+New to this? Keep this tab open — every later step links back here.
+
+| Term | In plain English |
+| --- | --- |
+| **EBITDA** | Profit before interest, tax, depreciation and amortization — operating profit before non-cash accounting items. |
+| **EBIT** | EBITDA minus D&A. Closer to real operating profit, since depreciation is a real economic cost even though no cash leaves that year. |
+| **NOPAT** | EBIT after tax, assuming the company had no debt — "what the business earns for everyone who's owed money or owns a piece of it." |
+| **UFCF** | Unlevered free cash flow — the actual cash the business throws off each year, before paying interest to lenders. What gets discounted. |
+| **WACC** | Weighted Average Cost of Capital — the discount rate; roughly, the return investors demand for the risk of this business. |
+| **Terminal value** | The value of every cash flow after the explicit forecast window (Year 6 onward), collapsed into one number as of Year 5. |
+| **Enterprise value (EV)** | The value of the whole operating business — what it would cost to buy the company outright, debt and all. |
+| **Equity value** | What's left for shareholders after lenders are paid — EV minus net debt. What a share price is actually valuing. |
+| **Implied value** | What this model says a share is worth under its assumptions. Not a prediction, not a "target price" — see the [disclaimer](/about). |
