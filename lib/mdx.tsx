@@ -3,6 +3,7 @@ import path from "node:path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import matter from "gray-matter";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import { EquityBridgeWaterfall, SensitivityGrid, UfcfBuildChart } from "@/components/guide-charts";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -69,7 +70,7 @@ export function Mdx({ source }: { source: string }) {
     <MDXRemote
       source={source}
       components={mdxComponents}
-      options={{ mdxOptions: { rehypePlugins: [rehypeSlug] } }}
+      options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } }}
     />
   );
 }
