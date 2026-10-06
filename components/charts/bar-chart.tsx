@@ -4,43 +4,51 @@ export interface BarChartSeries {
   colorClassName: string;
 }
 
+const VB_WIDTH = 300;
+const VB_HEIGHT = 150;
+const BOTTOM_MARGIN = 20;
+const TOP_MARGIN = 10;
+
 export function BarChart({
   categories,
   series,
-  height = 220,
   valueFormatter = (v: number) => v.toFixed(0),
 }: {
   categories: string[];
   series: BarChartSeries[];
-  height?: number;
   valueFormatter?: (value: number) => string;
 }) {
   const max = Math.max(1, ...series.flatMap((s) => s.values));
-  const groupWidth = 100 / categories.length;
+  const plotHeight = VB_HEIGHT - BOTTOM_MARGIN - TOP_MARGIN;
+  const groupWidth = VB_WIDTH / categories.length;
   const barWidth = groupWidth / (series.length + 1);
 
   return (
     <div>
-      <svg viewBox={`0 0 100 ${height}`} preserveAspectRatio="none" className="h-56 w-full overflow-visible">
-        {/* gridlines */}
+      {/* Fixed 2:1 viewBox with default preserveAspectRatio (uniform scaling) so text never stretches. */}
+      <svg
+        viewBox={`0 0 ${VB_WIDTH} ${VB_HEIGHT}`}
+        className="w-full"
+        style={{ aspectRatio: `${VB_WIDTH} / ${VB_HEIGHT}` }}
+      >
         {[0, 0.25, 0.5, 0.75, 1].map((f) => (
           <line
             key={f}
             x1={0}
-            x2={100}
-            y1={height - 24 - f * (height - 40)}
-            y2={height - 24 - f * (height - 40)}
+            x2={VB_WIDTH}
+            y1={VB_HEIGHT - BOTTOM_MARGIN - f * plotHeight}
+            y2={VB_HEIGHT - BOTTOM_MARGIN - f * plotHeight}
             className="stroke-border"
-            strokeWidth={0.3}
+            strokeWidth={1}
           />
         ))}
         {categories.map((cat, ci) => (
           <g key={cat}>
             {series.map((s, si) => {
               const value = s.values[ci] ?? 0;
-              const barHeight = (value / max) * (height - 40);
+              const barHeight = (value / max) * plotHeight;
               const x = ci * groupWidth + barWidth * (si + 0.5);
-              const y = height - 24 - barHeight;
+              const y = VB_HEIGHT - BOTTOM_MARGIN - barHeight;
               return (
                 <rect
                   key={s.label}
@@ -48,17 +56,17 @@ export function BarChart({
                   y={y}
                   width={barWidth * 0.8}
                   height={barHeight}
-                  rx={0.6}
+                  rx={1.5}
                   className={s.colorClassName}
                 />
               );
             })}
             <text
               x={ci * groupWidth + groupWidth / 2}
-              y={height - 8}
+              y={VB_HEIGHT - 6}
               textAnchor="middle"
               className="fill-muted"
-              style={{ fontSize: 3.6 }}
+              style={{ fontSize: 9 }}
             >
               {cat}
             </text>
