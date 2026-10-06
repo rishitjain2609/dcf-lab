@@ -76,7 +76,9 @@ export function WaterfallChart({
                 className="fill-foreground"
                 style={{ fontSize: 10 }}
               >
-                {valueFormatter(bar.to)}
+                {bar.kind === "total"
+                  ? valueFormatter(bar.to)
+                  : `${bar.value >= 0 ? "+" : "-"}${valueFormatter(Math.abs(bar.value))}`}
               </text>
               <text
                 x={i * groupWidth + groupWidth / 2}
