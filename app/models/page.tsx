@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/page-header";
 import { getModels } from "@/lib/data";
 import { formatPercent, formatRupees } from "@/lib/format";
 import { percentGap } from "@/lib/dcf";
+import { GapBar } from "@/components/charts/gap-bar";
 
 export default function ModelsPage() {
   const models = getModels();
@@ -37,6 +38,9 @@ export default function ModelsPage() {
                     </dd>
                   </div>
                 </dl>
+                <div className="mt-3">
+                  <GapBar value={gap} />
+                </div>
               </Link>
             );
           })}

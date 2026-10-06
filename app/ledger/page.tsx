@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/page-header";
 import { getLedgerEntries } from "@/lib/data";
 import { formatPercent, formatRupees } from "@/lib/format";
 import { percentGap } from "@/lib/dcf";
+import { GapBar } from "@/components/charts/gap-bar";
 
 export default function LedgerPage() {
   const entries = [...getLedgerEntries()].sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -43,12 +44,17 @@ export default function LedgerPage() {
                     <td className="px-3 py-2 font-mono">{formatRupees(entry.impliedValuePerShare)}</td>
                     <td className="px-3 py-2 font-mono">{formatRupees(entry.priceAtPublish)}</td>
                     <td className="px-3 py-2 font-mono">{formatRupees(entry.latestPrice)}</td>
-                    <td
-                      className={`px-3 py-2 font-mono ${
-                        gap >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"
-                      }`}
-                    >
-                      {formatPercent(gap)}
+                    <td className="px-3 py-2">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`font-mono ${
+                            gap >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"
+                          }`}
+                        >
+                          {formatPercent(gap)}
+                        </span>
+                        <GapBar value={gap} />
+                      </div>
                     </td>
                   </tr>
                 );

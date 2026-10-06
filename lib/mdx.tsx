@@ -3,6 +3,7 @@ import path from "node:path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import matter from "gray-matter";
 import rehypeSlug from "rehype-slug";
+import { EquityBridgeWaterfall, SensitivityGrid, UfcfBuildChart } from "@/components/guide-charts";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -58,6 +59,9 @@ const mdxComponents = {
   blockquote: (props: React.ComponentProps<"blockquote">) => (
     <blockquote className="mt-4 border-l-2 border-accent pl-4 text-muted" {...props} />
   ),
+  UfcfBuildChart,
+  EquityBridgeWaterfall,
+  SensitivityGrid,
 };
 
 export function Mdx({ source }: { source: string }) {

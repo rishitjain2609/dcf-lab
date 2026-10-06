@@ -5,6 +5,7 @@ import { Todo } from "@/components/todo";
 import { getModel, getModels } from "@/lib/data";
 import { formatPercent, formatRupees } from "@/lib/format";
 import { percentGap } from "@/lib/dcf";
+import { BarChart } from "@/components/charts/bar-chart";
 
 export function generateStaticParams() {
   return getModels().map((model) => ({ slug: model.slug }));
@@ -67,6 +68,19 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               <p className="mt-1 font-mono text-xl">{formatRupees(model.latestPrice)}</p>
               <p className="mt-1 font-mono text-sm text-muted">{formatPercent(gapNow)} vs. implied</p>
             </div>
+          </div>
+          <div className="mt-4 rounded-md border border-border bg-card p-4">
+            <BarChart
+              categories={["Implied value", `At publish (${model.publishDate})`, "Latest"]}
+              valueFormatter={(v) => formatRupees(v)}
+              series={[
+                {
+                  label: model.company,
+                  values: [model.impliedValuePerShare, model.priceAtPublish, model.latestPrice],
+                  colorClassName: "fill-indigo-500 dark:fill-indigo-400",
+                },
+              ]}
+            />
           </div>
           <p className="mt-3 text-sm text-muted">
             This is an implied value under one set of assumptions, not a prediction — see the{" "}

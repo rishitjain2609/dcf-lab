@@ -2,6 +2,7 @@
 
 import type { GameCompany, GameResult } from "@/lib/game";
 import { formatCrore, formatPercent, formatRupees } from "@/lib/format";
+import { BarChart } from "@/components/charts/bar-chart";
 
 function CalculationTable({ calc, label }: { calc: GameResult["user"]; label: string }) {
   const years = [1, 2, 3, 4, 5];
@@ -58,6 +59,17 @@ export function ResultPanel({
         <div className="mt-4">
           <CalculationTable calc={result.user} label="Your model" />
         </div>
+        <div className="mt-4 rounded-md border border-border bg-card p-4">
+          <BarChart
+            categories={["Yr 1", "Yr 2", "Yr 3", "Yr 4", "Yr 5"]}
+            valueFormatter={(v) => formatCrore(v)}
+            series={[
+              { label: "Revenue", values: result.user.revenue, colorClassName: "fill-indigo-500 dark:fill-indigo-400" },
+              { label: "EBITDA", values: result.user.ebitda, colorClassName: "fill-amber-500 dark:fill-amber-400" },
+              { label: "UFCF", values: result.user.ufcf, colorClassName: "fill-emerald-500 dark:fill-emerald-400" },
+            ]}
+          />
+        </div>
         <p className="mt-2 text-sm text-muted">
           Terminal value {formatCrore(result.user.terminalValue)}, PV of terminal value{" "}
           {formatCrore(result.user.presentValueOfTerminalValue)}. Enterprise value{" "}
@@ -97,6 +109,23 @@ export function ResultPanel({
               {formatPercent(result.errorVsReference)} vs. reference
             </p>
           </div>
+        </div>
+        <div className="mt-4 rounded-md border border-border bg-card p-4">
+          <BarChart
+            categories={["Your value", "Market", "Reference"]}
+            valueFormatter={(v) => formatRupees(v)}
+            series={[
+              {
+                label: "₹ per share",
+                values: [
+                  result.user.impliedValuePerShare,
+                  result.marketPricePerShare,
+                  result.reference.impliedValuePerShare,
+                ],
+                colorClassName: "fill-indigo-500 dark:fill-indigo-400",
+              },
+            ]}
+          />
         </div>
       </div>
 
