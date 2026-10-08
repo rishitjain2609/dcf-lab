@@ -7,9 +7,7 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/why-dcf", label: "Why DCF" },
   { href: "/guide", label: "Guide" },
   { href: "/models", label: "Models" },
-  { href: "/ledger", label: "Ledger" },
   { href: "/game", label: "Game" },
-  { href: "/impact", label: "Impact" },
   { href: "/about", label: "About" },
 ];
 
