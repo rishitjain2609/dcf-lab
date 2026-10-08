@@ -12,7 +12,6 @@ export default function GuidePage() {
         kickerClassName="text-indigo-300"
         title="Guide"
         description="A step-by-step build of a full DCF model, each step with a worked numeric example."
-        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <ol className="space-y-2">

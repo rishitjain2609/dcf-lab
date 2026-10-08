@@ -12,7 +12,6 @@ export default function AboutPage() {
         kickerClassName="text-sky-300"
         title="About"
         description="Who built this, how, and why it should be trusted no more than it's earned."
-        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl space-y-16 px-4 pb-16 pt-12">
         <section className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">

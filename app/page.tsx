@@ -23,7 +23,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-14">
           <p className="font-mono text-sm font-semibold tracking-[0.2em] text-violet-300">DCF LAB</p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-semibold italic leading-[0.95] tracking-tight text-white sm:text-7xl">
-            Can a student&apos;s DCF
+            Can a DCF
             <br />
             beat the market?
           </h1>
@@ -39,7 +39,6 @@ export default function Home() {
             Start here
           </Link>
         </div>
-        <p className="absolute bottom-2 right-3 z-10 text-[10px] text-white/50">Video via Mixkit</p>
       </div>
 
       {/* Bento grid of sections, asymmetric, each tile its own color */}
@@ -90,7 +89,7 @@ export default function Home() {
               <AnimatedCounter to={200} suffix="+" />
             </p>
             <p className="mt-3 max-w-sm text-stone-300">
-              students have used DCF Lab to build their own valuation so far. The Game is the
+              people have used DCF Lab to build their own valuation so far. The Game is the
               fastest way to become one of them.
             </p>
           </div>

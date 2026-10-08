@@ -13,7 +13,6 @@ export default function WhyDcfPage() {
         kickerClassName="text-violet-300"
         title={frontmatter.title}
         description={frontmatter.description}
-        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <Mdx source={content} />

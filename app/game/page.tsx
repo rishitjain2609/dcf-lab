@@ -14,7 +14,6 @@ export default function GamePage() {
         kickerClassName="text-amber-300"
         title="The Valuation Game"
         description="Pick a real Indian company, set your own DCF assumptions, and see how your implied value compares to the market and to a reference model."
-        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <GameApp companies={companies} />

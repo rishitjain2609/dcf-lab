@@ -5,7 +5,6 @@ export function PageHero({
   kickerClassName = "text-violet-300",
   title,
   description,
-  credit,
 }: {
   src: string;
   alt: string;
@@ -13,8 +12,6 @@ export function PageHero({
   kickerClassName?: string;
   title: string;
   description?: string;
-  /** e.g. "Photo via Unsplash" -- shown small, bottom-right, for real stock photography. */
-  credit?: string;
 }) {
   return (
     <div className="relative flex h-80 w-full items-end overflow-hidden sm:h-96">
@@ -30,7 +27,6 @@ export function PageHero({
           <p className={`mt-3 max-w-2xl text-sm drop-shadow-sm sm:text-base ${kickerClassName}`}>{description}</p>
         )}
       </div>
-      {credit && <p className="absolute bottom-2 right-3 z-10 text-[10px] text-white/50">{credit}</p>}
     </div>
   );
 }
