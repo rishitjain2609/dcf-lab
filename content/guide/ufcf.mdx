@@ -3,13 +3,13 @@ title: Unlevered free cash flow
 description: NOPAT, plus D&A, minus capex, minus the increase in net working capital.
 ---
 
-"Unlevered" just means this cash flow pretends the company has no debt at all — notice there's no
+"Unlevered" just means this cash flow pretends the company has no debt at all. Notice there's no
 interest expense anywhere in the table below. That sounds like it's ignoring something important,
-but it's deliberate: it means two companies that make identical products and sell identical
+but it's deliberate. It means two companies that make identical products and sell identical
 amounts, but happen to be financed differently (one took on a big loan, one didn't), end up with
 the *same* unlevered free cash flow. The financing decision gets factored back in later, in the
-discount rate (WACC) and the debt subtracted in the equity bridge — not buried inside the cash
-flow itself. That separation is what lets a DCF compare a heavily-indebted company to a debt-free
+discount rate (WACC) and the debt subtracted in the equity bridge, not buried inside the cash
+flow itself. That separation is what lets a DCF compare a heavily indebted company to a debt-free
 one on equal footing.
 
 > New to these terms? See the [glossary](/guide/setup-and-conventions#glossary).
@@ -31,7 +31,7 @@ ufcf[t]   = nopat[t] + da[t] - capex[t] - nwcChange[t]
 ```
 
 This matches `projectUnleveredFreeCashFlow` in
-[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) — the same function
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts), the same function
 the [game](/game) uses once it's live.
 
 <UfcfBuildChart />

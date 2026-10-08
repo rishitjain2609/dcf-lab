@@ -3,20 +3,20 @@ title: Terminal value (Gordon + exit multiple)
 description: Valuing every cash flow after the explicit forecast window, two different ways.
 ---
 
-No one can credibly forecast a company's cash flows year by year for the next fifty years — the
+No one can credibly forecast a company's cash flows year by year for the next fifty years. The
 uncertainty compounds into nonsense after about five. But the company (assuming it survives)
-keeps generating cash well past year five. Terminal value is how a DCF deals with that: instead
+keeps generating cash well past year five. Terminal value is how a DCF deals with that, instead
 of forecasting years 6, 7, 8... forever, it collapses "everything from year 6 onward" into a
 single number, valued as of the end of year 5.
 
-This is worth sitting with, because it's usually the most important number in the whole model:
-in the running example on this site, roughly 70% of total value comes from the terminal value,
+This is worth sitting with, because it's usually the most important number in the whole model.
+In the running example on this site, roughly 70% of total value comes from the terminal value,
 not from the five years of cash flow actually forecast in detail. A DCF can look exhaustively
-researched — five years of careful revenue and margin assumptions — while most of its answer
+researched, five years of careful revenue and margin assumptions, while most of its answer
 actually rests on one growth-rate assumption about forever.
 
-Two standard ways to build it: the **Gordon growth** method below treats the business as a
-perpetuity growing at a constant rate forever (like a rental property that keeps paying rent
+There are two standard ways to build it. The **Gordon growth** method below treats the business
+as a perpetuity growing at a constant rate forever (like a rental property that keeps paying rent
 every year, growing slightly with inflation). The **exit multiple** method instead asks "what
 would a buyer pay for this business in year 5," using a multiple of EBITDA or revenue the way
 you'd price a house by comparing it to similar houses that recently sold nearby.
@@ -31,8 +31,8 @@ TV = UFCF_year5 × (1 + terminalGrowth) / (WACC - terminalGrowth)
    = 1,884.98
 ```
 
-The guard: `terminalGrowth` must be strictly less than `WACC`, or the formula divides by a
-negative number and the terminal value comes out negative — a sign that something upstream is
+`terminalGrowth` must be strictly less than `WACC`, or the formula divides by a
+negative number and the terminal value comes out negative, a sign that something upstream is
 wrong, not a valid result. `terminalValueGordon()` in
 [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) throws rather than
 return it.
@@ -40,8 +40,8 @@ return it.
 ## Exit multiple method
 
 Instead of a growth-forever formula, pick a multiple a buyer might realistically pay for a
-similar business in year 5 — say 10× EV/EBITDA, a reasonable ballpark for a steady,
-moderate-growth company (hot sectors trade richer, mature ones trade cheaper):
+similar business in year 5, say 10× EV/EBITDA, a reasonable ballpark for a steady,
+moderate-growth company (hot sectors trade richer, mature ones trade cheaper).
 
 ```
 TV = EBITDA_year5 × multiple
@@ -49,12 +49,12 @@ TV = EBITDA_year5 × multiple
    = 3,221.00
 ```
 
-That's almost double the Gordon growth answer of 1,884.98 from the same year-5 numbers — and
+That's almost double the Gordon growth answer of 1,884.98 from the same year-5 numbers, and
 that gap is the whole point of running both. When two independent methods for the same thing
 disagree this much, it's a signal to go back and ask which assumption is doing the unrealistic
-work: is 10× too rich a multiple for this business, or is the Gordon growth formula's
-`WACC − terminalGrowth` spread (12.3% − 4% = 8.3 points) too thin, making it overly sensitive?
-Neither method is "the correct one" — the disagreement itself is useful information.
+work. Is 10× too rich a multiple for this business, or is the Gordon growth formula's
+`WACC - terminalGrowth` spread (12.3% - 4% = 8.3 points) too thin, making it overly sensitive?
+Neither method is "the correct one." The disagreement itself is useful information.
 
 `terminalValueExitMultiple()` in
 [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) is just

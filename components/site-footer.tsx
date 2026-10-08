@@ -13,7 +13,7 @@ export function SiteFooter() {
           ))}
         </nav>
         <p>
-          {SITE_NAME} — {DISCLAIMER}
+          {SITE_NAME}. {DISCLAIMER}
         </p>
       </div>
     </footer>

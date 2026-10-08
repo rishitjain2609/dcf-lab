@@ -12,7 +12,7 @@ export default function ModelsPage() {
     <div>
       <PageHeader
         title="Models"
-        description="Two full DCFs on real Indian listed companies — assumptions, implied value vs. market price, and version history. Currently sample data; the real models will replace these."
+        description="Two full DCFs on real Indian listed companies. Assumptions, implied value vs. market price, and version history. Currently sample data, the real models will replace these."
         accentClassName="bg-emerald-500"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16">

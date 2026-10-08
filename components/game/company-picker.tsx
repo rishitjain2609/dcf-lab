@@ -14,7 +14,7 @@ export function CompanyPicker({
     <div>
       <h2 className="text-lg font-medium">Pick a company</h2>
       <p className="mt-1 text-sm text-muted">
-        Sample companies for now — real ones land once this is wired to real data.
+        Sample companies for now. Real ones land once this is wired to real data.
       </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         {companies.map((company) => (

@@ -120,7 +120,7 @@ function buildDriverNotes(assumptions: GameAssumptions, reference: GameCompanyRe
       factor: "Revenue growth",
       message: `You used ${(assumptions.revenueGrowth * 100).toFixed(1)}% vs. a reference ${(
         reference.revenueGrowth * 100
-      ).toFixed(1)}% — ${growthDelta > 0 ? "higher" : "lower"} growth compounds every year, pushing value ${
+      ).toFixed(1)}%. That ${growthDelta > 0 ? "higher" : "lower"} growth compounds every year, pushing value ${
         growthDelta > 0 ? "up" : "down"
       }.`,
     });
@@ -132,7 +132,7 @@ function buildDriverNotes(assumptions: GameAssumptions, reference: GameCompanyRe
       factor: "EBITDA margin",
       message: `You used ${(assumptions.ebitdaMargin * 100).toFixed(1)}% vs. a reference ${(
         reference.ebitdaMargin * 100
-      ).toFixed(1)}% — ${marginDelta > 0 ? "a fatter" : "a thinner"} margin means more cash from the same revenue, pushing value ${
+      ).toFixed(1)}%. That ${marginDelta > 0 ? "fatter" : "thinner"} margin means more cash from the same revenue, pushing value ${
         marginDelta > 0 ? "up" : "down"
       }.`,
     });
@@ -144,7 +144,7 @@ function buildDriverNotes(assumptions: GameAssumptions, reference: GameCompanyRe
       factor: "Capex",
       message: `You used ${(assumptions.capexPct * 100).toFixed(1)}% of revenue vs. a reference ${(
         reference.capexPct * 100
-      ).toFixed(1)}% — capex is cash leaving before it reaches UFCF, so ${
+      ).toFixed(1)}%. Capex is cash leaving before it reaches UFCF, so ${
         capexDelta > 0 ? "more" : "less"
       } capex pushes value ${capexDelta > 0 ? "down" : "up"}.`,
     });
@@ -156,7 +156,7 @@ function buildDriverNotes(assumptions: GameAssumptions, reference: GameCompanyRe
       factor: "WACC",
       message: `You used ${(assumptions.wacc * 100).toFixed(1)}% vs. a reference ${(reference.wacc * 100).toFixed(
         1
-      )}% — a ${waccDelta > 0 ? "higher" : "lower"} discount rate shrinks the value of every future cash flow, pushing value ${
+      )}%. A ${waccDelta > 0 ? "higher" : "lower"} discount rate shrinks the value of every future cash flow, pushing value ${
         waccDelta > 0 ? "down" : "up"
       } (it hits the terminal value hardest, since that's the furthest-out cash flow).`,
     });
@@ -168,7 +168,7 @@ function buildDriverNotes(assumptions: GameAssumptions, reference: GameCompanyRe
       factor: "Terminal growth",
       message: `You used ${(assumptions.terminalGrowth * 100).toFixed(1)}% vs. a reference ${(
         reference.terminalGrowth * 100
-      ).toFixed(1)}% — this is usually the single biggest lever in a DCF, since it compounds forever inside the
+      ).toFixed(1)}%. This is usually the single biggest lever in a DCF, since it compounds forever inside the
       terminal value. A ${terminalGrowthDelta > 0 ? "higher" : "lower"} terminal growth pushes value ${
         terminalGrowthDelta > 0 ? "up" : "down"
       }, often by more than any other single assumption here.`,

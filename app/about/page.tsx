@@ -16,7 +16,7 @@ export default function AboutPage() {
             <p className="text-sm text-muted">Founder &amp; writer, DCF Lab</p>
             <div className="mt-3">
               <Todo>
-                Your own words: why you built this, what you were doing before (coursework,
+                Your own words on why you built this, what you were doing before (coursework,
                 competitions, internships) that led here, and what you want a reader to take away.
               </Todo>
             </div>
@@ -27,8 +27,8 @@ export default function AboutPage() {
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Methodology</h2>
           <p className="mt-3 text-foreground/90">
             Every number on this site traces back to one tested module,{" "}
-            <code className="rounded bg-foreground/10 px-1 py-0.5 font-mono text-[0.9em]">/lib/dcf.ts</code> —
-            the same discounting, terminal value, and EV-to-equity math runs the guide&apos;s
+            <code className="rounded bg-foreground/10 px-1 py-0.5 font-mono text-[0.9em]">/lib/dcf.ts</code>.
+            The same discounting, terminal value, and EV-to-equity math runs the guide&apos;s
             worked examples, the models, and the game, so a formula fixed in one place is fixed
             everywhere. Company data for the real models is entered by hand from public filings,
             not scraped, and cross-checked before publishing.
@@ -46,8 +46,8 @@ export default function AboutPage() {
         <section>
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Reviewer feedback</h2>
           <Todo>
-            Credit anyone who reviewed a model before or after publishing and what they caught —
-            this is also where a wrong call gets acknowledged, not hidden.
+            Credit anyone who reviewed a model before or after publishing and what they caught.
+            This is also where a wrong call gets acknowledged, not hidden.
           </Todo>
         </section>
 

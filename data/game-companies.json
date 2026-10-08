@@ -2,7 +2,7 @@
   {
     "slug": "sample-co",
     "company": "Sample Co Ltd",
-    "ticker": "NSE: SAMPLECO",
+    "ticker": "NSE · SAMPLECO",
     "sector": "Consumer / Retail (illustrative placeholder)",
     "snapshotDate": "2026-09-01",
     "lastFYRevenue": 1000,
@@ -25,7 +25,7 @@
   {
     "slug": "demo-industries",
     "company": "Demo Industries Ltd",
-    "ticker": "NSE: DEMOIND",
+    "ticker": "NSE · DEMOIND",
     "sector": "Industrials (illustrative placeholder)",
     "snapshotDate": "2026-09-15",
     "lastFYRevenue": 2200,
@@ -48,7 +48,7 @@
   {
     "slug": "placeholder-motors",
     "company": "Placeholder Motors Ltd",
-    "ticker": "NSE: PLACEMOT",
+    "ticker": "NSE · PLACEMOT",
     "sector": "Automotive (illustrative placeholder)",
     "snapshotDate": "2026-06-10",
     "lastFYRevenue": 3000,

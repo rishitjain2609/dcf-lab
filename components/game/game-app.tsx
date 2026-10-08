@@ -74,7 +74,7 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
       <Quiz
         questions={QUIZ_QUESTIONS}
         heading="Before you start: concept check"
-        description="Five quick questions — this is just a baseline, there's no penalty for guessing."
+        description="Five quick questions. This is just a baseline, there's no penalty for guessing."
         onComplete={handlePreQuizComplete}
       />
     );
@@ -136,7 +136,7 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
           </div>
         </div>
         <p className="mt-4 text-sm text-muted">
-          Scores aren&apos;t saved anywhere yet — logging to a shared leaderboard is a later build phase.
+          Scores aren&apos;t saved anywhere yet. Logging to a shared leaderboard is a later build phase.
         </p>
         <button
           type="button"

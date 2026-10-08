@@ -23,7 +23,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
 
   return (
     <div>
-      <PageHeader title={model.company} description={`${model.ticker} — ${model.sector}`} accentClassName="bg-emerald-500" />
+      <PageHeader title={model.company} description={`${model.ticker} · ${model.sector}`} accentClassName="bg-emerald-500" />
       <div className="mx-auto max-w-5xl space-y-10 px-4 pb-16">
         <Link href="/models" className="text-sm text-muted hover:text-accent">
           ← Back to all models
@@ -83,7 +83,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
             />
           </div>
           <p className="mt-3 text-sm text-muted">
-            This is an implied value under one set of assumptions, not a prediction — see the{" "}
+            This is an implied value under one set of assumptions, not a prediction. See the{" "}
             <Link href="/about" className="hover:text-accent">
               disclaimer
             </Link>
@@ -100,7 +100,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               </a>
             ) : (
               <span className="rounded-md border border-dashed border-border px-3 py-1.5 text-muted">
-                Excel — TODO(Rishit)
+                Excel · TODO(Rishit)
               </span>
             )}
             {model.valuePickrUrl ? (
@@ -109,7 +109,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               </a>
             ) : (
               <span className="rounded-md border border-dashed border-border px-3 py-1.5 text-muted">
-                ValuePickr thread — TODO(Rishit)
+                ValuePickr thread · TODO(Rishit)
               </span>
             )}
             {model.substackUrl ? (
@@ -118,7 +118,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               </a>
             ) : (
               <span className="rounded-md border border-dashed border-border px-3 py-1.5 text-muted">
-                Substack post — TODO(Rishit)
+                Substack post · TODO(Rishit)
               </span>
             )}
           </div>
@@ -130,7 +130,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
             {model.versions.map((version) => (
               <li key={version.version} className="rounded-md border border-border bg-card p-4">
                 <p className="font-mono text-sm">
-                  {version.version} <span className="text-muted">— {version.date}</span>
+                  {version.version} <span className="text-muted">· {version.date}</span>
                 </p>
                 <p className="mt-1 text-sm text-foreground/90">{version.changelog}</p>
               </li>

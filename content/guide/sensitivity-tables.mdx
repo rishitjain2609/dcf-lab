@@ -3,20 +3,20 @@ title: Sensitivity tables
 description: Showing how much the answer moves when WACC or terminal growth moves a little.
 ---
 
-A DCF published as one single number — "₹32.36 per share" — is quietly lying about how precise it
+A DCF published as one single number, "₹32.36 per share," is quietly lying about how precise it
 is. WACC and terminal growth aren't facts pulled off a label; they're estimates, each defensible
 within a range. Presenting only the midpoint is like a weather forecaster saying "it will be
-exactly 24°C tomorrow" instead of "22–26°C, most likely 24" — technically a number, but hiding
+exactly 24°C tomorrow" instead of "22 to 26°C, most likely 24," technically a number, but hiding
 how much uncertainty is actually baked in.
 
-A sensitivity table is the fix: instead of one answer, show a small grid of answers across a
+A sensitivity table is the fix. Instead of one answer, show a small grid of answers across a
 reasonable range of the two assumptions that move the result the most. It doesn't make the model
-any more certain — it just stops pretending to be more certain than it is.
+any more certain. It just stops pretending to be more certain than it is.
 
 ## Worked example
 
 Implied value per share (end-year discounting), varying WACC by ±1 percentage point and terminal
-growth by ±0.5 percentage points around the base case (WACC 12.3%, terminal growth 4.0%):
+growth by ±0.5 percentage points around the base case (WACC 12.3%, terminal growth 4.0%).
 
 | WACC ↓ / g → | 3.5% | 4.0% | 4.5% |
 | --- | --- | --- | --- |
@@ -24,16 +24,16 @@ growth by ±0.5 percentage points around the base case (WACC 12.3%, terminal gro
 | 12.3% (base) | ₹30.74 | **₹32.36** | ₹34.19 |
 | 13.3% | ₹26.97 | ₹28.22 | ₹29.62 |
 
-The same grid, colored by value (the highlighted cell is the base case):
+The same grid, colored by value (the highlighted cell is the base case).
 
 <SensitivityGrid />
 
-A 2-point swing in WACC (11.3% → 13.3%, holding terminal growth at 4.0%) moves the implied value
-from ₹37.64 to ₹28.22 — about ₹9.4/share, or roughly 29% of the base case — without changing a
+A 2-point swing in WACC (11.3% to 13.3%, holding terminal growth at 4.0%) moves the implied value
+from ₹37.64 to ₹28.22, about ₹9.4 a share, or roughly 29% of the base case, without changing a
 single operating assumption. That sensitivity is the real output of a DCF, not the single number
 in the middle.
 
 Built with `buildSensitivityTable()` in
 [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts), which takes a
-list of row values, a list of column values, and a function to compute each cell — reused as-is
+list of row values, a list of column values, and a function to compute each cell, reused as-is
 for the [models](/models) and the [game](/game).

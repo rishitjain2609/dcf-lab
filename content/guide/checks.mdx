@@ -3,18 +3,18 @@ title: Checks
 description: The sanity checks to run before publishing any model.
 ---
 
-A finished-looking spreadsheet and a trustworthy one aren't the same thing — plenty of DCFs that
+A finished-looking spreadsheet and a trustworthy one aren't the same thing. Plenty of DCFs that
 look polished are quietly wrong in a way a few minutes of checking would have caught. Run through
-this before any model goes on [/models](/models):
+this before any model goes on [/models](/models).
 
 - Does `terminalGrowth < WACC`? (If not, `terminalValueGordon()` already throws.)
 - Is terminal growth below long-run nominal GDP growth? Growing a company faster than the economy
   forever is usually not defensible.
 - What % of enterprise value comes from the terminal value vs. the explicit forecast? (In the
-  running example: ₹1,055.38 cr of ₹1,494.50 cr — about 71% — is terminal value. Worth knowing
+  running example, ₹1,055.38 cr of ₹1,494.50 cr, about 71%, is terminal value. Worth knowing
   before trusting the number.)
 - Does the Gordon growth terminal value roughly agree with an exit-multiple cross-check?
 - Do the implied margins and growth rates in year 5 look like a steady-state business, or still
   like a company in hypergrowth that got cut off arbitrarily at year 5?
-- Rerun with WACC and terminal growth both nudged — does the conclusion survive, or does it flip
+- Rerun with WACC and terminal growth both nudged. Does the conclusion survive, or does it flip
   on assumptions nobody would notice changing?

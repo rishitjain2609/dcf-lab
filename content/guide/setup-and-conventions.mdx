@@ -3,9 +3,9 @@ title: Setup & conventions
 description: The conventions this guide uses before any numbers show up.
 ---
 
-Imagine someone hands you a spreadsheet with a number at the bottom: "₹32.36." No units, no
+Imagine someone hands you a spreadsheet with a number at the bottom, "₹32.36." No units, no
 dates, no currency symbol. Is that dollars or rupees? Per share or in crore? As of today or as of
-whenever they built the model? You'd have no way to check their work — and neither would they, a
+whenever they built the model? You'd have no way to check their work, and neither would they, a
 year later, trying to remember what they meant.
 
 That's what conventions are for. Before any formula shows up, this page nails down exactly what
@@ -13,15 +13,15 @@ every later number means, so nothing has to be guessed or re-derived.
 
 ## Conventions used throughout this guide
 
-- Currency: ₹ crore, unless stated otherwise.
-- Explicit forecast period: 5 years.
-- Discounting convention: end-year by default; mid-year is covered separately in
+- Currency is ₹ crore, unless stated otherwise.
+- The explicit forecast period is 5 years.
+- The discounting convention is end-year by default; mid-year is covered separately in
   [Discounting (mid-year)](/guide/discounting-mid-year).
-- Risk-free rate: the 10-year Indian G-sec yield.
-- A single running example carries through every step in this guide — a hypothetical company,
+- The risk-free rate is the 10-year Indian G-sec yield.
+- A single running example carries through every step in this guide, a hypothetical company,
   not a real one. The two real models are in [/models](/models).
 
-## The running example — starting assumptions
+## The running example, starting assumptions
 
 | Assumption | Value |
 | --- | --- |
@@ -42,26 +42,26 @@ every later number means, so nothing has to be guessed or re-derived.
 | Diluted shares | 40 cr |
 | Terminal growth | 4% |
 
-Every assumption is flat and round on purpose — the point of this guide is to see how the
+Every assumption is flat and round on purpose. The point of this guide is to see how the
 mechanics fit together, not to memorize a realistic set of numbers. Real companies rarely have the
 same growth rate five years running.
 
 Every number in the steps that follow is computed from this table using
-[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) — not typed in by
-hand — so it stays consistent end to end.
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts), not typed in by
+hand, so it stays consistent end to end.
 
 ## Glossary
 
-New to this? Keep this tab open — every later step links back here.
+New to this? Keep this tab open. Every later step links back here.
 
 | Term | In plain English |
 | --- | --- |
-| **EBITDA** | Profit before interest, tax, depreciation and amortization — operating profit before non-cash accounting items. |
+| **EBITDA** | Profit before interest, tax, depreciation and amortization. Operating profit before non-cash accounting items. |
 | **EBIT** | EBITDA minus D&A. Closer to real operating profit, since depreciation is a real economic cost even though no cash leaves that year. |
-| **NOPAT** | EBIT after tax, assuming the company had no debt — "what the business earns for everyone who's owed money or owns a piece of it." |
-| **UFCF** | Unlevered free cash flow — the actual cash the business throws off each year, before paying interest to lenders. What gets discounted. |
-| **WACC** | Weighted Average Cost of Capital — the discount rate; roughly, the return investors demand for the risk of this business. |
+| **NOPAT** | EBIT after tax, assuming the company had no debt. What the business earns for everyone who's owed money or owns a piece of it. |
+| **UFCF** | Unlevered free cash flow, the actual cash the business throws off each year, before paying interest to lenders. What gets discounted. |
+| **WACC** | Weighted Average Cost of Capital, the discount rate. Roughly, the return investors demand for the risk of this business. |
 | **Terminal value** | The value of every cash flow after the explicit forecast window (Year 6 onward), collapsed into one number as of Year 5. |
-| **Enterprise value (EV)** | The value of the whole operating business — what it would cost to buy the company outright, debt and all. |
-| **Equity value** | What's left for shareholders after lenders are paid — EV minus net debt. What a share price is actually valuing. |
-| **Implied value** | What this model says a share is worth under its assumptions. Not a prediction, not a "target price" — see the [disclaimer](/about). |
+| **Enterprise value (EV)** | The value of the whole operating business, what it would cost to buy the company outright, debt and all. |
+| **Equity value** | What's left for shareholders after lenders are paid, EV minus net debt. What a share price is actually valuing. |
+| **Implied value** | What this model says a share is worth under its assumptions. Not a prediction, not a "target price," see the [disclaimer](/about). |

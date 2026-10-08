@@ -55,7 +55,7 @@ export function ResultPanel({
     <div className="space-y-8">
       <div>
         <h2 className="text-lg font-medium">Your calculation</h2>
-        <p className="mt-1 text-sm text-muted">{company.company} — full build shown, not just the answer.</p>
+        <p className="mt-1 text-sm text-muted">{company.company}. Full build shown, not just the answer.</p>
         <div className="mt-4">
           <CalculationTable calc={result.user} label="Your model" />
         </div>
@@ -145,8 +145,8 @@ export function ResultPanel({
 
       {result.driverNotes.length === 0 && (
         <p className="text-sm text-muted">
-          Your assumptions matched the reference model closely enough that there&apos;s nothing meaningful to call out —
-          your implied value and the reference model landed in the same place.
+          Your assumptions matched the reference model closely enough that there&apos;s nothing meaningful to call out.
+          Your implied value and the reference model landed in the same place.
         </p>
       )}
 

@@ -3,22 +3,22 @@ title: Discounting (mid-year)
 description: Why end-year discounting slightly understates value, and what mid-year fixes.
 ---
 
-A company doesn't collect an entire year of revenue in one lump sum on December 31st — customers
+A company doesn't collect an entire year of revenue in one lump sum on December 31st. Customers
 pay throughout the year, roughly evenly. But the end-year convention pretends every rupee of cash
 flow lands on the very last day, which is a bit like assuming your entire year's salary gets
 paid to you in one check on New Year's Eve instead of monthly. Since money received earlier is
 worth more than money received later, treating it all as "latest possible day" slightly
 understates how much that cash flow is actually worth today.
 
-The mid-year convention fixes this with a small trick: discount each year's cash flow as if it
-all arrived at the midpoint of the year (month 6) instead of the very end (month 12) — half a
+The mid-year convention fixes this with a small trick. Discount each year's cash flow as if it
+all arrived at the midpoint of the year (month 6) instead of the very end (month 12), half a
 period less. It's a rough approximation, since real cash doesn't arrive perfectly evenly either,
 but it's much closer to reality than end-year, and it's standard enough that most professional
 models use it by default.
 
 ## Worked example
 
-Same UFCFs and WACC (12.3%) as [UFCF](/guide/ufcf) and [WACC](/guide/wacc), discounted both ways:
+Same UFCFs and WACC (12.3%) as [UFCF](/guide/ufcf) and [WACC](/guide/wacc), discounted both ways.
 
 | Year | UFCF | PV, end-year | PV, mid-year |
 | --- | --- | --- | --- |
@@ -34,6 +34,6 @@ PV_end-year[t] = cashFlow / (1 + WACC)^t
 PV_mid-year[t] = cashFlow / (1 + WACC)^(t - 0.5)
 ```
 
-Mid-year consistently gives a higher present value for the same cash flows — in this example, about
+Mid-year consistently gives a higher present value for the same cash flows. In this example, about
 6.0% higher on the explicit-period sum. Both conventions are implemented in `presentValue()` and
 `discountCashFlows()` in [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

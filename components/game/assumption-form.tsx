@@ -32,7 +32,7 @@ export function AssumptionForm({
     <div>
       <h2 className="text-lg font-medium">Set your assumptions</h2>
       <p className="mt-1 text-sm text-muted">
-        {company.company} ({company.ticker}) — last FY revenue carried forward 5 years at the
+        {company.company} ({company.ticker}). Last FY revenue carried forward 5 years at the
         growth rate you choose below.
       </p>
 

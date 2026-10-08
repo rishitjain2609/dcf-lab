@@ -2,10 +2,10 @@
   {
     "slug": "sample-co",
     "company": "Sample Co Ltd",
-    "ticker": "NSE: SAMPLECO",
+    "ticker": "NSE · SAMPLECO",
     "sector": "Consumer / Retail (illustrative placeholder)",
     "publishDate": "2026-09-01",
-    "summary": "One-paragraph thesis — why this company, what the DCF says, and what would change your mind.",
+    "summary": "One-paragraph thesis on why this company, what the DCF says, and what would change your mind.",
     "assumptions": [
       { "label": "Revenue growth, Yr 1–5", "value": "10% every year" },
       { "label": "EBITDA margin", "value": "20%" },
@@ -27,14 +27,14 @@
       {
         "version": "v1",
         "date": "2026-09-01",
-        "changelog": "Initial publish — assumptions and first implied value. TODO(Rishit): replace with the real changelog."
+        "changelog": "Initial publish, assumptions and first implied value. TODO(Rishit) replace with the real changelog."
       }
     ]
   },
   {
     "slug": "demo-industries",
     "company": "Demo Industries Ltd",
-    "ticker": "NSE: DEMOIND",
+    "ticker": "NSE · DEMOIND",
     "sector": "Industrials (illustrative placeholder)",
     "publishDate": "2026-09-15",
     "summary": "One-paragraph thesis for the second model.",
@@ -59,7 +59,7 @@
       {
         "version": "v1",
         "date": "2026-09-15",
-        "changelog": "TODO(Rishit): initial publish."
+        "changelog": "TODO(Rishit) initial publish."
       }
     ]
   }

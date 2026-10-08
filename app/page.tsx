@@ -44,14 +44,14 @@ export default function Home() {
           </h1>
           <p className="mt-4 text-muted">
             A DCF is just a way of estimating what a company is worth from the cash it will
-            generate — like figuring out what a lemonade stand is worth by adding up every cup
+            generate, like figuring out what a lemonade stand is worth by adding up every cup
             of lemonade it will ever sell. No finance background needed to follow along.
           </p>
           <Link
             href="/why-dcf"
             className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 dark:text-background"
           >
-            Start here: Why DCF →
+            Start here, Why DCF →
           </Link>
         </div>
         <div className="hidden sm:block">
@@ -78,7 +78,7 @@ export default function Home() {
       <section className="mt-16 flex flex-col items-start gap-4 rounded-lg border border-border bg-card p-6 sm:flex-row sm:items-center">
         <p className="font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400">200+</p>
         <p className="text-sm text-muted">
-          students have used DCF Lab to build their own valuation so far — the Game is the fastest
+          students have used DCF Lab to build their own valuation so far. The Game is the fastest
           way to become one of them.
         </p>
       </section>

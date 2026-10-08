@@ -5,7 +5,7 @@ export function PageHeader({
 }: {
   title: string;
   description?: string;
-  /** e.g. "bg-violet-500" — a small colored bar identifying this section. */
+  /** e.g. "bg-violet-500", a small colored bar identifying this section. */
   accentClassName?: string;
 }) {
   return (
