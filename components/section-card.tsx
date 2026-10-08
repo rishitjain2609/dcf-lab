@@ -9,28 +9,42 @@ export function SectionCard({
   title,
   description,
   icon,
-  borderClass,
+  tintClassName,
+  large = false,
+  className = "",
 }: {
   href: string;
   title: string;
   description: string;
   icon: ReactNode;
-  borderClass: string;
+  tintClassName: string;
+  large?: boolean;
+  className?: string;
 }) {
   return (
-    <Link href={href} className="block">
+    <Link href={href} className={`block ${className}`}>
       <motion.div
         whileHover={{ y: -4 }}
         whileTap={{ y: 0, scale: 0.98 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className={`group flex gap-4 rounded-lg border border-border bg-card p-5 transition-colors ${borderClass}`}
+        className={`group flex h-full flex-col justify-between rounded-3xl p-6 ${tintClassName} ${large ? "sm:p-9" : ""}`}
       >
-        <motion.div whileHover={{ rotate: -6, scale: 1.08 }} transition={{ type: "spring", stiffness: 300 }}>
+        <motion.div
+          whileHover={{ rotate: -6, scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="w-fit"
+        >
           {icon}
         </motion.div>
-        <div>
-          <h2 className="font-medium group-hover:text-accent">{title}</h2>
-          <p className="mt-1 text-sm text-muted">{description}</p>
+        <div className="mt-6">
+          <h2
+            className={`font-[family-name:var(--font-display)] font-semibold tracking-tight ${
+              large ? "text-3xl" : "text-xl"
+            }`}
+          >
+            {title}
+          </h2>
+          <p className={`mt-2 text-foreground/70 ${large ? "max-w-sm text-base" : "text-sm"}`}>{description}</p>
         </div>
       </motion.div>
     </Link>
