@@ -16,15 +16,15 @@ export function PageHero({
   return (
     <div className="relative flex h-80 w-full items-end overflow-hidden sm:h-96">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} className="absolute inset-0 h-full w-full scale-110 object-cover blur-[1px]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
+      <img src={src} alt={alt} className="absolute inset-0 h-full w-full scale-110 object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
       <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-10">
         <p className={`font-mono text-sm font-medium tracking-wide ${kickerClassName}`}>{kicker}</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white drop-shadow-sm sm:text-5xl">
+        <h1 className={`mt-2 text-3xl font-semibold tracking-tight drop-shadow-sm sm:text-5xl ${kickerClassName}`}>
           {title}
         </h1>
         {description && (
-          <p className="mt-3 max-w-2xl text-sm text-white/85 drop-shadow-sm sm:text-base">{description}</p>
+          <p className={`mt-3 max-w-2xl text-sm drop-shadow-sm sm:text-base ${kickerClassName}`}>{description}</p>
         )}
       </div>
       <p className="absolute bottom-2 right-3 z-10 text-[10px] text-white/50">AI-generated illustrative image</p>
