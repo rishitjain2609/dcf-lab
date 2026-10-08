@@ -19,7 +19,7 @@ export default function ModelsPage() {
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <div className="grid gap-4 sm:grid-cols-2">
-          {models.map((model) => {
+          {models.map((model, i) => {
             const gap = percentGap(model.impliedValuePerShare, model.latestPrice);
             return (
               <ModelCard
@@ -29,6 +29,7 @@ export default function ModelsPage() {
                 company={model.company}
                 impliedValuePerShare={model.impliedValuePerShare}
                 gap={gap}
+                index={i}
               />
             );
           })}
