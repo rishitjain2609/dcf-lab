@@ -5,24 +5,47 @@ description: What a discounted cash flow model is, where it's actually used, and
 
 ## What a DCF is
 
-TODO(Harsh): plain-language definition — a DCF values a business as the sum of the cash it will
-generate in the future, discounted back to today at a rate that reflects how risky those cash
-flows are.
+Picture a lemonade stand that's going to run for the next ten summers. To find out what that
+stand is worth *today*, you wouldn't just add up all the lemonade money it will ever make — a
+rupee ten summers from now isn't worth the same as a rupee in your hand right now, because money
+today can be invested and grow, while money ten years away carries the risk it might never show
+up at all. So you estimate how much cash the stand will throw off each year, then "discount"
+each year's cash back to today's value using a rate that reflects how risky the stand actually
+is. Add all those discounted years together, and that sum is what the stand is worth today.
+
+A company is the same idea at a much bigger scale: forecast the cash it will generate, discount
+each year back to today, add it up. That's a discounted cash flow model, start to finish — the
+rest of this site is just the mechanics of doing that carefully.
+
+<DcfConceptDiagram />
 
 ## Where it's used
 
-TODO(Harsh): cover the main real-world uses:
-
-- Equity research — analysts publish an implied value to justify a rating.
-- M&A — buyers use a DCF to sanity-check what they're paying relative to what the target can
-  generate.
-- Private equity — underwriting a deal against a hold period and exit assumption.
-- IPO pricing — bankers and the company triangulate a price range partly off a DCF.
+- **Equity research** — analysts build a DCF to publish an implied value and justify a rating on
+  a stock, the way this site's own [models](/models) do.
+- **M&A** — when one company buys another, the buyer runs a DCF to sanity-check the price against
+  what the target can actually generate, so they don't overpay based on vibes.
+- **Private equity** — a PE firm underwrites a deal against a specific hold period (often 3–7
+  years) and an assumed exit, essentially running the whole DCF machinery in reverse to solve for
+  "what return do we get if we buy at this price and sell at that one."
+- **IPO pricing** — when a company goes public, bankers and the company itself triangulate a
+  price range partly off a DCF, alongside comparing it to similar already-listed companies.
 
 ## Where it breaks
 
-TODO(Harsh): the honest limits — most of a DCF's value usually sits in the terminal value, which
-is extremely sensitive to small changes in WACC and terminal growth; forecast error compounds over
-a 5–10 year explicit period; and a DCF can be reverse-engineered to justify almost any price if the
-assumptions are chosen after the fact rather than before. This is also why [/ledger](/ledger)
-exists — the test of a DCF isn't how it looks today, it's whether it was right.
+The honest limits, because a tool this widely used deserves them stated plainly:
+
+- **Most of the value is a guess about forever.** As the [terminal value](/guide/terminal-value)
+  step on this site shows, roughly 70% of a typical DCF's value often comes from one assumption
+  about growth *after* the forecast period ends — not from the carefully-built years in between.
+- **Small changes move the answer a lot.** The [sensitivity tables](/guide/sensitivity-tables)
+  step shows a 2-percentage-point change in the discount rate moving the implied value by nearly
+  30%, with zero change to any actual business assumption.
+- **It can be reverse-engineered.** Because there are so many assumptions to turn, a DCF can be
+  built to justify almost any price if the assumptions get picked *after* deciding what answer
+  you want, instead of before.
+
+None of that makes a DCF useless — it makes it a tool whose answer is only as good as its
+assumptions, which is exactly why this site tracks every published implied value against what
+actually happened afterward, on each [model's page](/models), rather than publishing a number and
+moving on.

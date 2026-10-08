@@ -3,9 +3,18 @@ title: Discounting (mid-year)
 description: Why end-year discounting slightly understates value, and what mid-year fixes.
 ---
 
-TODO(Harsh): explain the intuition — cash doesn't arrive in one lump at year-end, it arrives
-throughout the year, so discounting as if it all lands on day 365 slightly understates its present
-value. The mid-year convention discounts each cash flow by half a period less.
+A company doesn't collect an entire year of revenue in one lump sum on December 31st — customers
+pay throughout the year, roughly evenly. But the end-year convention pretends every rupee of cash
+flow lands on the very last day, which is a bit like assuming your entire year's salary gets
+paid to you in one check on New Year's Eve instead of monthly. Since money received earlier is
+worth more than money received later, treating it all as "latest possible day" slightly
+understates how much that cash flow is actually worth today.
+
+The mid-year convention fixes this with a small trick: discount each year's cash flow as if it
+all arrived at the midpoint of the year (month 6) instead of the very end (month 12) — half a
+period less. It's a rough approximation, since real cash doesn't arrive perfectly evenly either,
+but it's much closer to reality than end-year, and it's standard enough that most professional
+models use it by default.
 
 ## Worked example
 

@@ -3,10 +3,23 @@ title: Terminal value (Gordon + exit multiple)
 description: Valuing every cash flow after the explicit forecast window, two different ways.
 ---
 
-TODO(Harsh): explain why terminal value exists (you can't forecast forever), why it usually
-dominates total value (most of the cash flow a going concern will ever generate sits beyond year
-5), and the two standard methods — Gordon growth (perpetuity) and exit multiple (what a buyer
-would pay for the business in year 5, as a multiple of some metric).
+No one can credibly forecast a company's cash flows year by year for the next fifty years — the
+uncertainty compounds into nonsense after about five. But the company (assuming it survives)
+keeps generating cash well past year five. Terminal value is how a DCF deals with that: instead
+of forecasting years 6, 7, 8... forever, it collapses "everything from year 6 onward" into a
+single number, valued as of the end of year 5.
+
+This is worth sitting with, because it's usually the most important number in the whole model:
+in the running example on this site, roughly 70% of total value comes from the terminal value,
+not from the five years of cash flow actually forecast in detail. A DCF can look exhaustively
+researched — five years of careful revenue and margin assumptions — while most of its answer
+actually rests on one growth-rate assumption about forever.
+
+Two standard ways to build it: the **Gordon growth** method below treats the business as a
+perpetuity growing at a constant rate forever (like a rental property that keeps paying rent
+every year, growing slightly with inflation). The **exit multiple** method instead asks "what
+would a buyer pay for this business in year 5," using a multiple of EBITDA or revenue the way
+you'd price a house by comparing it to similar houses that recently sold nearby.
 
 > New to these terms? See the [glossary](/guide/setup-and-conventions#glossary).
 
@@ -26,9 +39,23 @@ return it.
 
 ## Exit multiple method
 
-TODO(Harsh): pick a comparable EV/EBITDA (or EV/Revenue) multiple for this company's sector and
-show the same year-5 metric valued that way instead — `terminalValueExitMultiple()` in
-[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) is
-`finalMetric × multiple`. Worth triangulating: if Gordon growth and a reasonable exit multiple
-give very different terminal values, that's usually a sign the growth/WACC spread in the Gordon
-formula is doing something unrealistic.
+Instead of a growth-forever formula, pick a multiple a buyer might realistically pay for a
+similar business in year 5 — say 10× EV/EBITDA, a reasonable ballpark for a steady,
+moderate-growth company (hot sectors trade richer, mature ones trade cheaper):
+
+```
+TV = EBITDA_year5 × multiple
+   = 322.10 × 10
+   = 3,221.00
+```
+
+That's almost double the Gordon growth answer of 1,884.98 from the same year-5 numbers — and
+that gap is the whole point of running both. When two independent methods for the same thing
+disagree this much, it's a signal to go back and ask which assumption is doing the unrealistic
+work: is 10× too rich a multiple for this business, or is the Gordon growth formula's
+`WACC − terminalGrowth` spread (12.3% − 4% = 8.3 points) too thin, making it overly sensitive?
+Neither method is "the correct one" — the disagreement itself is useful information.
+
+`terminalValueExitMultiple()` in
+[`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts) is just
+`finalMetric × multiple`.
