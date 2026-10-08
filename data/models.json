@@ -27,7 +27,7 @@
       {
         "version": "v1",
         "date": "2026-09-01",
-        "changelog": "Initial publish — assumptions and first implied value. TODO(Harsh): replace with the real changelog."
+        "changelog": "Initial publish — assumptions and first implied value. TODO(Rishit): replace with the real changelog."
       }
     ]
   },
@@ -59,7 +59,7 @@
       {
         "version": "v1",
         "date": "2026-09-15",
-        "changelog": "TODO(Harsh): initial publish."
+        "changelog": "TODO(Rishit): initial publish."
       }
     ]
   }
