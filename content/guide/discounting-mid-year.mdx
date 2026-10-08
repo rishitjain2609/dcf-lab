@@ -34,6 +34,8 @@ PV_end-year[t] = cashFlow / (1 + WACC)^t
 PV_mid-year[t] = cashFlow / (1 + WACC)^(t - 0.5)
 ```
 
+<DiscountingComparisonChart />
+
 Mid-year consistently gives a higher present value for the same cash flows. In this example, about
 6.0% higher on the explicit-period sum. Both conventions are implemented in `presentValue()` and
 `discountCashFlows()` in [`/lib/dcf.ts`](https://github.com/rishitjain2609/dcf-lab/blob/main/lib/dcf.ts).

@@ -4,7 +4,14 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import matter from "gray-matter";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import { EquityBridgeWaterfall, SensitivityGrid, UfcfBuildChart } from "@/components/guide-charts";
+import {
+  DiscountingComparisonChart,
+  EquityBridgeWaterfall,
+  IncomeStatementChart,
+  RevenueBuildChart,
+  SensitivityGrid,
+  UfcfBuildChart,
+} from "@/components/guide-charts";
 import { DcfConceptDiagram } from "@/components/dcf-concept-diagram";
 import { PhotoAccent } from "@/components/photo-accent";
 
@@ -50,6 +57,7 @@ const mdxComponents = {
     </div>
   ),
   thead: (props: React.ComponentProps<"thead">) => <thead className="bg-foreground/5" {...props} />,
+  tr: (props: React.ComponentProps<"tr">) => <tr className="transition-colors hover:bg-foreground/5" {...props} />,
   th: (props: React.ComponentProps<"th">) => (
     <th className="border-b border-border px-3 py-2 text-left font-medium" {...props} />
   ),
@@ -67,6 +75,9 @@ const mdxComponents = {
   SensitivityGrid,
   DcfConceptDiagram,
   PhotoAccent,
+  RevenueBuildChart,
+  IncomeStatementChart,
+  DiscountingComparisonChart,
 };
 
 export function Mdx({ source }: { source: string }) {

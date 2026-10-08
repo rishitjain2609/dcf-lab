@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { motion } from "motion/react";
 import { NAV_ITEMS, SITE_NAME } from "@/lib/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
@@ -17,18 +19,27 @@ export function SiteHeader() {
           {SITE_NAME}
         </Link>
 
-        <nav className="hidden items-center gap-5 md:flex">
+        <nav className="hidden items-center gap-5 md:flex" onMouseLeave={() => setHovered(null)}>
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
+            const showUnderline = hovered ? hovered === item.href : active;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm transition hover:text-accent ${
+                onMouseEnter={() => setHovered(item.href)}
+                className={`relative pb-1 text-sm transition hover:text-accent ${
                   active ? "text-accent font-medium" : "text-foreground/80"
                 }`}
               >
                 {item.label}
+                {showUnderline && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-accent"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             );
           })}
