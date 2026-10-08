@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/page-header";
 import { getGameCompanies } from "@/lib/game-data";
 import { GameApp } from "@/components/game/game-app";
+import { PhotoAccent } from "@/components/photo-accent";
 
 export default function GamePage() {
   const companies = getGameCompanies();
@@ -13,6 +14,9 @@ export default function GamePage() {
         accentClassName="bg-amber-500"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16">
+        <div className="mb-8 flex justify-end">
+          <PhotoAccent src="/images/stock-ticker.jpg" alt="A digital stock ticker display on a building at dusk" />
+        </div>
         <GameApp companies={companies} />
       </div>
     </div>

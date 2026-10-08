@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/page-header";
 import { DISCLAIMER } from "@/lib/nav";
 import { Todo } from "@/components/todo";
+import { PhotoAccent } from "@/components/photo-accent";
 
 export default function AboutPage() {
   return (
@@ -23,16 +24,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Methodology</h2>
-          <p className="mt-3 text-foreground/90">
-            Every number on this site traces back to one tested module,{" "}
-            <code className="rounded bg-foreground/10 px-1 py-0.5 font-mono text-[0.9em]">/lib/dcf.ts</code>.
-            The same discounting, terminal value, and EV-to-equity math runs the guide&apos;s
-            worked examples, the models, and the game, so a formula fixed in one place is fixed
-            everywhere. Company data for the real models is entered by hand from public filings,
-            not scraped, and cross-checked before publishing.
-          </p>
+        <section className="flex flex-col gap-4 sm:flex-row sm:items-start">
+          <div className="flex-1">
+            <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Methodology</h2>
+            <p className="mt-3 text-foreground/90">
+              Every number on this site traces back to one tested module,{" "}
+              <code className="rounded bg-foreground/10 px-1 py-0.5 font-mono text-[0.9em]">/lib/dcf.ts</code>.
+              The same discounting, terminal value, and EV-to-equity math runs the guide&apos;s
+              worked examples, the models, and the game, so a formula fixed in one place is fixed
+              everywhere. Company data for the real models is entered by hand from public filings,
+              not scraped, and cross-checked before publishing.
+            </p>
+          </div>
+          <PhotoAccent src="/images/desk-laptop.jpg" alt="A desk with a laptop showing financial charts" />
         </section>
 
         <section>

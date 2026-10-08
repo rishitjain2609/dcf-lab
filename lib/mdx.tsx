@@ -6,6 +6,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { EquityBridgeWaterfall, SensitivityGrid, UfcfBuildChart } from "@/components/guide-charts";
 import { DcfConceptDiagram } from "@/components/dcf-concept-diagram";
+import { PhotoAccent } from "@/components/photo-accent";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -65,6 +66,7 @@ const mdxComponents = {
   EquityBridgeWaterfall,
   SensitivityGrid,
   DcfConceptDiagram,
+  PhotoAccent,
 };
 
 export function Mdx({ source }: { source: string }) {
