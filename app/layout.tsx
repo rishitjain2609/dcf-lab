@@ -32,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bodySans.variable} ${bodyMono.variable} ${displaySerif.variable} dark h-full antialiased`}
+      className={`${bodySans.variable} ${bodyMono.variable} ${displaySerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />

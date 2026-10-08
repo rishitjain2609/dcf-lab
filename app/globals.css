@@ -2,14 +2,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root,
-.dark {
-  --background: #0a1628;
-  --foreground: #eef3fa;
-  --muted: #93a5c2;
-  --border: #1e3a5f;
-  --accent: #fbbf24;
-  --card: #0f2341;
+:root {
+  --background: #f7f1e6;
+  --foreground: #2b2420;
+  --muted: #8a7e6f;
+  --border: #e3d9c7;
+  --accent: #c2410c;
+  --card: #fffbf3;
 }
 
 @theme inline {

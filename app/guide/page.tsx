@@ -15,13 +15,17 @@ export default function GuidePage() {
         description="A step-by-step build of a full DCF model, each step with a worked numeric example."
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
-        <ol className="space-y-2">
+        <div>
           {GUIDE_STEPS.map((step, i) => (
-            <li key={step.slug}>
-              <GuideStepRow href={`/guide/${step.slug}`} index={i} title={step.title} />
-            </li>
+            <GuideStepRow
+              key={step.slug}
+              href={`/guide/${step.slug}`}
+              index={i}
+              title={step.title}
+              isLast={i === GUIDE_STEPS.length - 1}
+            />
           ))}
-        </ol>
+        </div>
       </div>
     </div>
   );
