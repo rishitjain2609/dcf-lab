@@ -1,23 +1,38 @@
+"use client";
+
+import { motion } from "motion/react";
+import { formatCrore, formatRupees } from "@/lib/format";
+
 export interface BarChartSeries {
   label: string;
   values: number[];
   colorClassName: string;
 }
 
+export type ChartValueFormat = "crore" | "rupees" | "raw";
+
 const VB_WIDTH = 300;
 const VB_HEIGHT = 150;
 const BOTTOM_MARGIN = 20;
 const TOP_MARGIN = 10;
+const BASELINE_Y = VB_HEIGHT - BOTTOM_MARGIN;
+
+const FORMATTERS: Record<ChartValueFormat, (v: number) => string> = {
+  crore: formatCrore,
+  rupees: (v) => formatRupees(v, 0),
+  raw: (v) => v.toFixed(0),
+};
 
 export function BarChart({
   categories,
   series,
-  valueFormatter = (v: number) => v.toFixed(0),
+  format = "raw",
 }: {
   categories: string[];
   series: BarChartSeries[];
-  valueFormatter?: (value: number) => string;
+  format?: ChartValueFormat;
 }) {
+  const valueFormatter = FORMATTERS[format];
   const max = Math.max(1, ...series.flatMap((s) => s.values));
   const plotHeight = VB_HEIGHT - BOTTOM_MARGIN - TOP_MARGIN;
   const groupWidth = VB_WIDTH / categories.length;
@@ -50,7 +65,7 @@ export function BarChart({
               const x = ci * groupWidth + barWidth * (si + 0.5);
               const y = VB_HEIGHT - BOTTOM_MARGIN - barHeight;
               return (
-                <rect
+                <motion.rect
                   key={s.label}
                   x={x}
                   y={y}
@@ -58,6 +73,11 @@ export function BarChart({
                   height={barHeight}
                   rx={1.5}
                   className={s.colorClassName}
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (ci * series.length + si) * 0.05, ease: "easeOut" }}
+                  style={{ transformOrigin: `${x + (barWidth * 0.8) / 2}px ${BASELINE_Y}px` }}
                 />
               );
             })}

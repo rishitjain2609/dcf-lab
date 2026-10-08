@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 function colorForRatio(ratio: number): string {
   // ratio 0..1 (low..high). Rose -> amber -> emerald.
   if (ratio < 0.34) return "bg-rose-500/20 text-rose-700 dark:text-rose-300";
@@ -53,14 +57,18 @@ export function SensitivityHeatmap({
                 const ratio = (value - min) / range;
                 const isBase = ri === baseRowIndex && ci === baseColIndex;
                 return (
-                  <td
+                  <motion.td
                     key={c}
-                    className={`px-3 py-2 font-mono ${colorForRatio(ratio)} ${
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: (ri * colLabels.length + ci) * 0.04 }}
+                    className={`px-3 py-2 font-mono transition-transform hover:scale-110 ${colorForRatio(ratio)} ${
                       isBase ? "ring-2 ring-inset ring-accent font-semibold" : ""
                     }`}
                   >
                     {formatValue(value)}
-                  </td>
+                  </motion.td>
                 );
               })}
             </tr>

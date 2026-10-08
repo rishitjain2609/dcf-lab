@@ -72,7 +72,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
           <div className="mt-4 rounded-md border border-border bg-card p-4">
             <BarChart
               categories={["Implied value", `At publish (${model.publishDate})`, "Latest"]}
-              valueFormatter={(v) => formatRupees(v)}
+              format="rupees"
               series={[
                 {
                   label: model.company,

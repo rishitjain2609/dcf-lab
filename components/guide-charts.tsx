@@ -1,3 +1,5 @@
+"use client";
+
 import { BarChart } from "@/components/charts/bar-chart";
 import { WaterfallChart } from "@/components/charts/waterfall-chart";
 import { SensitivityHeatmap } from "@/components/charts/sensitivity-heatmap";
@@ -10,7 +12,7 @@ export function UfcfBuildChart() {
     <div className="mt-4 rounded-md border border-border bg-card p-4">
       <BarChart
         categories={YEARS}
-        valueFormatter={(v) => `₹${v.toFixed(0)} cr`}
+        format="crore"
         series={[
           { label: "Revenue", values: [1100, 1210, 1331, 1464.1, 1610.51], colorClassName: "fill-indigo-500 dark:fill-indigo-400" },
           { label: "EBITDA", values: [220, 242, 266.2, 292.82, 322.1], colorClassName: "fill-amber-500 dark:fill-amber-400" },
@@ -26,7 +28,7 @@ export function EquityBridgeWaterfall() {
   return (
     <div className="mt-4 rounded-md border border-border bg-card p-4">
       <WaterfallChart
-        valueFormatter={(v) => `₹${v.toFixed(0)}`}
+        format="crore"
         steps={[
           { label: "Enterprise value", value: 1494.5, kind: "total" },
           { label: "Net debt", value: -200, kind: "change" },

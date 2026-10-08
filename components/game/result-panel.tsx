@@ -62,7 +62,7 @@ export function ResultPanel({
         <div className="mt-4 rounded-md border border-border bg-card p-4">
           <BarChart
             categories={["Yr 1", "Yr 2", "Yr 3", "Yr 4", "Yr 5"]}
-            valueFormatter={(v) => formatCrore(v)}
+            format="crore"
             series={[
               { label: "Revenue", values: result.user.revenue, colorClassName: "fill-indigo-500 dark:fill-indigo-400" },
               { label: "EBITDA", values: result.user.ebitda, colorClassName: "fill-amber-500 dark:fill-amber-400" },
@@ -113,7 +113,7 @@ export function ResultPanel({
         <div className="mt-4 rounded-md border border-border bg-card p-4">
           <BarChart
             categories={["Your value", "Market", "Reference"]}
-            valueFormatter={(v) => formatRupees(v)}
+            format="rupees"
             series={[
               {
                 label: "₹ per share",

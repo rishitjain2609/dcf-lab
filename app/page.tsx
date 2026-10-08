@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { HeroIllustration } from "@/components/hero-illustration";
 import { WhyDcfIcon, GuideIcon, ModelsIcon, GameIcon } from "@/components/section-icons";
+import { SectionCard } from "@/components/section-card";
+import { AnimatedCounter } from "@/components/animated-counter";
 
 const SECTIONS = [
   {
@@ -61,22 +63,21 @@ export default function Home() {
 
       <section className="mt-16 grid gap-4 sm:grid-cols-2">
         {SECTIONS.map((s) => (
-          <Link
+          <SectionCard
             key={s.href}
             href={s.href}
-            className={`group flex gap-4 rounded-lg border border-border bg-card p-5 transition ${s.borderClass}`}
-          >
-            <s.Icon className="h-10 w-10 flex-shrink-0" />
-            <div>
-              <h2 className="font-medium group-hover:text-accent">{s.title}</h2>
-              <p className="mt-1 text-sm text-muted">{s.description}</p>
-            </div>
-          </Link>
+            title={s.title}
+            description={s.description}
+            icon={<s.Icon className="h-10 w-10 flex-shrink-0" />}
+            borderClass={s.borderClass}
+          />
         ))}
       </section>
 
       <section className="mt-16 flex flex-col items-start gap-4 rounded-lg border border-border bg-card p-6 sm:flex-row sm:items-center">
-        <p className="font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400">200+</p>
+        <p className="font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+          <AnimatedCounter to={200} suffix="+" />
+        </p>
         <p className="text-sm text-muted">
           students have used DCF Lab to build their own valuation so far. The Game is the fastest
           way to become one of them.

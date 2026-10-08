@@ -1,3 +1,9 @@
+"use client";
+
+import { motion } from "motion/react";
+import { formatCrore, formatRupees } from "@/lib/format";
+import type { ChartValueFormat } from "./bar-chart";
+
 export interface WaterfallStep {
   label: string;
   value: number;
@@ -15,13 +21,20 @@ const VB_HEIGHT = 170;
 const BOTTOM_MARGIN = 22;
 const TOP_MARGIN = 20;
 
+const FORMATTERS: Record<ChartValueFormat, (v: number) => string> = {
+  crore: formatCrore,
+  rupees: (v) => formatRupees(v, 0),
+  raw: (v) => v.toFixed(1),
+};
+
 export function WaterfallChart({
   steps,
-  valueFormatter = (v: number) => v.toFixed(1),
+  format = "raw",
 }: {
   steps: WaterfallStep[];
-  valueFormatter?: (value: number) => string;
+  format?: ChartValueFormat;
 }) {
+  const valueFormatter = FORMATTERS[format];
   const { bars } = steps.reduce<{ bars: (WaterfallStep & { from: number; to: number; colorClass: string })[]; running: number }>(
     (acc, step) => {
       const from = step.kind === "total" ? 0 : acc.running;
@@ -66,20 +79,37 @@ export function WaterfallChart({
           const barBottom = scaleY(Math.min(bar.from, bar.to));
           const barHeight = Math.max(barBottom - barTop, 1.5);
           const x = i * groupWidth + groupWidth * 0.2;
+          const barCenterX = x + (groupWidth * 0.6) / 2;
           return (
             <g key={bar.label}>
-              <rect x={x} y={barTop} width={groupWidth * 0.6} height={barHeight} rx={1.5} className={bar.colorClass} />
-              <text
+              <motion.rect
+                x={x}
+                y={barTop}
+                width={groupWidth * 0.6}
+                height={barHeight}
+                rx={1.5}
+                className={bar.colorClass}
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15, ease: "easeOut" }}
+                style={{ transformOrigin: `${barCenterX}px ${barBottom}px` }}
+              />
+              <motion.text
                 x={i * groupWidth + groupWidth / 2}
                 y={barTop - 6}
                 textAnchor="middle"
                 className="fill-foreground"
                 style={{ fontSize: 10 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 + 0.4 }}
               >
                 {bar.kind === "total"
                   ? valueFormatter(bar.to)
                   : `${bar.value >= 0 ? "+" : "-"}${valueFormatter(Math.abs(bar.value))}`}
-              </text>
+              </motion.text>
               <text
                 x={i * groupWidth + groupWidth / 2}
                 y={VB_HEIGHT - 6}
