@@ -1,14 +1,19 @@
-import { PageHeader } from "@/components/page-header";
-import { PageHeroBanner } from "@/components/page-hero-banner";
+import { PageHero } from "@/components/page-hero-banner";
 import { DISCLAIMER } from "@/lib/nav";
 import { Todo } from "@/components/todo";
 
 export default function AboutPage() {
   return (
     <div>
-      <PageHeroBanner src="/images/desk-laptop.jpg" alt="A desk with a laptop showing financial charts" />
-      <PageHeader title="About" description="Who built this, how, and why it should be trusted no more than it's earned." />
-      <div className="mx-auto max-w-5xl space-y-10 px-4 pb-16">
+      <PageHero
+        src="/images/desk-laptop.jpg"
+        alt="A desk with a laptop showing financial charts"
+        kicker="ABOUT"
+        kickerClassName="text-sky-300"
+        title="About"
+        description="Who built this, how, and why it should be trusted no more than it's earned."
+      />
+      <div className="mx-auto max-w-5xl space-y-10 px-4 pb-16 pt-12">
         <section className="flex items-start gap-4">
           <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-accent font-mono text-lg font-semibold text-white dark:text-background">
             RJ
