@@ -37,52 +37,63 @@ const SECTIONS = [
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16">
-      <section className="grid items-center gap-8 sm:grid-cols-2">
-        <div>
-          <p className="font-mono text-sm text-accent">DCF Lab</p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-            Can a student&apos;s DCF beat the market price, and why are DCFs wrong?
+    <div>
+      {/* Full-bleed hero */}
+      <div className="relative flex h-[34rem] w-full items-end overflow-hidden sm:h-[40rem]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/skyscrapers.jpg" alt="" className="absolute inset-0 h-full w-full scale-110 object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-14">
+          <p className="font-mono text-sm font-semibold tracking-[0.2em] text-violet-300">DCF LAB</p>
+          <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl">
+            Can a student&apos;s DCF
+            <br />
+            beat the market?
           </h1>
-          <p className="mt-4 text-muted">
-            A DCF is just a way of estimating what a company is worth from the cash it will
-            generate, like figuring out what a lemonade stand is worth by adding up every cup
-            of lemonade it will ever sell. No finance background needed to follow along.
+          <p className="mt-5 max-w-xl text-base text-white/80 sm:text-lg">
+            A DCF estimates what a company is worth from the cash it will generate, like figuring
+            out what a lemonade stand is worth by adding up every cup it will ever sell. No
+            finance background needed.
           </p>
           <Link
             href="/why-dcf"
-            className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 dark:text-background"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-white/90"
           >
-            Start here, Why DCF →
+            Start here
           </Link>
         </div>
-        <div className="hidden sm:block">
-          <HeroIllustration />
-        </div>
-      </section>
+        <p className="absolute bottom-2 right-3 z-10 text-[10px] text-white/50">AI-generated illustrative image</p>
+      </div>
 
-      <section className="mt-16 grid gap-4 sm:grid-cols-2">
-        {SECTIONS.map((s) => (
-          <SectionCard
-            key={s.href}
-            href={s.href}
-            title={s.title}
-            description={s.description}
-            icon={<s.Icon className="h-10 w-10 flex-shrink-0" />}
-            borderClass={s.borderClass}
-          />
-        ))}
-      </section>
+      <div className="mx-auto max-w-5xl px-4 py-20">
+        <section className="grid gap-4 sm:grid-cols-2">
+          {SECTIONS.map((s) => (
+            <SectionCard
+              key={s.href}
+              href={s.href}
+              title={s.title}
+              description={s.description}
+              icon={<s.Icon className="h-10 w-10 flex-shrink-0" />}
+              borderClass={s.borderClass}
+            />
+          ))}
+        </section>
 
-      <section className="mt-16 flex flex-col items-start gap-4 rounded-lg border border-border bg-card p-6 sm:flex-row sm:items-center">
-        <p className="font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400">
-          <AnimatedCounter to={200} suffix="+" />
-        </p>
-        <p className="text-sm text-muted">
-          students have used DCF Lab to build their own valuation so far. The Game is the fastest
-          way to become one of them.
-        </p>
-      </section>
+        <section className="mt-20 flex flex-col items-center gap-8 rounded-2xl border border-border bg-card p-8 sm:flex-row">
+          <div className="w-full sm:w-64">
+            <HeroIllustration />
+          </div>
+          <div className="flex flex-col items-start gap-2">
+            <p className="font-mono text-5xl font-black text-emerald-600 dark:text-emerald-400">
+              <AnimatedCounter to={200} suffix="+" />
+            </p>
+            <p className="text-sm text-muted">
+              students have used DCF Lab to build their own valuation so far. The Game is the
+              fastest way to become one of them.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
