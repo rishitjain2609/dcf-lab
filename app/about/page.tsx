@@ -6,12 +6,13 @@ export default function AboutPage() {
   return (
     <div>
       <PageHero
-        src="/images/desk-laptop.jpg"
-        alt="A desk with a laptop showing financial charts"
+        src="/images/students-laptop.jpg"
+        alt="Students working together on laptops"
         kicker="ABOUT"
         kickerClassName="text-sky-300"
         title="About"
         description="Who built this, how, and why it should be trusted no more than it's earned."
+        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl space-y-10 px-4 pb-16 pt-12">
         <section className="flex items-start gap-4">

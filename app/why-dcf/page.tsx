@@ -7,12 +7,13 @@ export default function WhyDcfPage() {
   return (
     <div>
       <PageHero
-        src="/images/skyscrapers.jpg"
-        alt="Modern glass office skyscrapers in a financial district"
+        src="/images/mumbai-night.jpg"
+        alt="Mumbai skyline lit up at night"
         kicker="WHY DCF"
         kickerClassName="text-violet-300"
         title={frontmatter.title}
         description={frontmatter.description}
+        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <Mdx source={content} />

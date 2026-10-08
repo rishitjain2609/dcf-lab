@@ -6,12 +6,13 @@ export default function GuidePage() {
   return (
     <div>
       <PageHero
-        src="/images/desk-laptop.jpg"
+        src="/images/desk-laptop-real.jpg"
         alt="A desk with a laptop showing financial charts"
         kicker="GUIDE"
         kickerClassName="text-indigo-300"
         title="Guide"
         description="A step-by-step build of a full DCF model, each step with a worked numeric example."
+        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <ol className="space-y-2">

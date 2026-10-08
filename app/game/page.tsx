@@ -8,12 +8,13 @@ export default function GamePage() {
   return (
     <div>
       <PageHero
-        src="/images/stock-ticker.jpg"
-        alt="A digital stock ticker display on a building at dusk"
+        src="/images/stock-charts-real.jpg"
+        alt="Stock market candlestick charts on multiple screens"
         kicker="GAME"
         kickerClassName="text-amber-300"
         title="The Valuation Game"
         description="Pick a real Indian company, set your own DCF assumptions, and see how your implied value compares to the market and to a reference model."
+        credit="Photo via Unsplash"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <GameApp companies={companies} />

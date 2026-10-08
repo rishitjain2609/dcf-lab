@@ -41,7 +41,7 @@ export default function Home() {
       {/* Full-bleed hero */}
       <div className="relative flex h-[34rem] w-full items-end overflow-hidden sm:h-[40rem]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/skyscrapers.jpg" alt="" className="absolute inset-0 h-full w-full scale-110 object-cover" />
+        <img src="/images/skyscrapers-real.jpg" alt="" className="absolute inset-0 h-full w-full scale-110 object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-14">
           <p className="font-mono text-sm font-semibold tracking-[0.2em] text-violet-300">DCF LAB</p>
@@ -62,7 +62,7 @@ export default function Home() {
             Start here
           </Link>
         </div>
-        <p className="absolute bottom-2 right-3 z-10 text-[10px] text-white/50">AI-generated illustrative image</p>
+        <p className="absolute bottom-2 right-3 z-10 text-[10px] text-white/50">Photo via Pexels</p>
       </div>
 
       <div className="mx-auto max-w-5xl px-4 py-20">
