@@ -64,7 +64,7 @@ export default function Home() {
           <SectionCard
             href="/models"
             title="Models"
-            description="Two real DCFs on Indian listed companies."
+            description="Real DCFs on real listed companies."
             icon={<ModelsIcon className="h-14 w-14" />}
             tintClassName="bg-emerald-50 dark:bg-emerald-950/40"
           />
@@ -72,9 +72,11 @@ export default function Home() {
             href="/game"
             title="Game"
             description="Build your own DCF and see how close you get, with a quiz either side."
-            icon={<GameIcon className="h-14 w-14" />}
+            icon={<GameIcon className="h-16 w-16" />}
             tintClassName="bg-amber-50 dark:bg-amber-950/40"
-            className="sm:col-span-1"
+            tags={["5-question quiz", "Your own assumptions", "Compare to the market"]}
+            wide
+            className="sm:col-span-3"
           />
         </div>
       </div>

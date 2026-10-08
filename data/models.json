@@ -2,18 +2,39 @@
   {
     "slug": "sample-co",
     "company": "Sample Co Ltd",
-    "ticker": "NSE · SAMPLECO",
+    "ticker": "NSE \u00b7 SAMPLECO",
     "sector": "Consumer / Retail (illustrative placeholder)",
     "publishDate": "2026-09-01",
     "summary": "One-paragraph thesis on why this company, what the DCF says, and what would change your mind.",
     "assumptions": [
-      { "label": "Revenue growth, Yr 1–5", "value": "10% every year" },
-      { "label": "EBITDA margin", "value": "20%" },
-      { "label": "D&A, % of revenue", "value": "5%" },
-      { "label": "Capex, % of revenue", "value": "6%" },
-      { "label": "Tax rate", "value": "25%" },
-      { "label": "WACC", "value": "12%" },
-      { "label": "Terminal growth", "value": "4%" }
+      {
+        "label": "Revenue growth, Yr 1\u20135",
+        "value": "10% every year"
+      },
+      {
+        "label": "EBITDA margin",
+        "value": "20%"
+      },
+      {
+        "label": "D&A, % of revenue",
+        "value": "5%"
+      },
+      {
+        "label": "Capex, % of revenue",
+        "value": "6%"
+      },
+      {
+        "label": "Tax rate",
+        "value": "25%"
+      },
+      {
+        "label": "WACC",
+        "value": "12%"
+      },
+      {
+        "label": "Terminal growth",
+        "value": "4%"
+      }
     ],
     "impliedValuePerShare": 30,
     "priceAtPublish": 25,
@@ -34,18 +55,39 @@
   {
     "slug": "demo-industries",
     "company": "Demo Industries Ltd",
-    "ticker": "NSE · DEMOIND",
+    "ticker": "NSE \u00b7 DEMOIND",
     "sector": "Industrials (illustrative placeholder)",
     "publishDate": "2026-09-15",
     "summary": "One-paragraph thesis for the second model.",
     "assumptions": [
-      { "label": "Revenue growth, Yr 1–5", "value": "8% every year" },
-      { "label": "EBITDA margin", "value": "18%" },
-      { "label": "D&A, % of revenue", "value": "5%" },
-      { "label": "Capex, % of revenue", "value": "6%" },
-      { "label": "Tax rate", "value": "25%" },
-      { "label": "WACC", "value": "12%" },
-      { "label": "Terminal growth", "value": "4%" }
+      {
+        "label": "Revenue growth, Yr 1\u20135",
+        "value": "8% every year"
+      },
+      {
+        "label": "EBITDA margin",
+        "value": "18%"
+      },
+      {
+        "label": "D&A, % of revenue",
+        "value": "5%"
+      },
+      {
+        "label": "Capex, % of revenue",
+        "value": "6%"
+      },
+      {
+        "label": "Tax rate",
+        "value": "25%"
+      },
+      {
+        "label": "WACC",
+        "value": "12%"
+      },
+      {
+        "label": "Terminal growth",
+        "value": "4%"
+      }
     ],
     "impliedValuePerShare": 100,
     "priceAtPublish": 120,
@@ -60,6 +102,218 @@
         "version": "v1",
         "date": "2026-09-15",
         "changelog": "TODO(Rishit) initial publish."
+      }
+    ]
+  },
+  {
+    "slug": "nike",
+    "company": "Nike Inc",
+    "ticker": "NYSE \u00b7 NKE",
+    "sector": "Consumer / Apparel & footwear (real company, model pending)",
+    "publishDate": "2026-10-09",
+    "summary": "Replace with a real one-paragraph thesis, assumptions, and sourced historicals for Nike. The numbers below are placeholders, not research.",
+    "assumptions": [
+      {
+        "label": "Revenue growth, Yr 1\u20135",
+        "value": "TODO"
+      },
+      {
+        "label": "EBITDA margin",
+        "value": "TODO"
+      },
+      {
+        "label": "D&A, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Capex, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Tax rate",
+        "value": "TODO"
+      },
+      {
+        "label": "WACC",
+        "value": "TODO"
+      },
+      {
+        "label": "Terminal growth",
+        "value": "TODO"
+      }
+    ],
+    "impliedValuePerShare": 1,
+    "priceAtPublish": 1,
+    "latestPrice": 1,
+    "dilutedShares": 1,
+    "netDebt": 0,
+    "excelUrl": null,
+    "valuePickrUrl": null,
+    "substackUrl": null,
+    "versions": [
+      {
+        "version": "v0",
+        "date": "2026-10-09",
+        "changelog": "Placeholder created. TODO(Rishit) build the real model."
+      }
+    ]
+  },
+  {
+    "slug": "zomato",
+    "company": "Zomato Ltd",
+    "ticker": "NSE \u00b7 ZOMATO",
+    "sector": "Consumer / Food delivery & quick commerce (real company, model pending)",
+    "publishDate": "2026-10-09",
+    "summary": "Replace with a real one-paragraph thesis, assumptions, and sourced historicals for Zomato. The numbers below are placeholders, not research.",
+    "assumptions": [
+      {
+        "label": "Revenue growth, Yr 1\u20135",
+        "value": "TODO"
+      },
+      {
+        "label": "EBITDA margin",
+        "value": "TODO"
+      },
+      {
+        "label": "D&A, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Capex, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Tax rate",
+        "value": "TODO"
+      },
+      {
+        "label": "WACC",
+        "value": "TODO"
+      },
+      {
+        "label": "Terminal growth",
+        "value": "TODO"
+      }
+    ],
+    "impliedValuePerShare": 1,
+    "priceAtPublish": 1,
+    "latestPrice": 1,
+    "dilutedShares": 1,
+    "netDebt": 0,
+    "excelUrl": null,
+    "valuePickrUrl": null,
+    "substackUrl": null,
+    "versions": [
+      {
+        "version": "v0",
+        "date": "2026-10-09",
+        "changelog": "Placeholder created. TODO(Rishit) build the real model."
+      }
+    ]
+  },
+  {
+    "slug": "open-slot-3",
+    "company": "Open slot \u2014 company TBD",
+    "ticker": "TBD",
+    "sector": "(reserved for a guest contributor's model)",
+    "publishDate": "2026-10-09",
+    "summary": "Once a contributor picks a company, replace this whole entry with their real thesis, assumptions, and historicals.",
+    "assumptions": [
+      {
+        "label": "Revenue growth, Yr 1\u20135",
+        "value": "TODO"
+      },
+      {
+        "label": "EBITDA margin",
+        "value": "TODO"
+      },
+      {
+        "label": "D&A, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Capex, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Tax rate",
+        "value": "TODO"
+      },
+      {
+        "label": "WACC",
+        "value": "TODO"
+      },
+      {
+        "label": "Terminal growth",
+        "value": "TODO"
+      }
+    ],
+    "impliedValuePerShare": 1,
+    "priceAtPublish": 1,
+    "latestPrice": 1,
+    "dilutedShares": 1,
+    "netDebt": 0,
+    "excelUrl": null,
+    "valuePickrUrl": null,
+    "substackUrl": null,
+    "versions": [
+      {
+        "version": "v0",
+        "date": "2026-10-09",
+        "changelog": "Reserved slot, no contributor yet."
+      }
+    ]
+  },
+  {
+    "slug": "open-slot-4",
+    "company": "Open slot \u2014 company TBD",
+    "ticker": "TBD",
+    "sector": "(reserved for a guest contributor's model)",
+    "publishDate": "2026-10-09",
+    "summary": "Once a contributor picks a company, replace this whole entry with their real thesis, assumptions, and historicals.",
+    "assumptions": [
+      {
+        "label": "Revenue growth, Yr 1\u20135",
+        "value": "TODO"
+      },
+      {
+        "label": "EBITDA margin",
+        "value": "TODO"
+      },
+      {
+        "label": "D&A, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Capex, % of revenue",
+        "value": "TODO"
+      },
+      {
+        "label": "Tax rate",
+        "value": "TODO"
+      },
+      {
+        "label": "WACC",
+        "value": "TODO"
+      },
+      {
+        "label": "Terminal growth",
+        "value": "TODO"
+      }
+    ],
+    "impliedValuePerShare": 1,
+    "priceAtPublish": 1,
+    "latestPrice": 1,
+    "dilutedShares": 1,
+    "netDebt": 0,
+    "excelUrl": null,
+    "valuePickrUrl": null,
+    "substackUrl": null,
+    "versions": [
+      {
+        "version": "v0",
+        "date": "2026-10-09",
+        "changelog": "Reserved slot, no contributor yet."
       }
     ]
   }

@@ -11,6 +11,7 @@ export function SectionCard({
   icon,
   tintClassName,
   large = false,
+  wide = false,
   className = "",
   tags,
 }: {
@@ -20,9 +21,51 @@ export function SectionCard({
   icon: ReactNode;
   tintClassName: string;
   large?: boolean;
+  /** Horizontal layout for a full-width band instead of a stacked tile. */
+  wide?: boolean;
   className?: string;
   tags?: string[];
 }) {
+  if (wide) {
+    return (
+      <Link href={href} className={`block ${className}`}>
+        <motion.div
+          whileHover={{ y: -4 }}
+          whileTap={{ y: 0, scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className={`group flex flex-col items-start gap-6 rounded-3xl p-8 sm:flex-row sm:items-center sm:gap-10 ${tintClassName}`}
+        >
+          <motion.div
+            whileHover={{ rotate: -6, scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="w-fit flex-shrink-0"
+          >
+            {icon}
+          </motion.div>
+          <div className="flex-1">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight">{title}</h2>
+            <p className="mt-2 max-w-md text-lg text-foreground/70">{description}</p>
+          </div>
+          {tags && tags.length > 0 && (
+            <div className="flex w-full flex-wrap gap-2 sm:w-56 sm:flex-shrink-0 sm:justify-end">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-background/40 px-4 py-1.5 text-sm font-medium text-foreground/80"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+          <span className="hidden flex-shrink-0 text-3xl text-foreground/40 transition group-hover:translate-x-1 group-hover:text-accent sm:block">
+            →
+          </span>
+        </motion.div>
+      </Link>
+    );
+  }
+
   return (
     <Link href={href} className={`block ${className}`}>
       <motion.div
