@@ -8,6 +8,7 @@ export default function GuidePage() {
       <PageHeader
         title="Guide"
         description="A step-by-step build of a full DCF model, each step with a worked numeric example."
+        accentClassName="bg-indigo-500"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16">
         <ol className="space-y-2">

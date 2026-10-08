@@ -21,7 +21,7 @@ export default async function GuideStepPage({ params }: { params: Promise<{ slug
 
   return (
     <div>
-      <PageHeader title={frontmatter.title} description={frontmatter.description} />
+      <PageHeader title={frontmatter.title} description={frontmatter.description} accentClassName="bg-indigo-500" />
       <div className="mx-auto max-w-5xl px-4 pb-16">
         <p className="font-mono text-sm text-muted">
           Step {index + 1} of {GUIDE_STEPS.length}

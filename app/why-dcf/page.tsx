@@ -6,7 +6,7 @@ export default function WhyDcfPage() {
 
   return (
     <div>
-      <PageHeader title={frontmatter.title} description={frontmatter.description} />
+      <PageHeader title={frontmatter.title} description={frontmatter.description} accentClassName="bg-violet-500" />
       <div className="mx-auto max-w-5xl px-4 pb-16">
         <Mdx source={content} />
       </div>

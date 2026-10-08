@@ -10,6 +10,7 @@ export default function GamePage() {
       <PageHeader
         title="The Valuation Game"
         description="Pick a real Indian company, set your own DCF assumptions, and see how your implied value compares to the market and to a reference model."
+        accentClassName="bg-amber-500"
       />
       <div className="mx-auto max-w-5xl px-4 pb-16">
         <GameApp companies={companies} />

@@ -23,7 +23,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
 
   return (
     <div>
-      <PageHeader title={model.company} description={`${model.ticker} — ${model.sector}`} />
+      <PageHeader title={model.company} description={`${model.ticker} — ${model.sector}`} accentClassName="bg-emerald-500" />
       <div className="mx-auto max-w-5xl space-y-10 px-4 pb-16">
         <Link href="/models" className="text-sm text-muted hover:text-accent">
           ← Back to all models
@@ -87,7 +87,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
             <Link href="/about" className="hover:text-accent">
               disclaimer
             </Link>
-            . It also lives permanently in the <Link href="/ledger" className="hover:text-accent">ledger</Link>.
+            .
           </p>
         </section>
 
@@ -100,7 +100,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               </a>
             ) : (
               <span className="rounded-md border border-dashed border-border px-3 py-1.5 text-muted">
-                Excel — TODO(Harsh)
+                Excel — TODO(Rishit)
               </span>
             )}
             {model.valuePickrUrl ? (
@@ -109,7 +109,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               </a>
             ) : (
               <span className="rounded-md border border-dashed border-border px-3 py-1.5 text-muted">
-                ValuePickr thread — TODO(Harsh)
+                ValuePickr thread — TODO(Rishit)
               </span>
             )}
             {model.substackUrl ? (
@@ -118,7 +118,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
               </a>
             ) : (
               <span className="rounded-md border border-dashed border-border px-3 py-1.5 text-muted">
-                Substack post — TODO(Harsh)
+                Substack post — TODO(Rishit)
               </span>
             )}
           </div>
