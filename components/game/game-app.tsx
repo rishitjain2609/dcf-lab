@@ -76,7 +76,7 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
     return (
       <Quiz
         questions={QUIZ_QUESTIONS}
-        heading="Before you start: concept check"
+        heading="A quick concept check before you start"
         description="Five quick questions. This is just a baseline, there's no penalty for guessing."
         onComplete={handlePreQuizComplete}
       />
