@@ -11,6 +11,7 @@ export default function ModelsPage() {
       <PageHero
         src="/images/mumbai-marine-drive.jpg"
         alt="Mumbai's Marine Drive skyline"
+        video="/videos/stock-charts-motion.mp4"
         kicker="MODELS"
         kickerClassName="text-emerald-300"
         title="Models"

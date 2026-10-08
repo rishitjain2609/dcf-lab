@@ -10,6 +10,7 @@ export default function GamePage() {
       <PageHero
         src="/images/stock-charts-real.jpg"
         alt="Stock market candlestick charts on multiple screens"
+        video="/videos/team-collaboration.mp4"
         kicker="GAME"
         kickerClassName="text-amber-300"
         title="The Valuation Game"

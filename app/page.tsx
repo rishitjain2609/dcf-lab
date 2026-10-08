@@ -48,8 +48,9 @@ export default function Home() {
             href="/why-dcf"
             title="Why DCF"
             description="What this is, where professionals actually use it, and where it breaks down."
-            icon={<WhyDcfIcon className="h-14 w-14" />}
+            icon={<WhyDcfIcon className="h-20 w-20" />}
             tintClassName="bg-violet-50 dark:bg-violet-950/40"
+            tags={["Equity research", "M&A", "Private equity", "IPO pricing"]}
             large
             className="sm:col-span-2 sm:row-span-2"
           />
@@ -57,21 +58,21 @@ export default function Home() {
             href="/guide"
             title="Guide"
             description="A step-by-step build, with a worked example at every step."
-            icon={<GuideIcon className="h-10 w-10" />}
+            icon={<GuideIcon className="h-14 w-14" />}
             tintClassName="bg-indigo-50 dark:bg-indigo-950/40"
           />
           <SectionCard
             href="/models"
             title="Models"
             description="Two real DCFs on Indian listed companies."
-            icon={<ModelsIcon className="h-10 w-10" />}
+            icon={<ModelsIcon className="h-14 w-14" />}
             tintClassName="bg-emerald-50 dark:bg-emerald-950/40"
           />
           <SectionCard
             href="/game"
             title="Game"
             description="Build your own DCF and see how close you get, with a quiz either side."
-            icon={<GameIcon className="h-10 w-10" />}
+            icon={<GameIcon className="h-14 w-14" />}
             tintClassName="bg-amber-50 dark:bg-amber-950/40"
             className="sm:col-span-1"
           />
@@ -79,7 +80,7 @@ export default function Home() {
       </div>
 
       {/* Pull-quote stat break: full-bleed dark band */}
-      <div className="bg-stone-950 py-20 text-stone-50">
+      <div className="bg-slate-950 py-20 text-slate-50">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-4 sm:flex-row">
           <div className="w-full max-w-xs">
             <HeroIllustration />
@@ -88,7 +89,7 @@ export default function Home() {
             <p className="font-[family-name:var(--font-display)] text-7xl font-semibold italic text-emerald-400 sm:text-8xl">
               <AnimatedCounter to={200} suffix="+" />
             </p>
-            <p className="mt-3 max-w-sm text-stone-300">
+            <p className="mt-3 max-w-sm text-slate-300">
               people have used DCF Lab to build their own valuation so far. The Game is the
               fastest way to become one of them.
             </p>

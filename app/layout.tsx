@@ -3,7 +3,6 @@ import { Work_Sans, Fragment_Mono, Petrona } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ThemeScript } from "@/components/theme-script";
 import { PageTransition } from "@/components/page-transition";
 
 const bodySans = Work_Sans({
@@ -33,12 +32,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bodySans.variable} ${bodyMono.variable} ${displaySerif.variable} h-full antialiased`}
-      suppressHydrationWarning
+      className={`${bodySans.variable} ${bodyMono.variable} ${displaySerif.variable} dark h-full antialiased`}
     >
-      <head>
-        <ThemeScript />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />
         <main className="flex-1">

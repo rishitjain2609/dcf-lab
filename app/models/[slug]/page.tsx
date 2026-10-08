@@ -88,11 +88,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
             />
           </div>
           <p className="mt-3 text-sm text-muted">
-            This is an implied value under one set of assumptions, not a prediction. See the{" "}
-            <Link href="/about" className="hover:text-accent">
-              disclaimer
-            </Link>
-            .
+            This is an implied value under one set of assumptions, not a prediction.
           </p>
         </section>
 

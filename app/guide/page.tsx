@@ -8,6 +8,7 @@ export default function GuidePage() {
       <PageHero
         src="/images/desk-laptop-real.jpg"
         alt="A desk with a laptop showing financial charts"
+        video="/videos/laptop-spreadsheet.mp4"
         kicker="GUIDE"
         kickerClassName="text-indigo-300"
         title="Guide"
