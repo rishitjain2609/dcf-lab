@@ -21,31 +21,24 @@ rest of this site is just the mechanics of doing that carefully.
 
 ## Where it's used
 
-- **Equity research.** Analysts build a DCF to publish an implied value and justify a rating on
-  a stock, the way this site's own [models](/models) do.
-- **M&A.** When one company buys another, the buyer runs a DCF to sanity-check the price against
-  what the target can actually generate, so they don't overpay based on vibes.
-- **Private equity.** A PE firm underwrites a deal against a specific hold period (often 3 to 7
-  years) and an assumed exit, essentially running the whole DCF machinery in reverse to solve for
-  "what return do we get if we buy at this price and sell at that one."
-- **IPO pricing.** When a company goes public, bankers and the company itself triangulate a
-  price range partly off a DCF, alongside comparing it to similar already-listed companies.
+Analysts, bankers, and buyers all use the same math for different jobs.
+
+<UsesGrid />
+
+Equity research uses a DCF to publish an implied value, the way this site's own
+[models](/models) do. M&A buyers run one to sanity-check a price against what the target can
+actually generate. PE firms underwrite a deal against a hold period and an assumed exit, running
+the machinery in reverse. And in an IPO, bankers triangulate a price range partly off a DCF,
+alongside comparable companies.
 
 ## Where it breaks
 
 The honest limits, because a tool this widely used deserves them stated plainly.
 
-- **Most of the value is a guess about forever.** As the [terminal value](/guide/terminal-value)
-  step on this site shows, roughly 70% of a typical DCF's value often comes from one assumption
-  about growth *after* the forecast period ends, not from the carefully built years in between.
-- **Small changes move the answer a lot.** The [sensitivity tables](/guide/sensitivity-tables)
-  step shows a 2-percentage-point change in the discount rate moving the implied value by nearly
-  30%, with zero change to any actual business assumption.
-- **It can be reverse-engineered.** Because there are so many assumptions to turn, a DCF can be
-  built to justify almost any price if the assumptions get picked *after* deciding what answer
-  you want, instead of before.
+<LimitsBand />
 
-None of that makes a DCF useless. It makes it a tool whose answer is only as good as its
+See the [terminal value](/guide/terminal-value) step for where that 70% comes from, and
+[sensitivity tables](/guide/sensitivity-tables) for the 2-point swing. None of that makes a DCF useless. It makes it a tool whose answer is only as good as its
 assumptions, which is exactly why this site tracks every published implied value against what
 actually happened afterward, on each [model's page](/models), rather than publishing a number and
 moving on.

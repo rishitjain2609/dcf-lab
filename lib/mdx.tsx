@@ -14,6 +14,7 @@ import {
 } from "@/components/guide-charts";
 import { DcfConceptDiagram } from "@/components/dcf-concept-diagram";
 import { PhotoAccent } from "@/components/photo-accent";
+import { UsesGrid, LimitsBand } from "@/components/why-dcf-sections";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -40,10 +41,16 @@ export function listContentFiles(relativeDir: string): string[] {
 
 const mdxComponents = {
   h1: (props: React.ComponentProps<"h1">) => (
-    <h1 className="mt-10 scroll-mt-20 text-2xl font-semibold tracking-tight" {...props} />
+    <h1
+      className="mt-10 scroll-mt-20 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight"
+      {...props}
+    />
   ),
   h2: (props: React.ComponentProps<"h2">) => (
-    <h2 className="mt-8 scroll-mt-20 text-xl font-semibold tracking-tight" {...props} />
+    <h2
+      className="mt-10 scroll-mt-20 font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight"
+      {...props}
+    />
   ),
   h3: (props: React.ComponentProps<"h3">) => (
     <h3 className="mt-6 scroll-mt-20 text-lg font-medium" {...props} />
@@ -78,6 +85,8 @@ const mdxComponents = {
   RevenueBuildChart,
   IncomeStatementChart,
   DiscountingComparisonChart,
+  UsesGrid,
+  LimitsBand,
 };
 
 export function Mdx({ source }: { source: string }) {
