@@ -30,13 +30,13 @@ export function AssumptionForm({
 
   return (
     <div>
-      <h2 className="text-lg font-medium">Set your assumptions</h2>
-      <p className="mt-1 text-sm text-muted">
+      <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold italic">Set your assumptions</h2>
+      <p className="mt-1 text-sm text-foreground/60">
         {company.company} ({company.ticker}). Last FY revenue carried forward 5 years at the
         growth rate you choose below.
       </p>
 
-      <div className="mt-6 space-y-6 rounded-lg border border-border bg-card p-5">
+      <div className="mt-6 space-y-6 rounded-3xl bg-indigo-50 p-6 dark:bg-indigo-950/30">
         <Slider
           label="Revenue growth (flat, Years 1–5)"
           value={assumptions.revenueGrowth}
@@ -89,9 +89,9 @@ export function AssumptionForm({
             type="button"
             disabled={!guard.valid}
             onClick={() => onReveal(assumptions)}
-            className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white disabled:opacity-40 dark:text-background"
+            className="rounded-full bg-indigo-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700 disabled:opacity-40"
           >
-            Reveal
+            Reveal →
           </button>
         </div>
       </div>

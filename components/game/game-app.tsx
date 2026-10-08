@@ -52,8 +52,11 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
 
   if (step === "intro") {
     return (
-      <div className="rounded-lg border border-border bg-card p-6">
-        <p className="text-foreground/90">
+      <div className="overflow-hidden rounded-3xl bg-amber-50 p-8 dark:bg-amber-950/30">
+        <p className="font-[family-name:var(--font-display)] text-2xl italic text-amber-900 dark:text-amber-200">
+          Five steps, one real model.
+        </p>
+        <p className="mt-3 max-w-lg text-foreground/80">
           You&apos;ll take a quick 5-question concept quiz, build your own DCF on a sample company, see how your
           implied value compares to the market price and a reference model, then take the same quiz again to see
           what stuck.
@@ -61,9 +64,9 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
         <button
           type="button"
           onClick={() => setStep("pre-quiz")}
-          className="mt-4 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white dark:text-background"
+          className="mt-6 rounded-full bg-amber-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-amber-700"
         >
-          Start
+          Start →
         </button>
       </div>
     );
@@ -112,22 +115,30 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
   if (step === "summary" && preScore !== null && postScore !== null) {
     const delta = postScore - preScore;
     return (
-      <div className="rounded-lg border border-border bg-card p-6">
-        <h2 className="text-lg font-medium">Your learning gain</h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-lg border border-border p-4">
-            <p className="text-sm text-muted">Before</p>
-            <p className="mt-1 font-mono text-xl">{preScore} / {QUIZ_QUESTIONS.length}</p>
+      <div className="rounded-3xl bg-foreground/5 p-8">
+        <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold italic">Your learning gain</h2>
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+          <div className="flex-1 rounded-2xl bg-background p-5">
+            <p className="text-sm text-foreground/60">Before</p>
+            <p className="mt-1 font-mono text-2xl">
+              {preScore} <span className="text-foreground/40">/ {QUIZ_QUESTIONS.length}</span>
+            </p>
           </div>
-          <div className="rounded-lg border border-border p-4">
-            <p className="text-sm text-muted">After</p>
-            <p className="mt-1 font-mono text-xl">{postScore} / {QUIZ_QUESTIONS.length}</p>
+          <div className="flex-1 rounded-2xl bg-background p-5">
+            <p className="text-sm text-foreground/60">After</p>
+            <p className="mt-1 font-mono text-2xl">
+              {postScore} <span className="text-foreground/40">/ {QUIZ_QUESTIONS.length}</span>
+            </p>
           </div>
-          <div className="rounded-lg border border-border p-4">
-            <p className="text-sm text-muted">Change</p>
+          <div
+            className={`flex-1 rounded-2xl p-5 ${
+              delta > 0 ? "bg-emerald-100 dark:bg-emerald-950/50" : delta < 0 ? "bg-rose-100 dark:bg-rose-950/50" : "bg-background"
+            }`}
+          >
+            <p className="text-sm text-foreground/60">Change</p>
             <p
-              className={`mt-1 font-mono text-xl ${
-                delta > 0 ? "text-emerald-600 dark:text-emerald-400" : delta < 0 ? "text-rose-600 dark:text-rose-400" : ""
+              className={`mt-1 font-[family-name:var(--font-display)] text-3xl italic ${
+                delta > 0 ? "text-emerald-700 dark:text-emerald-400" : delta < 0 ? "text-rose-700 dark:text-rose-400" : ""
               }`}
             >
               {delta > 0 ? "+" : ""}
@@ -135,13 +146,13 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
             </p>
           </div>
         </div>
-        <p className="mt-4 text-sm text-muted">
+        <p className="mt-6 text-sm text-foreground/60">
           Scores aren&apos;t saved anywhere yet. Logging to a shared leaderboard is a later build phase.
         </p>
         <button
           type="button"
           onClick={restart}
-          className="mt-4 rounded-md border border-border px-4 py-2 text-sm font-medium hover:border-accent"
+          className="mt-4 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition hover:opacity-80"
         >
           Play again
         </button>

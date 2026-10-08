@@ -56,25 +56,25 @@ export function Quiz({
 
   return (
     <div>
-      <h2 className="text-lg font-medium">{heading}</h2>
-      <p className="mt-1 text-sm text-muted">{description}</p>
+      <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold italic">{heading}</h2>
+      <p className="mt-1 text-sm text-foreground/60">{description}</p>
 
-      <div className="mt-6 rounded-lg border border-border bg-card p-5">
-        <p className="font-mono text-xs text-muted">
+      <div className="mt-6 rounded-3xl bg-violet-50 p-6 dark:bg-violet-950/30">
+        <p className="font-mono text-xs text-violet-700 dark:text-violet-400">
           Question {index + 1} of {questions.length}
         </p>
-        <p className="mt-2 font-medium">{question.question}</p>
+        <p className="mt-2 text-lg font-medium">{question.question}</p>
 
         <div className="mt-4 space-y-2">
           {question.options.map((option, i) => {
             const isSelected = selected === i;
             const isCorrectOption = i === question.correctIndex;
-            let stateClasses = "border-border hover:border-accent";
+            let stateClasses = "bg-background hover:bg-violet-100 dark:hover:bg-violet-900/40";
             if (showExplanation) {
-              if (isCorrectOption) stateClasses = "border-emerald-500 bg-emerald-500/10";
-              else if (isSelected) stateClasses = "border-rose-500 bg-rose-500/10";
+              if (isCorrectOption) stateClasses = "bg-emerald-100 text-emerald-900 dark:bg-emerald-900/50 dark:text-emerald-200";
+              else if (isSelected) stateClasses = "bg-rose-100 text-rose-900 dark:bg-rose-900/50 dark:text-rose-200";
             } else if (isSelected) {
-              stateClasses = "border-accent";
+              stateClasses = "bg-violet-600 text-white";
             }
             return (
               <button
@@ -82,7 +82,7 @@ export function Quiz({
                 type="button"
                 disabled={showExplanation}
                 onClick={() => setSelected(i)}
-                className={`w-full rounded-md border px-3 py-2 text-left text-sm transition ${stateClasses}`}
+                className={`w-full rounded-2xl px-4 py-3 text-left text-sm transition ${stateClasses}`}
               >
                 {option}
               </button>
@@ -91,16 +91,16 @@ export function Quiz({
         </div>
 
         {showExplanation && (
-          <p className="mt-4 rounded-md bg-foreground/5 p-3 text-sm text-foreground/90">{question.explanation}</p>
+          <p className="mt-4 rounded-2xl bg-background p-4 text-sm text-foreground/90">{question.explanation}</p>
         )}
 
-        <div className="mt-4 flex justify-end">
+        <div className="mt-5 flex justify-end">
           {!showExplanation ? (
             <button
               type="button"
               onClick={submitAnswer}
               disabled={selected === null}
-              className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white disabled:opacity-40 dark:text-background"
+              className="rounded-full bg-violet-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-violet-700 disabled:opacity-40"
             >
               Check answer
             </button>
@@ -108,7 +108,7 @@ export function Quiz({
             <button
               type="button"
               onClick={next}
-              className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white dark:text-background"
+              className="rounded-full bg-violet-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-violet-700"
             >
               {isLast ? "Finish" : "Next question"}
             </button>
