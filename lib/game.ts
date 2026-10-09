@@ -20,8 +20,12 @@ export interface GameCompany {
   slug: string;
   company: string;
   ticker: string;
+  exchange: string;
+  currency: "INR" | "USD";
   sector: string;
-  snapshotDate: string;
+  snapshotDate: string | null;
+  /** True until real financials replace the placeholder numbers below. */
+  dataPending: boolean;
   lastFYRevenue: number;
   ebitdaMargin: number;
   daPct: number;
@@ -31,6 +35,8 @@ export interface GameCompany {
   netDebt: number;
   dilutedShares: number;
   marketCapAtSnapshot: number;
+  /** Trailing few quarters of revenue, for the pick-a-company sparkline. */
+  revenueHistory: number[];
   reference: GameCompanyReference;
 }
 

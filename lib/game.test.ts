@@ -4,9 +4,12 @@ import { computeGameResult, type GameCompany } from "./game";
 const company: GameCompany = {
   slug: "test-co",
   company: "Test Co Ltd",
-  ticker: "NSE: TESTCO",
+  ticker: "TESTCO",
+  exchange: "NSE",
+  currency: "INR",
   sector: "Test",
   snapshotDate: "2026-01-01",
+  dataPending: false,
   lastFYRevenue: 1000,
   ebitdaMargin: 0.2,
   daPct: 0.05,
@@ -16,6 +19,7 @@ const company: GameCompany = {
   netDebt: 200,
   dilutedShares: 40,
   marketCapAtSnapshot: 1000,
+  revenueHistory: [800, 850, 900, 950, 1000],
   reference: {
     revenueGrowth: 0.1,
     ebitdaMargin: 0.2,
