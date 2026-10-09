@@ -11,7 +11,10 @@ import {
 export interface GameCompanyReference {
   revenueGrowth: number;
   ebitdaMargin: number;
+  taxRate: number;
+  daPct: number;
   capexPct: number;
+  nwcPct: number;
   wacc: number;
   terminalGrowth: number;
 }
@@ -43,7 +46,10 @@ export interface GameCompany {
 export interface GameAssumptions {
   revenueGrowth: number;
   ebitdaMargin: number;
+  taxRate: number;
+  daPct: number;
   capexPct: number;
+  nwcPct: number;
   wacc: number;
   terminalGrowth: number;
 }
@@ -77,15 +83,16 @@ export interface GameResult {
 
 const FORECAST_YEARS = 5;
 
-function runCalculation(company: GameCompany, assumptions: GameAssumptions): GameCalculation {
+/** Runs the full UFCF → EV → equity → implied price chain for one set of assumptions. Safe to call directly from the UI (e.g. for a sensitivity grid). */
+export function runCalculation(company: GameCompany, assumptions: GameAssumptions): GameCalculation {
   const projection = projectUnleveredFreeCashFlow({
     baseRevenue: company.lastFYRevenue,
     revenueGrowthRates: Array(FORECAST_YEARS).fill(assumptions.revenueGrowth),
     ebitdaMargin: assumptions.ebitdaMargin,
-    depreciationPctOfRevenue: company.daPct,
+    depreciationPctOfRevenue: assumptions.daPct,
     capexPctOfRevenue: assumptions.capexPct,
-    nwcChangePctOfRevenueDelta: company.nwcPct,
-    taxRate: company.taxRate,
+    nwcChangePctOfRevenueDelta: assumptions.nwcPct,
+    taxRate: assumptions.taxRate,
   });
 
   const finalUfcf = projection.ufcf[projection.ufcf.length - 1];
@@ -191,13 +198,7 @@ export function computeGameResult(company: GameCompany, assumptions: GameAssumpt
   }
 
   const user = runCalculation(company, assumptions);
-  const reference = runCalculation(company, {
-    revenueGrowth: company.reference.revenueGrowth,
-    ebitdaMargin: company.reference.ebitdaMargin,
-    capexPct: company.reference.capexPct,
-    wacc: company.reference.wacc,
-    terminalGrowth: company.reference.terminalGrowth,
-  });
+  const reference = runCalculation(company, company.reference);
 
   const marketPricePerShare = company.marketCapAtSnapshot / company.dilutedShares;
   const errorVsMarket = percentGap(marketPricePerShare, user.impliedValuePerShare);
@@ -205,4 +206,39 @@ export function computeGameResult(company: GameCompany, assumptions: GameAssumpt
   const driverNotes = buildDriverNotes(assumptions, company.reference);
 
   return { user, reference, marketPricePerShare, errorVsMarket, errorVsReference, driverNotes };
+}
+
+export interface TornadoRow {
+  factor: string;
+  /** Implied price swapping in just this one user assumption, others held at reference. */
+  impliedValuePerShare: number;
+  /** Signed delta vs. the pure-reference implied price, the bar length a tornado chart ranks by. */
+  delta: number;
+}
+
+const TORNADO_FACTORS: { key: keyof GameAssumptions; label: string }[] = [
+  { key: "revenueGrowth", label: "Revenue growth" },
+  { key: "ebitdaMargin", label: "EBITDA margin" },
+  { key: "capexPct", label: "Capex" },
+  { key: "wacc", label: "WACC" },
+  { key: "terminalGrowth", label: "Terminal growth" },
+];
+
+/** One-factor-at-a-time sensitivity: for each assumption, how much of the user/reference gap it alone explains. */
+export function computeTornadoData(company: GameCompany, assumptions: GameAssumptions): TornadoRow[] {
+  const referenceAssumptions: GameAssumptions = company.reference;
+  const referencePrice = runCalculation(company, referenceAssumptions).impliedValuePerShare;
+
+  const rows = TORNADO_FACTORS.map(({ key, label }) => {
+    const oneAtATime: GameAssumptions = { ...referenceAssumptions, [key]: assumptions[key] };
+    let impliedValuePerShare: number;
+    try {
+      impliedValuePerShare = runCalculation(company, oneAtATime).impliedValuePerShare;
+    } catch {
+      impliedValuePerShare = referencePrice;
+    }
+    return { factor: label, impliedValuePerShare, delta: impliedValuePerShare - referencePrice };
+  });
+
+  return rows.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
 }

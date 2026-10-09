@@ -1,5 +1,6 @@
 export interface QuizQuestion {
   id: string;
+  concept: string;
   question: string;
   options: string[];
   correctIndex: number;
@@ -9,6 +10,7 @@ export interface QuizQuestion {
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: "wacc",
+    concept: "WACC",
     question: "What does WACC represent in a DCF?",
     options: [
       "The company's net profit margin",
@@ -22,6 +24,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "terminal-growth-guard",
+    concept: "Terminal growth",
     question: "Why must terminal growth be less than WACC in the Gordon growth formula?",
     options: [
       "It's a regulatory requirement in India",
@@ -35,6 +38,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "ufcf-excludes",
+    concept: "Unlevered FCF",
     question: "What does Unlevered Free Cash Flow (UFCF) exclude that levered free cash flow would include?",
     options: ["Taxes", "Depreciation", "Interest paid to lenders", "Capital expenditure"],
     correctIndex: 2,
@@ -43,6 +47,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "ev-vs-equity",
+    concept: "EV vs. equity",
     question: "What mainly causes enterprise value and equity value to differ?",
     options: [
       "Currency conversion",
@@ -56,6 +61,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "terminal-value-share",
+    concept: "Terminal value",
     question: "If a DCF's terminal value makes up 70% of total enterprise value, what does that tell you?",
     options: [
       "The model is definitely wrong",

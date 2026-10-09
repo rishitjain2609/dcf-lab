@@ -17,11 +17,20 @@
     "netDebt": 5000000000,
     "dilutedShares": 1500000000,
     "marketCapAtSnapshot": 100000000000,
-    "revenueHistory": [40000000000, 41000000000, 43000000000, 44000000000, 45000000000],
+    "revenueHistory": [
+      40000000000,
+      41000000000,
+      43000000000,
+      44000000000,
+      45000000000
+    ],
     "reference": {
       "revenueGrowth": 0.05,
       "ebitdaMargin": 0.15,
+      "taxRate": 0.17,
+      "daPct": 0.02,
       "capexPct": 0.03,
+      "nwcPct": 0.05,
       "wacc": 0.08,
       "terminalGrowth": 0.03
     }
@@ -44,11 +53,20 @@
     "netDebt": -2000,
     "dilutedShares": 900,
     "marketCapAtSnapshot": 180000,
-    "revenueHistory": [8000, 9500, 10500, 11200, 12000],
+    "revenueHistory": [
+      8000,
+      9500,
+      10500,
+      11200,
+      12000
+    ],
     "reference": {
       "revenueGrowth": 0.25,
       "ebitdaMargin": 0.08,
+      "taxRate": 0.25,
+      "daPct": 0.03,
       "capexPct": 0.04,
+      "nwcPct": 0.05,
       "wacc": 0.13,
       "terminalGrowth": 0.05
     }
@@ -71,11 +89,20 @@
     "netDebt": -15000,
     "dilutedShares": 4150,
     "marketCapAtSnapshot": 620000,
-    "revenueHistory": [140000, 146000, 150000, 152000, 155000],
+    "revenueHistory": [
+      140000,
+      146000,
+      150000,
+      152000,
+      155000
+    ],
     "reference": {
       "revenueGrowth": 0.08,
       "ebitdaMargin": 0.24,
+      "taxRate": 0.26,
+      "daPct": 0.03,
       "capexPct": 0.03,
+      "nwcPct": 0.02,
       "wacc": 0.12,
       "terminalGrowth": 0.05
     }
@@ -98,11 +125,20 @@
     "netDebt": 35000,
     "dilutedShares": 360,
     "marketCapAtSnapshot": 330000,
-    "revenueHistory": [300000, 330000, 400000, 420000, 440000],
+    "revenueHistory": [
+      300000,
+      330000,
+      400000,
+      420000,
+      440000
+    ],
     "reference": {
       "revenueGrowth": 0.07,
       "ebitdaMargin": 0.11,
+      "taxRate": 0.25,
+      "daPct": 0.06,
       "capexPct": 0.07,
+      "nwcPct": 0.03,
       "wacc": 0.13,
       "terminalGrowth": 0.04
     }
@@ -125,11 +161,20 @@
     "netDebt": 110000,
     "dilutedShares": 676,
     "marketCapAtSnapshot": 1900000,
-    "revenueHistory": [720000, 780000, 850000, 880000, 900000],
+    "revenueHistory": [
+      720000,
+      780000,
+      850000,
+      880000,
+      900000
+    ],
     "reference": {
       "revenueGrowth": 0.09,
       "ebitdaMargin": 0.17,
+      "taxRate": 0.25,
+      "daPct": 0.05,
       "capexPct": 0.08,
+      "nwcPct": 0.02,
       "wacc": 0.11,
       "terminalGrowth": 0.045
     }
