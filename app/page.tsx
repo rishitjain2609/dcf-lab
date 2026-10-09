@@ -95,6 +95,9 @@ export default function Home() {
               people have used DCF Lab to build their own valuation so far. The Game is the
               fastest way to become one of them.
             </p>
+            <Link href="/activity" className="mt-4 inline-block text-sm text-emerald-400 hover:text-emerald-300">
+              See what they said →
+            </Link>
           </div>
         </div>
       </div>
