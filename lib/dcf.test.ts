@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildSensitivityTable,
+  checkTerminalValueShare,
   computeEnterpriseValue,
   costOfEquityCapm,
   discountCashFlows,
@@ -11,6 +12,7 @@ import {
   projectUnleveredFreeCashFlow,
   terminalValueExitMultiple,
   terminalValueGordon,
+  terminalValueShareOfEv,
   validateTerminalGrowth,
   wacc,
 } from "./dcf";
@@ -184,5 +186,32 @@ describe("buildSensitivityTable", () => {
       [10, 20],
       [20, 40],
     ]);
+  });
+});
+
+describe("terminalValueShareOfEv", () => {
+  it("is the PV of terminal value divided by enterprise value", () => {
+    expect(terminalValueShareOfEv(750, 1000)).toBeCloseTo(0.75, 10);
+  });
+
+  it("is zero when enterprise value is zero, rather than dividing by zero", () => {
+    expect(terminalValueShareOfEv(0, 0)).toBe(0);
+  });
+});
+
+describe("checkTerminalValueShare", () => {
+  it("does not warn at or below the threshold", () => {
+    expect(checkTerminalValueShare(0.75).warn).toBe(false);
+    expect(checkTerminalValueShare(0.5).warn).toBe(false);
+  });
+
+  it("warns above the threshold with a human-readable message", () => {
+    const result = checkTerminalValueShare(0.82);
+    expect(result.warn).toBe(true);
+    expect(result.message).toMatch(/82%/);
+  });
+
+  it("accepts a custom threshold", () => {
+    expect(checkTerminalValueShare(0.6, 0.5).warn).toBe(true);
   });
 });

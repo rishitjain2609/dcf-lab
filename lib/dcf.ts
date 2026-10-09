@@ -206,3 +206,24 @@ export function buildSensitivityTable<T>(
 ): T[][] {
   return rows.map((row) => cols.map((col) => compute(row, col)));
 }
+
+export const TERMINAL_VALUE_SHARE_WARNING_THRESHOLD = 0.75;
+
+/** What fraction of enterprise value comes from the terminal value, as a 0-1 fraction. */
+export function terminalValueShareOfEv(presentValueOfTerminalValue: number, enterpriseValue: number): number {
+  if (enterpriseValue === 0) return 0;
+  return presentValueOfTerminalValue / enterpriseValue;
+}
+
+export function checkTerminalValueShare(
+  share: number,
+  threshold: number = TERMINAL_VALUE_SHARE_WARNING_THRESHOLD
+): { warn: boolean; message?: string } {
+  if (share > threshold) {
+    return {
+      warn: true,
+      message: `Terminal value is ${(share * 100).toFixed(0)}% of enterprise value, most of this valuation depends on assumptions about the distant future.`,
+    };
+  }
+  return { warn: false };
+}
