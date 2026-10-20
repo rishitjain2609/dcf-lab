@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/page-header";
 import { Todo } from "@/components/todo";
 import { getModel, getModels } from "@/lib/data";
-import { formatPercent, formatRupees } from "@/lib/format";
+import { formatPercent, formatMoneyPerShare } from "@/lib/format";
 import { percentGap } from "@/lib/dcf";
 import { BarChart } from "@/components/charts/bar-chart";
 
@@ -20,6 +20,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
 
   const gapAtPublish = percentGap(model.impliedValuePerShare, model.priceAtPublish);
   const gapNow = percentGap(model.impliedValuePerShare, model.latestPrice);
+  const perShare = (v: number) => formatMoneyPerShare(v, model.currency);
 
   return (
     <div>
@@ -30,7 +31,11 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
         </Link>
         <section>
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Summary</h2>
-          <Todo>{model.summary}</Todo>
+          {model.placeholder ? (
+            <Todo>{model.summary}</Todo>
+          ) : (
+            <p className="mt-3 text-lg leading-8 text-foreground/90">{model.summary}</p>
+          )}
         </section>
 
         <section>
@@ -58,18 +63,18 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
             <div className="rounded-3xl bg-emerald-50 p-6 dark:bg-emerald-950/40 sm:w-72">
               <p className="text-sm text-foreground/60">Implied value</p>
               <p className="mt-1 font-[family-name:var(--font-display)] text-5xl font-semibold italic text-emerald-700 dark:text-emerald-400">
-                {formatRupees(model.impliedValuePerShare)}
+                {perShare(model.impliedValuePerShare)}
               </p>
             </div>
             <div className="flex flex-1 gap-4">
               <div className="flex-1 rounded-3xl bg-foreground/5 p-5">
                 <p className="text-sm text-foreground/60">Price on publish ({model.publishDate})</p>
-                <p className="mt-1 font-mono text-xl">{formatRupees(model.priceAtPublish)}</p>
+                <p className="mt-1 font-mono text-xl">{perShare(model.priceAtPublish)}</p>
                 <p className="mt-1 font-mono text-sm text-foreground/60">{formatPercent(gapAtPublish)} vs. implied</p>
               </div>
               <div className="flex-1 rounded-3xl bg-foreground/5 p-5">
                 <p className="text-sm text-foreground/60">Latest price</p>
-                <p className="mt-1 font-mono text-xl">{formatRupees(model.latestPrice)}</p>
+                <p className="mt-1 font-mono text-xl">{perShare(model.latestPrice)}</p>
                 <p className="mt-1 font-mono text-sm text-foreground/60">{formatPercent(gapNow)} vs. implied</p>
               </div>
             </div>
@@ -77,7 +82,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
           <div className="mt-4 rounded-3xl bg-foreground/5 p-5">
             <BarChart
               categories={["Implied value", `At publish (${model.publishDate})`, "Latest"]}
-              format="rupees"
+              format={model.currency === "USD" ? "usd-per-share" : "rupees"}
               series={[
                 {
                   label: model.company,

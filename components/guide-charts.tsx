@@ -23,6 +23,25 @@ export function UfcfBuildChart() {
   );
 }
 
+/** 5 stable historical margins, then a forecast spike with no stated reason, for the historicals step. */
+export function HistoricalMarginStabilityChart() {
+  return (
+    <div className="mt-4 rounded-md border border-border bg-card p-4">
+      <BarChart
+        categories={["Yr -4", "Yr -3", "Yr -2", "Yr -1", "Yr 0", "Yr 1 (forecast)"]}
+        format="raw"
+        series={[
+          {
+            label: "EBITDA margin, %",
+            values: [18, 20, 22, 19, 21, 35],
+            colorClassName: "fill-rose-500 dark:fill-rose-400",
+          },
+        ]}
+      />
+    </div>
+  );
+}
+
 /** Revenue compounding at 10%/yr, from the guide's revenue-build step. */
 export function RevenueBuildChart() {
   return (

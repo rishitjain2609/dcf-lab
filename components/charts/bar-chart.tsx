@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { formatCrore, formatRupees } from "@/lib/format";
+import { formatCrore, formatRupees, formatUsdLarge, formatUsdPerShare } from "@/lib/format";
 
 export interface BarChartSeries {
   label: string;
@@ -9,7 +9,7 @@ export interface BarChartSeries {
   colorClassName: string;
 }
 
-export type ChartValueFormat = "crore" | "rupees" | "raw";
+export type ChartValueFormat = "crore" | "rupees" | "raw" | "usd-large" | "usd-per-share";
 
 const VB_WIDTH = 300;
 const VB_HEIGHT = 150;
@@ -21,6 +21,8 @@ const FORMATTERS: Record<ChartValueFormat, (v: number) => string> = {
   crore: formatCrore,
   rupees: (v) => formatRupees(v, 0),
   raw: (v) => v.toFixed(0),
+  "usd-large": formatUsdLarge,
+  "usd-per-share": formatUsdPerShare,
 };
 
 export function BarChart({

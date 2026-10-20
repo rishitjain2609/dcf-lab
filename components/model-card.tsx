@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { GapBar } from "@/components/charts/gap-bar";
-import { formatPercent, formatRupees } from "@/lib/format";
+import { formatPercent, formatMoneyPerShare, type Currency } from "@/lib/format";
 
 const TINTS = ["bg-emerald-50 dark:bg-emerald-950/40", "bg-teal-50 dark:bg-teal-950/40"];
 
@@ -11,6 +11,7 @@ export function ModelCard({
   slug,
   ticker,
   company,
+  currency,
   impliedValuePerShare,
   gap,
   index = 0,
@@ -18,6 +19,7 @@ export function ModelCard({
   slug: string;
   ticker: string;
   company: string;
+  currency: Currency;
   impliedValuePerShare: number;
   gap: number;
   index?: number;
@@ -34,7 +36,7 @@ export function ModelCard({
         <dl className="mt-5 grid grid-cols-2 gap-2 text-sm">
           <div>
             <dt className="text-foreground/60">Implied value</dt>
-            <dd className="font-mono text-lg">{formatRupees(impliedValuePerShare)}</dd>
+            <dd className="font-mono text-lg">{formatMoneyPerShare(impliedValuePerShare, currency)}</dd>
           </div>
           <div>
             <dt className="text-foreground/60">Latest vs. implied</dt>

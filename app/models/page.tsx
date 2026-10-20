@@ -27,6 +27,7 @@ export default function ModelsPage() {
                 slug={model.slug}
                 ticker={model.ticker}
                 company={model.company}
+                currency={model.currency}
                 impliedValuePerShare={model.impliedValuePerShare}
                 gap={gap}
                 index={i}

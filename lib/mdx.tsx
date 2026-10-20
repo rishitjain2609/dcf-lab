@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import {
   DiscountingComparisonChart,
   EquityBridgeWaterfall,
+  HistoricalMarginStabilityChart,
   IncomeStatementChart,
   RevenueBuildChart,
   SensitivityGrid,
@@ -99,6 +100,7 @@ const mdxComponents = {
   RevenueBuildChart,
   IncomeStatementChart,
   DiscountingComparisonChart,
+  HistoricalMarginStabilityChart,
   UsesGrid,
   LimitsBand,
 };

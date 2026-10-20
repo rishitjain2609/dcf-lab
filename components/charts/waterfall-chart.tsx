@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { formatCrore, formatRupees } from "@/lib/format";
+import { formatCrore, formatRupees, formatUsdLarge, formatUsdPerShare } from "@/lib/format";
 import type { ChartValueFormat } from "./bar-chart";
 
 export interface WaterfallStep {
@@ -25,6 +25,8 @@ const FORMATTERS: Record<ChartValueFormat, (v: number) => string> = {
   crore: formatCrore,
   rupees: (v) => formatRupees(v, 0),
   raw: (v) => v.toFixed(1),
+  "usd-large": formatUsdLarge,
+  "usd-per-share": formatUsdPerShare,
 };
 
 export function WaterfallChart({
