@@ -42,7 +42,7 @@
     "latestPrice": 37.21,
     "dilutedShares": 1487600000,
     "netDebt": 502000000,
-    "excelUrl": null,
+    "excelUrl": "/downloads/nike-dcf.xlsx",
     "valuePickrUrl": null,
     "substackUrl": null,
     "versions": [
@@ -60,7 +60,7 @@
     "currency": "INR",
     "sector": "Consumer / Food delivery & quick commerce",
     "publishDate": "2026-10-20",
-    "summary": "Zomato (renamed Eternal Limited in 2024) grew revenue from ₹1,994 cr to ₹20,243 cr over the last five fiscal years, about a 59% CAGR, and only turned durably profitable recently (FY25 EBITDA margin of roughly 3-5%). This model forecasts ten years instead of five, because a company still growing this fast is nowhere near its steady state after five. Growth slows in a straight line from 30% to 8%, and EBITDA margin widens from 6% to 20%. The company holds about ₹16,779 cr more cash than debt, and that cash is added to the equity value. The result is about ₹105 a share against a market price near ₹322. To justify ₹322 you would need growth to stay high for longer, mostly from Blinkit's quick commerce business, and margins to end well above 20%.",
+    "summary": "Zomato (renamed Eternal Limited in 2024) grew revenue from ₹1,994 cr in FY21 to ₹20,243 cr in FY25, about 78% a year, and only turned durably profitable recently (FY25 EBITDA margin of roughly 3-5%). This model forecasts ten years instead of five, because a company still growing this fast is nowhere near its steady state after five. Growth slows in a straight line from 30% to 8%, and EBITDA margin widens from 6% to 20%. The company holds about ₹16,779 cr more cash than debt, and that cash is added to the equity value. The result is about ₹105 a share against a market price near ₹322. To justify ₹322 you would need growth to stay high for longer, mostly from Blinkit's quick commerce business, and margins to end well above 20%.",
     "assumptions": [
       {
         "label": "Forecast period",
@@ -104,7 +104,7 @@
     "latestPrice": 322.55,
     "dilutedShares": 958,
     "netDebt": -16779,
-    "excelUrl": null,
+    "excelUrl": "/downloads/zomato-dcf.xlsx",
     "valuePickrUrl": null,
     "substackUrl": null,
     "versions": [

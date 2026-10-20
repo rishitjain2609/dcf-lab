@@ -15,6 +15,7 @@ export function ModelCard({
   impliedValuePerShare,
   gap,
   index = 0,
+  className = "",
 }: {
   slug: string;
   ticker: string;
@@ -23,13 +24,14 @@ export function ModelCard({
   impliedValuePerShare: number;
   gap: number;
   index?: number;
+  className?: string;
 }) {
   return (
-    <Link href={`/models/${slug}`} className="block">
+    <Link href={`/models/${slug}`} className={`block ${className}`}>
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className={`rounded-3xl p-6 ${TINTS[index % TINTS.length]}`}
+        className={`h-full rounded-3xl p-6 ${TINTS[index % TINTS.length]}`}
       >
         <p className="font-mono text-xs text-foreground/60">{ticker}</p>
         <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold">{company}</h2>

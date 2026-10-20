@@ -97,7 +97,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
             <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Downloads &amp; links</h2>
             <div className="mt-3 flex flex-wrap gap-3 text-sm">
               {model.excelUrl && (
-                <a href={model.excelUrl} className="bg-accent px-4 py-2 font-medium text-accent-ink transition hover:bg-field">
+                <a href={model.excelUrl} download className="bg-accent px-4 py-2 font-medium text-accent-ink transition hover:bg-field">
                   Download the Excel model
                 </a>
               )}
