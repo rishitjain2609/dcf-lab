@@ -1,33 +1,38 @@
 import Link from "next/link";
 import { NAV_ITEMS, SITE_NAME } from "@/lib/nav";
-import { MotifBars } from "@/components/motif";
 
 export function SiteFooter() {
   return (
-    <footer className="motif-scope mt-auto">
-      <div className="mx-auto max-w-[90rem] px-4 pt-24 pb-10 sm:px-8">
-        <div className="relative h-[22svh] min-h-40 sm:h-[34svh]">
-          <MotifBars rate={0.12} count={12} gap={4} className="absolute inset-0" animate />
-          <p className="absolute bottom-3 left-3 text-[clamp(2.5rem,9vw,8rem)] font-extrabold leading-[0.85] tracking-[-0.05em] text-accent-ink">
-            {SITE_NAME}
-          </p>
-        </div>
+    <footer className="mt-auto bg-field text-field-ink">
+      <div className="mx-auto max-w-[90rem] px-4 pt-20 pb-10 sm:px-8 sm:pt-28">
+        <p className="ui text-[clamp(4rem,19vw,17rem)] font-extrabold leading-[0.8] tracking-[-0.055em]">
+          {SITE_NAME}
+        </p>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-12">
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-2 t-body font-semibold sm:col-span-8 sm:grid-cols-4">
+        <div className="mt-16 grid gap-12 sm:mt-20 lg:grid-cols-12">
+          <nav aria-label="Footer" className="flex flex-col gap-1 lg:col-span-5">
             {NAV_ITEMS.map((item) => (
-              <Link key={item.href} href={item.href} className="py-1 underline-offset-4 hover:underline">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="t-lead w-fit font-bold tracking-[-0.02em] text-gold underline-offset-[0.2em] decoration-2 hover:underline"
+              >
                 {item.label}
               </Link>
             ))}
           </nav>
-          <p className="t-body sm:col-span-4">
-            Written and built by Rishit Jain. Educational content on how discounted cash flow valuation
-            works.
+          <p className="t-body max-w-[40ch] lg:col-span-5 lg:col-start-8">
+            Written and built by Rishit Jain. An educational site on how discounted cash flow valuation works,
+            with the real models built from public filings.
           </p>
         </div>
 
-        <p className="t-small mt-12 text-muted">© {new Date().getFullYear()} {SITE_NAME}</p>
+        <div className="t-small mt-20 flex justify-between gap-6">
+          <p>© {new Date().getFullYear()} {SITE_NAME}</p>
+          <a href="#top" className="underline-offset-4 hover:underline">
+            Back to top
+          </a>
+        </div>
       </div>
     </footer>
   );

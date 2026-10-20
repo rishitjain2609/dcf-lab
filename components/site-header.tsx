@@ -5,21 +5,19 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { NAV_ITEMS, SITE_NAME } from "@/lib/nav";
 import { UserMenu } from "@/components/auth/user-menu";
-import { StepMark } from "@/components/motif";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="motif-scope sticky top-0 z-40 bg-background">
+    <header className="sticky top-0 z-40 bg-background">
       <div className="mx-auto flex max-w-[90rem] items-center justify-between px-4 py-4 sm:px-8">
-        <Link href="/" className="t-lead flex items-center gap-2">
-          <StepMark />
+        <Link href="/" className="ui t-lead font-extrabold tracking-[-0.03em]">
           {SITE_NAME}
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
@@ -27,7 +25,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`t-body font-semibold underline-offset-[0.35em] decoration-2 transition-colors hover:underline ${
+                className={`t-small font-medium underline-offset-[0.35em] decoration-2 transition-colors hover:underline ${
                   active ? "underline" : ""
                 }`}
               >
@@ -44,7 +42,7 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Toggle menu"
-            className="press t-body -mr-2 px-2 py-1 font-semibold md:hidden"
+            className="press t-small -mr-2 px-2 py-2 font-medium md:hidden"
           >
             {open ? "Close" : "Menu"}
           </button>

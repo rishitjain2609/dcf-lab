@@ -27,12 +27,12 @@ export function DiscountPlayground() {
 
       <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
         <div className="lg:col-span-4 lg:pb-10">
-          <p className="t-head tabular-nums">₹{formatIndianNumber(sum)}</p>
+          <p className="t-head ui tabular-nums">₹{formatIndianNumber(sum)}</p>
           <p className="t-body mt-3 max-w-[30ch]">
             is what ₹{formatIndianNumber(PAYMENT * YEARS)}, paid over ten years, is worth today.
           </p>
 
-          <label htmlFor={sliderId} className="t-body mt-10 block font-semibold">
+          <label htmlFor={sliderId} className="t-body ui mt-10 block font-bold">
             Discount rate: {ratePct.toFixed(1)}%
           </label>
           <input
@@ -48,10 +48,10 @@ export function DiscountPlayground() {
         </div>
 
         <figure className="lg:col-span-8" data-ui>
-          <div className="flex h-[56svh] min-h-72 items-end gap-1.5 sm:gap-2" role="img" aria-label={`Bar chart of the present value of ₹100 received in each of years 1 to 10 at a ${ratePct}% discount rate, shrinking from ₹${presentValues[0].toFixed(0)} to ₹${presentValues[YEARS - 1].toFixed(0)}`}>
+          <div className="flex h-[46svh] min-h-72 items-end gap-1.5 sm:gap-2" role="img" aria-label={`Bar chart of the present value of ₹100 received in each of years 1 to 10 at a ${ratePct}% discount rate, shrinking from ₹${presentValues[0].toFixed(0)} to ₹${presentValues[YEARS - 1].toFixed(0)}`}>
             {presentValues.map((pv, i) => (
               <div key={i} className="flex h-full flex-1 flex-col justify-end">
-                <span className="t-small mb-2 text-center font-semibold tabular-nums">
+                <span className="t-small ui mb-2 text-center font-bold tabular-nums">
                   {pv.toFixed(0)}
                 </span>
                 <div
@@ -61,7 +61,7 @@ export function DiscountPlayground() {
               </div>
             ))}
           </div>
-          <figcaption className="t-small mt-3 flex gap-1.5 text-muted sm:gap-2">
+          <figcaption className="t-small ui mt-3 flex gap-1.5 text-muted sm:gap-2">
             {presentValues.map((_, i) => (
               <span key={i} className="flex-1 text-center tabular-nums">
                 Y{i + 1}

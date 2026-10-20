@@ -3,12 +3,18 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f7f1e6;
-  --foreground: #2b2420;
-  --muted: #8a7e6f;
-  --border: #e3d9c7;
-  --accent: #c2410c;
-  --card: #fffbf3;
+  /* Printed-annual palette: paper, ink, and bottle green used in solid blocks. */
+  --background: #f5f5f4;
+  --foreground: #141714;
+  --muted: #535a54;
+  --border: #dcdcd8;
+  --accent: #1d5a37;
+  --accent-ink: #ffffff;
+  --card: #ebebe9;
+  --card-strong: #e0e0dd;
+  --field: #133621;
+  --field-ink: #f5f5f4;
+  --gold: #f4d96c;
 }
 
 /**
@@ -33,26 +39,6 @@
   --series-down: #c23b3b;
 }
 
-/**
- * "One motif" palette: one navy field, pink for everything else. The motif is
- * the discount curve itself, drawn as bars that shrink year by year (see
- * components/motif). Wrap content in `.motif-scope` to opt in, the same way
- * `.analyst-scope` works. The site chrome and the homepage use it now; the
- * other marketing pages move over one at a time, after which this becomes :root.
- */
-.motif-scope {
-  --background: #1a2039;
-  --foreground: #f9a3c0;
-  --muted: #c99ab0;
-  --border: #212846;
-  --accent: #f9a3c0;
-  --accent-ink: #1a2039;
-  --card: #212846;
-  --card-strong: #2a3256;
-  background: var(--background);
-  color: var(--foreground);
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -67,9 +53,13 @@
   --color-series-reference: var(--series-reference, var(--muted));
   --color-series-up: var(--series-up, #1f8a5f);
   --color-series-down: var(--series-down, #c23b3b);
-  --font-sans: var(--font-body-sans);
-  --font-mono: var(--font-body-sans);
-  --font-display: var(--font-body-sans);
+  --color-field: var(--field);
+  --color-field-ink: var(--field-ink);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-serif);
+  --font-heading: var(--font-franklin);
+  --font-mono: var(--font-franklin);
+  --font-display: var(--font-franklin);
 }
 
 body {
@@ -78,13 +68,9 @@ body {
 }
 
 /* Legacy `font-mono` usages are numbers in tables and tickers: keep the
-   alignment monospace gave them, in the text face. */
+   alignment monospace gave them, in the heading face. */
 .font-mono {
   font-variant-numeric: tabular-nums;
-}
-
-h1, h2, h3 {
-  letter-spacing: -0.03em;
 }
 
 :focus-visible {
@@ -125,16 +111,6 @@ h1, h2, h3 {
   .js .shutter.is-in img {
     transform: none;
   }
-  .js .bar-grow {
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
-    transition-delay: calc(var(--i, 0) * 60ms);
-  }
-  .js .is-in .bar-grow,
-  .js .bar-grow.is-in {
-    transform: none;
-  }
 }
 
 .press {
@@ -144,12 +120,31 @@ h1, h2, h3 {
   transform: scale(0.97);
 }
 
-/* The five type steps of the motif pages. Nothing else sets a size. */
-.t-small { font-size: 0.875rem; line-height: 1.4; }
-.t-body { font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); line-height: 1.6; }
-.t-lead { font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem); line-height: 1.2; font-weight: 800; letter-spacing: -0.03em; }
-.t-head { font-size: clamp(2rem, 1.3rem + 3.2vw, 4rem); line-height: 0.95; font-weight: 800; letter-spacing: -0.05em; }
-.t-display { font-size: clamp(2.75rem, 11.5vw, 6.25rem); line-height: 0.88; font-weight: 800; letter-spacing: -0.05em; }
+/* The five type steps. Nothing else sets a size on redesigned pages. */
+.t-small { font-size: 0.875rem; line-height: 1.45; }
+.t-body { font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); line-height: 1.55; }
+.t-lead { font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem); line-height: 1.35; }
+.t-head { font-family: var(--font-franklin); font-size: clamp(2rem, 1.3rem + 3.2vw, 4rem); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em; }
+.t-display { font-family: var(--font-franklin); font-size: clamp(3.25rem, 15vw, 9.5rem); line-height: 0.84; font-weight: 800; letter-spacing: -0.045em; }
 @media (min-width: 1024px) {
-  .t-display { font-size: clamp(4rem, 6.6vw, 6.5rem); }
+  .t-display { font-size: clamp(5.5rem, 9.8vw, 9.5rem); }
 }
+
+/* Headings, navigation, buttons and figures use the gothic. */
+h1, h2, h3, h4, nav, button, .ui { font-family: var(--font-franklin); }
+
+/* The game and sign-in are app screens: set their UI in the gothic too. */
+.analyst-scope { font-family: var(--font-franklin); }
+
+/* Masked headline: each authored line rises from behind its own baseline. */
+.mask-line { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+.mask-line > span { display: block; }
+@media (prefers-reduced-motion: no-preference) {
+  .mask-line > span { animation: mask-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: calc(var(--i, 0) * 110ms + 80ms); }
+  .after-mask { animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both; }
+}
+@keyframes mask-rise { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* One treatment for every photograph on the redesigned pages. */
+.print-photo { filter: grayscale(1) contrast(1.05); }
