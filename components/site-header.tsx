@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { NAV_ITEMS, SITE_NAME } from "@/lib/nav";
+import { UserMenu } from "@/components/auth/user-menu";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -44,7 +45,8 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <UserMenu />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}

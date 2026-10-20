@@ -164,7 +164,16 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
   }
 
   if (step === "publish" && company) {
-    return <PublishStep company={company} onRestart={restart} />;
+    const result = computeGameResult(company, assumptions);
+    return (
+      <PublishStep
+        company={company}
+        assumptions={assumptions}
+        impliedPrice={result.user.impliedValuePerShare}
+        marketPrice={result.marketPricePerShare}
+        onRestart={restart}
+      />
+    );
   }
 
   return null;
