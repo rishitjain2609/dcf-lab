@@ -15,6 +15,10 @@ import {
 import { DcfConceptDiagram } from "@/components/dcf-concept-diagram";
 import { PhotoAccent } from "@/components/photo-accent";
 import { UsesGrid, LimitsBand } from "@/components/why-dcf-sections";
+import { GuideIllustration } from "@/components/guide-illustration";
+import { TimeValueIllustration } from "@/components/illustrations/time-value-illustration";
+import { WaccBlendIllustration } from "@/components/illustrations/wacc-blend-illustration";
+import { TerminalValueIllustration } from "@/components/illustrations/terminal-value-illustration";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -88,6 +92,10 @@ const mdxComponents = {
   SensitivityGrid,
   DcfConceptDiagram,
   PhotoAccent,
+  GuideIllustration,
+  TimeValueIllustration,
+  WaccBlendIllustration,
+  TerminalValueIllustration,
   RevenueBuildChart,
   IncomeStatementChart,
   DiscountingComparisonChart,
