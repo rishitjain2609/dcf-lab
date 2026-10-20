@@ -1,9 +1,7 @@
 import { Users } from "lucide-react";
 
 export function CommunityStrip() {
-  // TODO(Rishit): once publishing is live (Phase 5), replace this empty state
-  // with the 4-6 most recently published models (company, implied price vs.
-  // market, comment count).
+  // Empty state until publishing is live; then this lists recent published models.
   return (
     <div className="flex flex-col items-center gap-3 rounded-2xl bg-foreground/5 px-6 py-10 text-center">
       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">

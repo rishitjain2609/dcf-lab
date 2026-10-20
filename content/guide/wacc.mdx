@@ -6,12 +6,12 @@ description: The discount rate, cost of equity via CAPM, blended with after-tax 
 WACC answers one question. What return does this specific business need to generate to be worth
 tying your money up in? A government bond is about as safe as money gets, so it pays a
 low return, the risk-free rate. A random small company might double or go to zero, so an
-investor demands a much higher expected return to bother. CAPM is just a formula for sliding
+investor demands a much higher expected return to bother. CAPM is a formula for sliding
 along that scale. Start at the risk-free rate, then add a premium sized by `beta`, how much more
-(or less) the stock swings than the market as a whole. A beta of 1.0 means "swings exactly with
+(or less) the stock swings than the market as a whole. A beta of 1.0 means "swings with
 the market," above 1.0 means more violently than the market, below means more calmly.
 
-<GuideIllustration caption="WACC blends two required returns, weighted by how the company is actually financed.">
+<GuideIllustration caption="WACC blends two required returns, weighted by how the company is financed.">
   <WaccBlendIllustration />
 </GuideIllustration>
 
@@ -21,11 +21,10 @@ is tax-deductible for the company, so the after-tax cost of debt is lower than w
 on paper, while dividends to shareholders get no such break. That's why `costOfDebt × (1 - taxRate)`
 shows up below but cost of equity doesn't.
 
-There's a genuine chicken-and-egg problem hiding here, worth flagging rather than hiding. WACC is
+WACC has a chicken-and-egg problem. WACC is
 weighted using the company's *current market* value of equity and debt. But the whole point of
 building a DCF is often to argue the current market price is wrong. If it's wrong, the weighting
-is technically wrong too. In practice this is a second-order effect for most companies, but it's
-the sort of thing a sharp reader should notice is circular, not swept under the rug.
+is technically wrong too. For most companies the effect is small, but you should know the logic is circular.
 
 > New to these terms? See the [glossary](/guide/setup-and-conventions#glossary).
 

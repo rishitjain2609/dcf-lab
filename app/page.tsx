@@ -28,8 +28,6 @@ const STRIP = [
   { src: "/images/stock-charts-real.jpg", alt: "Price charts on a screen" },
 ];
 
-const GAME_COMPANIES = ["Nike", "Zomato", "Infosys", "Tata Motors", "Reliance"];
-
 function shortName(company: string) {
   return company.replace(/\s*\(.*\)$/, "").replace(/ (Inc|Ltd)$/, "");
 }
@@ -49,7 +47,7 @@ function Photo({ src, alt, eager = false }: { src: string; alt: string; eager?: 
 }
 
 export default function Home() {
-  const models = getModels().filter((m) => !m.placeholder);
+  const models = getModels();
   const zomato = models.find((m) => m.slug === "zomato");
 
   return (
@@ -129,8 +127,8 @@ export default function Home() {
             ₹100 handed to you today is worth more than ₹100 promised in five years. You could invest today&rsquo;s
             money, and the promise might not be kept. A discounted cash flow model takes that idea seriously. It
             estimates the cash a company will produce in each future year, shrinks every year&rsquo;s cash for the
-            wait and the risk, and adds up what is left. The total is what the business is worth today. Every
-            number in it is an assumption you can argue with, which is exactly what makes it worth learning.
+            wait and the risk, and adds up what is left. The total is what the business is worth today. You
+            choose every number in it, and you can defend or change each one.
           </p>
         </div>
       </section>
@@ -246,9 +244,13 @@ export default function Home() {
               </Link>
             </p>
           ))}
-          <p className="mt-8 text-muted">In the game</p>
-          {GAME_COMPANIES.map((n) => (
-            <p key={n}>{n}</p>
+          <p className="mt-8 text-muted">In the DCF builder</p>
+          {models.map((m) => (
+            <p key={m.slug}>
+              <Link href="/game" className="hover:underline">
+                {shortName(m.company)}
+              </Link>
+            </p>
           ))}
           <p className="mt-8 break-before-column text-muted">Guide steps</p>
           {GUIDE_STEPS.map((s) => (

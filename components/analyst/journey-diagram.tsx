@@ -5,7 +5,7 @@ const STEPS = [
   { icon: Building2, title: "Pick a company", description: "A real, listed company across a few different sectors." },
   { icon: SlidersHorizontal, title: "Build the model", description: "Set every assumption yourself, see the math update live." },
   { icon: BarChart3, title: "See the results", description: "Your price vs. the market, the reference model, and the community." },
-  { icon: RotateCcw, title: "Same quiz again", description: "See what building the model actually taught you." },
+  { icon: RotateCcw, title: "Same quiz again", description: "See what building the model taught you." },
   { icon: Share2, title: "Publish", description: "Post your model, or fork someone else's and try your own numbers." },
 ];
 

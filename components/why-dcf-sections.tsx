@@ -11,7 +11,7 @@ const USES = [
   {
     label: "M&A",
     tint: "bg-sky-50 dark:bg-sky-950/40",
-    text: "The buyer runs a DCF to sanity-check the price against what the target can actually generate.",
+    text: "The buyer runs a DCF to check the price against the cash the target can produce.",
   },
   {
     label: "Private equity",

@@ -1,5 +1,4 @@
 import { PageHero } from "@/components/page-hero-banner";
-import { AnimatedCounter } from "@/components/animated-counter";
 import { CommentCard } from "@/components/activity/comment-card";
 import { CommentForm } from "@/components/activity/comment-form";
 import { getApprovedComments } from "@/lib/activity";
@@ -16,27 +15,19 @@ export default async function ActivityPage() {
         alt="People collaborating around a laptop"
         video="/videos/team-collaboration.mp4"
         title="Activity"
-        description="What people building their own DCFs here have said, and a place to add yours."
+        description="Used the guide, a model or the builder? Tell me what worked and what didn't."
       />
       <div className="mx-auto max-w-5xl space-y-12 px-4 pb-16 pt-12">
-        <div className="flex flex-col items-center gap-6 rounded-3xl bg-foreground/5 p-8 text-center sm:flex-row sm:text-left">
-          <p className="text-6xl font-extrabold text-emerald-600 dark:text-emerald-400">
-            <AnimatedCounter to={200} suffix="+" />
-          </p>
-          <p className="text-lg text-foreground/70">
-            people have used DCF Lab to build their own valuation so far. The comments below are feedback on
-            specific pages and models.
-          </p>
-        </div>
-
-        <section>
-          <h2 className="text-2xl font-extrabold">Feedback</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {comments.map((comment, i) => (
-              <CommentCard key={comment.id} comment={comment} index={i} />
-            ))}
-          </div>
-        </section>
+        {comments.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-extrabold">Feedback</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {comments.map((comment, i) => (
+                <CommentCard key={comment.id} comment={comment} index={i} />
+              ))}
+            </div>
+          </section>
+        )}
 
         <CommentForm />
       </div>

@@ -19,8 +19,6 @@ export interface Model {
   company: string;
   ticker: string;
   currency: "INR" | "USD";
-  /** True for fictional/reserved entries whose summary is still a TODO note, not real research. */
-  placeholder: boolean;
   sector: string;
   publishDate: string;
   summary: string;

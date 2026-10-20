@@ -143,7 +143,7 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
       <QuizStep
         questions={QUIZ_QUESTIONS}
         heading="Same five questions, one more time"
-        description="Let's see what building the model actually changed."
+        description="Same five questions. Compare your score with the first try."
         onComplete={(_score, answers) => {
           setPostAnswers(answers);
           setStep("summary");

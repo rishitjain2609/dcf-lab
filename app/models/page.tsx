@@ -13,7 +13,7 @@ export default function ModelsPage() {
         alt="Mumbai's Marine Drive skyline"
         video="/videos/stock-charts-motion.mp4"
         title="Models"
-        description="Full DCFs on real listed companies. Assumptions, implied value vs. market price, and version history. Several are still placeholders, with the real models landing over time."
+        description="Two full DCFs, Nike and Zomato, built from their annual filings. Each shows its assumptions, the implied value next to the market price, and what changed between versions."
       />
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-12">
         <div className="grid gap-4 sm:grid-cols-2">

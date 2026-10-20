@@ -24,11 +24,6 @@ export function CommentCard({ comment, index }: { comment: ActivityComment; inde
       <p className="mt-3 text-base leading-7 text-foreground/80">{comment.body}</p>
       <div className="mt-3 flex items-center gap-2 text-xs text-foreground/50">
         <span>{comment.createdAt}</span>
-        {comment.placeholder && (
-          <span className="rounded-full bg-background/50 px-2 py-0.5 font-medium text-amber-700 dark:text-amber-400">
-            Sample placeholder
-          </span>
-        )}
       </div>
     </div>
   );

@@ -1,44 +1,39 @@
 ---
 title: Why DCF
-description: What a discounted cash flow model is, where it's actually used, and where it breaks.
+description: What a discounted cash flow model is, where people use it, and where it breaks.
 ---
 
 ## What a DCF is
 
-Picture a lemonade stand that's going to run for the next ten summers. To find out what that
-stand is worth *today*, you wouldn't just add up all the lemonade money it will ever make. A
-rupee ten summers from now isn't worth the same as a rupee in your hand right now, because money
-today can be invested and grow, while money ten years away carries the risk it might never show
-up at all. So you estimate how much cash the stand will throw off each year, then "discount"
-each year's cash back to today's value using a rate that reflects how risky the stand actually
-is. Add all those discounted years together, and that sum is what the stand is worth today.
+Picture a lemonade stand that will run for the next ten summers. To work out what it's worth
+*today*, you can't add up all the lemonade money it will ever make. A rupee ten summers from now
+is worth less than a rupee in your hand. You could invest today's rupee and watch it grow, and the
+rupee ten years away might never show up. So you estimate the cash the stand will bring in each
+year, then "discount" each year's cash back to today using a rate that matches how risky the stand
+is. Add up the discounted years and you have the stand's value today.
 
-A company is the same idea at a much bigger scale. Forecast the cash it will generate, discount
-each year back to today, add it up. That's a discounted cash flow model, start to finish. The
-rest of this site is just the mechanics of doing that carefully.
+A company works the same way, at a bigger scale. Forecast the cash it will generate, discount each
+year back to today, and add it up. The rest of this site covers how to do each of those steps
+carefully.
 
 <DcfConceptDiagram />
 
 ## Where it's used
 
-Analysts, bankers, and buyers all use the same math for different jobs.
+Analysts, bankers and buyers run the same math for different jobs.
 
 <UsesGrid />
 
-Equity research uses a DCF to publish an implied value, the way this site's own
-[models](/models) do. M&A buyers run one to sanity-check a price against what the target can
-actually generate. PE firms underwrite a deal against a hold period and an assumed exit, running
-the machinery in reverse. And in an IPO, bankers triangulate a price range partly off a DCF,
-alongside comparable companies.
+Equity research analysts use a DCF to publish an implied value, the way this site's
+[models](/models) do. In M&A, a buyer runs one to check an asking price against the cash the target
+can produce. Private equity firms work backwards from a holding period and a planned exit price. In
+an IPO, bankers set the price range partly from a DCF and partly from comparable companies.
 
 ## Where it breaks
 
-The honest limits, because a tool this widely used deserves them stated plainly.
-
 <LimitsBand />
 
-See the [terminal value](/guide/terminal-value) step for where that 70% comes from, and
-[sensitivity tables](/guide/sensitivity-tables) for the 2-point swing. None of that makes a DCF useless. It makes it a tool whose answer is only as good as its
-assumptions, which is exactly why this site tracks every published implied value against what
-actually happened afterward, on each [model's page](/models), rather than publishing a number and
-moving on.
+The [terminal value](/guide/terminal-value) step explains where that 70% comes from, and
+[sensitivity tables](/guide/sensitivity-tables) show the 2-point swing. A DCF still earns its place.
+Its answer can only be as good as its assumptions, so each [model](/models) on this site lists every
+assumption and its source, and you can check them yourself.

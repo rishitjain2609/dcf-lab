@@ -20,7 +20,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      "WACC blends the return equity investors demand (via CAPM) with the after-tax cost of debt, weighted by how the company is actually financed.",
+      "WACC blends the return equity investors demand (via CAPM) with the after-tax cost of debt, weighted by how the company is financed.",
   },
   {
     id: "terminal-growth-guard",
@@ -29,7 +29,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: [
       "It's a regulatory requirement in India",
       "Otherwise the formula divides by zero or a negative number, giving a nonsensical value",
-      "Terminal growth doesn't actually affect the formula",
+      "Terminal growth doesn't affect the formula",
       "WACC must always be lower than growth for the forecast to be accurate",
     ],
     correctIndex: 1,

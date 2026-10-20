@@ -3,15 +3,15 @@ title: Setup & conventions
 description: The conventions this guide uses before any numbers show up.
 ---
 
-Imagine someone hands you a spreadsheet with a number at the bottom, "₹32.36." No units, no
+Say a friend hands you a spreadsheet with a number at the bottom, "₹32.36." No units, no
 dates, no currency symbol. Is that dollars or rupees? Per share or in crore? As of today or as of
 whenever they built the model? You'd have no way to check their work, and neither would they, a
 year later, trying to remember what they meant.
 
-That's what conventions are for. Before any formula shows up, this page nails down exactly what
-every later number means, so nothing has to be guessed or re-derived.
+Conventions fix that. This page sets out what every later number means, before any formula
+shows up.
 
-<GuideIllustration caption="A rupee today is worth more than a rupee later, that's the whole idea a DCF is built on.">
+<GuideIllustration caption="A rupee today is worth more than a rupee later. A DCF is built on that one idea.">
   <TimeValueIllustration />
 </GuideIllustration>
 
@@ -46,8 +46,7 @@ every later number means, so nothing has to be guessed or re-derived.
 | Diluted shares | 40 cr |
 | Terminal growth | 4% |
 
-Every assumption is flat and round on purpose. The point of this guide is to see how the
-mechanics fit together, not to memorize a realistic set of numbers. Real companies rarely have the
+Every assumption is flat and round on purpose, so you can follow the arithmetic by hand. Real companies rarely have the
 same growth rate five years running.
 
 Every number in the steps that follow is computed from this table using
@@ -67,5 +66,5 @@ New to this? Keep this tab open. Every later step links back here.
 | **WACC** | Weighted Average Cost of Capital, the discount rate. Roughly, the return investors demand for the risk of this business. |
 | **Terminal value** | The value of every cash flow after the explicit forecast window (Year 6 onward), collapsed into one number as of Year 5. |
 | **Enterprise value (EV)** | The value of the whole operating business, what it would cost to buy the company outright, debt and all. |
-| **Equity value** | What's left for shareholders after lenders are paid, EV minus net debt. What a share price is actually valuing. |
+| **Equity value** | What's left for shareholders after lenders are paid, EV minus net debt. This is what a share price values. |
 | **Implied value** | What this model says a share is worth under its assumptions. Not a prediction, not a "target price." |

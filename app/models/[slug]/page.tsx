@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/page-header";
-import { Todo } from "@/components/todo";
 import { getModel, getModels } from "@/lib/data";
 import { formatPercent, formatMoneyPerShare } from "@/lib/format";
 import { percentGap } from "@/lib/dcf";
@@ -31,11 +30,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
         </Link>
         <section>
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Summary</h2>
-          {model.placeholder ? (
-            <Todo>{model.summary}</Todo>
-          ) : (
-            <p className="mt-3 text-lg leading-8 text-foreground/90">{model.summary}</p>
-          )}
+          <p className="mt-3 text-lg leading-8 text-foreground/90">{model.summary}</p>
         </section>
 
         <section>
@@ -97,41 +92,28 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
           </p>
         </section>
 
-        <section>
-          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Downloads &amp; links</h2>
-          <div className="mt-3 flex flex-wrap gap-3 text-sm">
-            {model.excelUrl ? (
-              <a
-                href={model.excelUrl}
-                className="rounded-full bg-emerald-600 px-4 py-2 font-medium text-white transition hover:bg-emerald-700"
-              >
-                ↓ Download Excel
-              </a>
-            ) : (
-              <span className="rounded-full bg-amber-50 px-4 py-2 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">
-                Excel · TODO(Rishit)
-              </span>
-            )}
-            {model.valuePickrUrl ? (
-              <a href={model.valuePickrUrl} className="rounded-full bg-foreground/5 px-4 py-2 font-medium transition hover:bg-foreground/10">
-                ValuePickr thread ↗
-              </a>
-            ) : (
-              <span className="rounded-full bg-amber-50 px-4 py-2 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">
-                ValuePickr thread · TODO(Rishit)
-              </span>
-            )}
-            {model.substackUrl ? (
-              <a href={model.substackUrl} className="rounded-full bg-foreground/5 px-4 py-2 font-medium transition hover:bg-foreground/10">
-                Substack post ↗
-              </a>
-            ) : (
-              <span className="rounded-full bg-amber-50 px-4 py-2 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">
-                Substack post · TODO(Rishit)
-              </span>
-            )}
-          </div>
-        </section>
+        {(model.excelUrl || model.valuePickrUrl || model.substackUrl) && (
+          <section>
+            <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Downloads &amp; links</h2>
+            <div className="mt-3 flex flex-wrap gap-3 text-sm">
+              {model.excelUrl && (
+                <a href={model.excelUrl} className="bg-accent px-4 py-2 font-medium text-accent-ink transition hover:bg-field">
+                  Download the Excel model
+                </a>
+              )}
+              {model.valuePickrUrl && (
+                <a href={model.valuePickrUrl} className="bg-foreground/5 px-4 py-2 font-medium transition hover:bg-foreground/10">
+                  ValuePickr thread ↗
+                </a>
+              )}
+              {model.substackUrl && (
+                <a href={model.substackUrl} className="bg-foreground/5 px-4 py-2 font-medium transition hover:bg-foreground/10">
+                  Substack post ↗
+                </a>
+              )}
+            </div>
+          </section>
+        )}
 
         <section>
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">Version history</h2>

@@ -8,97 +8,7 @@ export interface ActivityComment {
   body: string;
   createdAt: string;
   approved: boolean;
-  placeholder?: boolean;
 }
-
-/**
- * Seed placeholder comments, shown until a real database is connected and real
- * feedback is approved. TODO(Rishit): once real evaluator feedback exists in the
- * database, you can delete these by removing this array (or leave them mixed in,
- * they're clearly flagged with `placeholder: true` in the UI).
- */
-export const PLACEHOLDER_COMMENTS: ActivityComment[] = [
-  {
-    id: "p1",
-    name: "TODO(Rishit)",
-    role: "e.g. a teacher, mentor, or peer reviewer",
-    project: "Why DCF",
-    body: "Sample placeholder: replace with what this reviewer actually said about the Why DCF page.",
-    createdAt: "2026-09-20",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p2",
-    name: "TODO(Rishit)",
-    role: "e.g. a finance student",
-    project: "Guide",
-    body: "Sample placeholder: replace with real feedback on the step-by-step guide.",
-    createdAt: "2026-09-22",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p3",
-    name: "TODO(Rishit)",
-    role: null,
-    project: "Models",
-    body: "Sample placeholder: replace with real feedback on the Sample Co / Demo Industries models.",
-    createdAt: "2026-09-24",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p4",
-    name: "TODO(Rishit)",
-    role: "e.g. a CA / analyst you know",
-    project: "Models",
-    body: "Sample placeholder: replace with real feedback evaluating the assumptions or methodology.",
-    createdAt: "2026-09-26",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p5",
-    name: "TODO(Rishit)",
-    role: null,
-    project: "Game",
-    body: "Sample placeholder: replace with real feedback on the Valuation Game quiz.",
-    createdAt: "2026-09-28",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p6",
-    name: "TODO(Rishit)",
-    role: "e.g. a parent or teacher",
-    project: "Why DCF",
-    body: "Sample placeholder: replace with real feedback on clarity for a non-finance reader.",
-    createdAt: "2026-09-30",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p7",
-    name: "TODO(Rishit)",
-    role: null,
-    project: "Guide",
-    body: "Sample placeholder: replace with real feedback on whether the worked examples actually helped.",
-    createdAt: "2026-10-02",
-    approved: true,
-    placeholder: true,
-  },
-  {
-    id: "p8",
-    name: "TODO(Rishit)",
-    role: "e.g. another student building their own model",
-    project: "Game",
-    body: "Sample placeholder: replace with real feedback comparing their implied value to the reference model.",
-    createdAt: "2026-10-04",
-    approved: true,
-    placeholder: true,
-  },
-];
 
 let schemaReady: Promise<void> | null = null;
 
@@ -125,7 +35,7 @@ export function hasDatabase(): boolean {
 }
 
 export async function getApprovedComments(): Promise<ActivityComment[]> {
-  if (!hasDatabase()) return PLACEHOLDER_COMMENTS;
+  if (!hasDatabase()) return [];
   try {
     await ensureSchema();
     const { rows } = await sql`
@@ -134,7 +44,7 @@ export async function getApprovedComments(): Promise<ActivityComment[]> {
       WHERE approved = TRUE
       ORDER BY created_at DESC
     `;
-    const real: ActivityComment[] = rows.map((r) => ({
+    return rows.map((r) => ({
       id: r.id,
       name: r.name,
       role: r.role,
@@ -143,9 +53,8 @@ export async function getApprovedComments(): Promise<ActivityComment[]> {
       createdAt: new Date(r.created_at).toISOString().slice(0, 10),
       approved: true,
     }));
-    return [...real, ...PLACEHOLDER_COMMENTS];
   } catch {
-    return PLACEHOLDER_COMMENTS;
+    return [];
   }
 }
 

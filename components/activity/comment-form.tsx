@@ -3,7 +3,7 @@
 import { useRef, useState, useTransition } from "react";
 import { submitCommentAction } from "@/lib/activity-actions";
 
-const PROJECTS = ["Why DCF", "Guide", "Models", "Game"];
+const PROJECTS = ["Why DCF", "Guide", "Models", "DCF builder"];
 
 export function CommentForm() {
   const formRef = useRef<HTMLFormElement>(null);
