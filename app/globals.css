@@ -33,6 +33,26 @@
   --series-down: #c23b3b;
 }
 
+/**
+ * "One motif" palette: one navy field, pink for everything else. The motif is
+ * the discount curve itself, drawn as bars that shrink year by year (see
+ * components/motif). Wrap content in `.motif-scope` to opt in, the same way
+ * `.analyst-scope` works. The site chrome and the homepage use it now; the
+ * other marketing pages move over one at a time, after which this becomes :root.
+ */
+.motif-scope {
+  --background: #1a2039;
+  --foreground: #f9a3c0;
+  --muted: #c99ab0;
+  --border: #212846;
+  --accent: #f9a3c0;
+  --accent-ink: #1a2039;
+  --card: #212846;
+  --card-strong: #2a3256;
+  background: var(--background);
+  color: var(--foreground);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -40,17 +60,96 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-card: var(--card);
+  --color-card-strong: var(--card-strong, var(--card));
+  --color-accent-ink: var(--accent-ink, #fff);
   --color-series-user: var(--series-user, var(--accent));
   --color-series-market: var(--series-market, var(--foreground));
   --color-series-reference: var(--series-reference, var(--muted));
   --color-series-up: var(--series-up, #1f8a5f);
   --color-series-down: var(--series-down, #c23b3b);
   --font-sans: var(--font-body-sans);
-  --font-mono: var(--font-body-mono);
-  --font-display: var(--font-display);
+  --font-mono: var(--font-body-sans);
+  --font-display: var(--font-body-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Legacy `font-mono` usages are numbers in tables and tickers: keep the
+   alignment monospace gave them, in the text face. */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.03em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink, #fff);
+}
+
+/* Entrance for the parts of a section: heading, then text, then picture.
+   Content is visible by default; the script only adds `.js` once it can
+   reveal things, so nothing stays hidden if it fails. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-rise] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  .js [data-rise].is-in {
+    opacity: 1;
+    transform: none;
+  }
+  .js .shutter {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1100ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .js .shutter img {
+    transform: scale(1.12);
+    transition: transform 1500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js .shutter.is-in {
+    clip-path: inset(0);
+  }
+  .js .shutter.is-in img {
+    transform: none;
+  }
+  .js .bar-grow {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--i, 0) * 60ms);
+  }
+  .js .is-in .bar-grow,
+  .js .bar-grow.is-in {
+    transform: none;
+  }
+}
+
+.press {
+  transition: transform 120ms ease-out, background-color 150ms ease, color 150ms ease;
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* The five type steps of the motif pages. Nothing else sets a size. */
+.t-small { font-size: 0.875rem; line-height: 1.4; }
+.t-body { font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); line-height: 1.6; }
+.t-lead { font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem); line-height: 1.2; font-weight: 800; letter-spacing: -0.03em; }
+.t-head { font-size: clamp(2rem, 1.3rem + 3.2vw, 4rem); line-height: 0.95; font-weight: 800; letter-spacing: -0.05em; }
+.t-display { font-size: clamp(2.75rem, 11.5vw, 6.25rem); line-height: 0.88; font-weight: 800; letter-spacing: -0.05em; }
+@media (min-width: 1024px) {
+  .t-display { font-size: clamp(4rem, 6.6vw, 6.5rem); }
 }

@@ -20,7 +20,7 @@ export function CommentForm() {
 
   return (
     <form ref={formRef} action={handleSubmit} className="rounded-3xl bg-foreground/5 p-6 sm:p-8">
-      <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold italic">Add your feedback</h2>
+      <h2 className="text-2xl font-extrabold">Add your feedback</h2>
       <p className="mt-1 text-sm text-foreground/60">
         Submissions are reviewed before they go live, so yours won&apos;t appear immediately.
       </p>

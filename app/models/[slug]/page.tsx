@@ -62,7 +62,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
           <div className="mt-3 flex flex-col gap-4 sm:flex-row">
             <div className="rounded-3xl bg-emerald-50 p-6 dark:bg-emerald-950/40 sm:w-72">
               <p className="text-sm text-foreground/60">Implied value</p>
-              <p className="mt-1 font-[family-name:var(--font-display)] text-5xl font-semibold italic text-emerald-700 dark:text-emerald-400">
+              <p className="mt-1 text-5xl font-extrabold text-emerald-700 dark:text-emerald-400">
                 {perShare(model.impliedValuePerShare)}
               </p>
             </div>

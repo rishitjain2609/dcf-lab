@@ -10,8 +10,6 @@ export default function WhyDcfPage() {
         src="/images/mumbai-night.jpg"
         alt="Mumbai skyline lit up at night"
         video="/videos/financial-district.mp4"
-        kicker="WHY DCF"
-        kickerClassName="text-violet-300"
         title={frontmatter.title}
         description={frontmatter.description}
       />

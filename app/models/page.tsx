@@ -12,8 +12,6 @@ export default function ModelsPage() {
         src="/images/mumbai-marine-drive.jpg"
         alt="Mumbai's Marine Drive skyline"
         video="/videos/stock-charts-motion.mp4"
-        kicker="MODELS"
-        kickerClassName="text-emerald-300"
         title="Models"
         description="Full DCFs on real listed companies. Assumptions, implied value vs. market price, and version history. Several are still placeholders, with the real models landing over time."
       />

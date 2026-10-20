@@ -9,8 +9,6 @@ export default function GuidePage() {
         src="/images/desk-laptop-real.jpg"
         alt="A desk with a laptop showing financial charts"
         video="/videos/laptop-spreadsheet.mp4"
-        kicker="GUIDE"
-        kickerClassName="text-indigo-300"
         title="Guide"
         description="A step-by-step build of a full DCF model, each step with a worked numeric example."
       />

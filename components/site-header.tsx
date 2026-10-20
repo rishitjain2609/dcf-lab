@@ -3,43 +3,35 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion } from "motion/react";
 import { NAV_ITEMS, SITE_NAME } from "@/lib/nav";
 import { UserMenu } from "@/components/auth/user-menu";
+import { StepMark } from "@/components/motif";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
+    <header className="motif-scope sticky top-0 z-40 bg-background">
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between px-4 py-4 sm:px-8">
+        <Link href="/" className="t-lead flex items-center gap-2">
+          <StepMark />
           {SITE_NAME}
         </Link>
 
-        <nav className="hidden items-center gap-5 md:flex" onMouseLeave={() => setHovered(null)}>
+        <nav className="hidden items-center gap-7 md:flex">
           {NAV_ITEMS.map((item) => {
-            const active = pathname === item.href;
-            const showUnderline = hovered ? hovered === item.href : active;
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                onMouseEnter={() => setHovered(item.href)}
-                className={`relative pb-1 text-sm transition hover:text-accent ${
-                  active ? "text-accent font-medium" : "text-foreground/80"
+                aria-current={active ? "page" : undefined}
+                className={`t-body font-semibold underline-offset-[0.35em] decoration-2 transition-colors hover:underline ${
+                  active ? "underline" : ""
                 }`}
               >
                 {item.label}
-                {showUnderline && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-accent"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
               </Link>
             );
           })}
@@ -50,24 +42,23 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
             aria-label="Toggle menu"
-            className="flex h-8 w-8 items-center justify-center rounded-md border border-border md:hidden"
+            className="press t-body -mr-2 px-2 py-1 font-semibold md:hidden"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
-              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M3 6h18M3 12h18M3 18h18" />}
-            </svg>
+            {open ? "Close" : "Menu"}
           </button>
         </div>
       </div>
 
       {open && (
-        <nav className="flex flex-col border-t border-border px-4 py-2 md:hidden">
+        <nav className="flex flex-col bg-card px-4 py-3 sm:px-8 md:hidden">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="py-2 text-sm text-foreground/80 hover:text-accent"
+              className="t-body py-2.5 font-semibold"
             >
               {item.label}
             </Link>

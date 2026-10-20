@@ -35,7 +35,7 @@ export function UsesGrid() {
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className={`rounded-2xl p-5 ${u.tint}`}
         >
-          <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold">{u.label}</h3>
+          <h3 className="text-lg font-semibold">{u.label}</h3>
           <p className="mt-1.5 text-sm text-foreground/70">{u.text}</p>
         </motion.div>
       ))}
@@ -65,7 +65,7 @@ export function LimitsBand() {
       <div className="mt-6 space-y-6">
         {LIMITS.map((l) => (
           <div key={l.stat} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
-            <p className="font-[family-name:var(--font-display)] w-32 flex-shrink-0 text-4xl font-semibold italic text-rose-300">
+            <p className="w-32 flex-shrink-0 text-4xl font-extrabold text-rose-300">
               {l.stat}
             </p>
             <p className="text-rose-100/90">{l.text}</p>

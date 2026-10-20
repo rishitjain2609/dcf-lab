@@ -40,7 +40,7 @@ export function UserMenu() {
 
   if (!user) {
     return (
-      <Link href="/sign-in" className="rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-white">
+      <Link href="/sign-in" className="press bg-accent t-small px-4 py-2 font-semibold text-accent-ink">
         Sign in
       </Link>
     );
