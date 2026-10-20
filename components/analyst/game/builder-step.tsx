@@ -257,7 +257,7 @@ export function BuilderStep({
                       { label: "PV of FCFs", value: result.presentValuesOfFcf.reduce((a, b) => a + b, 0) },
                       { label: "PV of terminal value", value: result.presentValueOfTerminalValue },
                       { label: "Enterprise value", value: result.enterpriseValue, isTotal: true },
-                      { label: "Net debt", value: -company.netDebt },
+                      { label: company.netDebt < 0 ? "Plus net cash" : "Less net debt", value: -company.netDebt },
                       { label: "Equity value", value: result.equityValue, isTotal: true },
                     ]}
                   />

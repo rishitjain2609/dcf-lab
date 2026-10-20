@@ -50,7 +50,7 @@
     "capexPct": 0.046,
     "nwcPct": 0.02,
     "taxRate": 0.244,
-    "netDebt": 2045,
+    "netDebt": -16779,
     "dilutedShares": 958,
     "marketCapAtSnapshot": 309004,
     "revenueHistory": [
@@ -67,7 +67,7 @@
       "daPct": 0.0426,
       "capexPct": 0.046,
       "nwcPct": 0.02,
-      "wacc": 0.13,
+      "wacc": 0.12,
       "terminalGrowth": 0.05
     }
   }

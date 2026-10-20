@@ -60,15 +60,19 @@
     "currency": "INR",
     "sector": "Consumer / Food delivery & quick commerce",
     "publishDate": "2026-10-20",
-    "summary": "Zomato (renamed Eternal Limited in 2024) grew revenue from ₹1,994 cr to ₹20,243 cr over the last five fiscal years, roughly a 59% CAGR, while profitability only turned durably positive recently (FY25 EBITDA margin of about 3-5% depending on whether you use the reported or the company's own adjusted figure). This model assumes growth decelerates from 30% to 15% over the next five years while EBITDA margin expands from 6% to 14% as the business scales, a maturing-platform path rather than a straight-line extension of either the current thin margin or the historical hypergrowth rate. Even with that expansion built in, the model implies roughly ₹30/share against an actual price near ₹322, the market pricing the stock at nearly 11 times this base case. That's the point of running the numbers, not a mistake to explain away: it means the market is pricing in materially faster growth, materially higher eventual margins, or both, than this base case assumes. Two inputs here are flagged estimates rather than clean filed figures, see the version note.",
+    "summary": "Zomato (renamed Eternal Limited in 2024) grew revenue from ₹1,994 cr to ₹20,243 cr over the last five fiscal years, about a 59% CAGR, and only turned durably profitable recently (FY25 EBITDA margin of roughly 3-5%). This model forecasts ten years instead of five, because a company still growing this fast is nowhere near its steady state after five. Growth slows in a straight line from 30% to 8%, and EBITDA margin widens from 6% to 20%. The company holds about ₹16,779 cr more cash than debt, and that cash is added to the equity value. The result is about ₹105 a share against a market price near ₹322. To justify ₹322 you would need growth to stay high for longer, mostly from Blinkit's quick commerce business, and margins to end well above 20%.",
     "assumptions": [
       {
-        "label": "Revenue growth, Yr 1–5",
-        "value": "30% decelerating to 15%"
+        "label": "Forecast period",
+        "value": "10 years"
+      },
+      {
+        "label": "Revenue growth, Yr 1–10",
+        "value": "30% slowing evenly to 8%"
       },
       {
         "label": "EBITDA margin",
-        "value": "6% expanding to 14%"
+        "value": "6% widening evenly to 20%"
       },
       {
         "label": "D&A, % of revenue",
@@ -84,26 +88,30 @@
       },
       {
         "label": "WACC",
-        "value": "13.0% (estimated)"
+        "value": "12.0% (estimated)"
       },
       {
         "label": "Terminal growth",
         "value": "5.0%"
+      },
+      {
+        "label": "Net cash",
+        "value": "₹16,779 cr"
       }
     ],
-    "impliedValuePerShare": 30.14,
+    "impliedValuePerShare": 105.15,
     "priceAtPublish": 322.55,
     "latestPrice": 322.55,
     "dilutedShares": 958,
-    "netDebt": 2045,
+    "netDebt": -16779,
     "excelUrl": null,
     "valuePickrUrl": null,
     "substackUrl": null,
     "versions": [
       {
-        "version": "v1",
+        "version": "v2",
         "date": "2026-10-20",
-        "changelog": "Initial publish. Revenue and D&A from Eternal's FY25 annual report (year ended March 31, 2025) via screener.in; market cap and price from screener.in, close of Oct 19, 2026. Two figures are estimates, not clean filed numbers: net debt uses gross borrowings of ₹2,045 cr only (FY25's exact cash & equivalents line wasn't cleanly isolable from aggregator data, so true net debt is likely lower), and diluted shares (958 cr) are derived from FY25 net profit ÷ diluted EPS rather than a directly reported share count. Capex % and the margin-expansion/growth-deceleration path are this model's own estimates."
+        "changelog": "Replaces the first draft, which implied ₹30.14. Two fixes. First, the draft counted ₹2,045 cr of borrowings as net debt and left out the company's cash. Eternal reported a cash balance of ₹18,824 cr at March 31, 2025 (Q4 FY25 shareholder letter), so net cash is ₹18,824 cr minus ₹2,045 cr of debt, or ₹16,779 cr. Second, the forecast now runs ten years instead of five, so growth slows gradually instead of dropping from 15% to the 5% terminal rate in one step. WACC moves from 13% to 12% (risk-free rate near 6.5%, beta about 1.1, equity risk premium about 5%, almost no debt). Revenue and D&A are from the FY25 annual report via screener.in, and the price is the close of Oct 19, 2026. Diluted shares (958 cr) come from FY25 net profit divided by diluted EPS. Capex %, the growth and margin path, and WACC are this model's own estimates."
       }
     ]
   }
