@@ -7,6 +7,8 @@ watch the implied value move. Run from the repo root:
     python3 scripts/build_model_workbooks.py
 
 Outputs land in public/downloads/, which models.json links to as `excelUrl`.
+The published files were then edited by hand in Excel; rerunning this script
+reproduces those text edits but not any formatting changed in Excel.
 """
 
 from pathlib import Path
@@ -152,11 +154,10 @@ def font(bold=False, color="000000", size=10, italic=False):
     return Font(name=FONT, bold=bold, color=color, size=size, italic=italic)
 
 
-def title(ws, text, sub):
+def title(ws, text, sub=None):
+    # Sheet subtitles were removed by hand in the published workbooks; `sub` is kept for reference only.
     ws["A1"] = text
     ws["A1"].font = font(bold=True, size=14)
-    ws["A2"] = sub
-    ws["A2"].font = font(italic=True, color="555555")
 
 
 def header_row(ws, row, values, start_col=1):
@@ -182,10 +183,10 @@ def build(m):
     inp["B4"] = f"=Historicals!C{3 + len(hist)}"
     inp["B4"].font = font(color=GREEN)
     inp["B4"].number_format = m["money"]
-    inp["C4"] = f"{m['base_label']} revenue, linked from the Historicals sheet."
+    inp["C4"] = f"{m['base_label']} revenue"
     inp["C4"].font = font(italic=True, color="555555")
 
-    header_row(inp, 5, ["Assumption", "Value", "Source / note"])
+    header_row(inp, 5, ["Assumption", "Value", "Source"])
     ref = {}
     for i, (key, label, fmt, key_assumption) in enumerate(INPUT_ROWS):
         r = FIRST_INPUT_ROW + i
@@ -249,7 +250,6 @@ def build(m):
     c = hs.cell(row=last + 2, column=4, value=f"=(C{last}/C4)^(1/{len(hist) - 1})-1")
     c.font = font(bold=True)
     c.number_format = PCT
-    hs.cell(row=last + 4, column=1, value="Source: " + m["sources"][0]).font = font(italic=True, color="555555")
     hs.column_dimensions["A"].width = 26
     hs.column_dimensions["C"].width = 14
     hs.column_dimensions["D"].width = 22
@@ -398,8 +398,6 @@ def build(m):
             c.font = font(bold=(i == 2 and j == 2))
             if i == 2 and j == 2:
                 c.fill = YELLOW
-    ss["A11"] = "Each cell recomputes the full DCF at that WACC and terminal growth: PV of the UFCF row plus PV of the terminal value, less net debt, over diluted shares."
-    ss["A11"].font = font(italic=True, color="555555")
     ss.column_dimensions["A"].width = 14
     for j in range(len(g_steps)):
         ss.column_dimensions[get_column_letter(2 + j)].width = 13
