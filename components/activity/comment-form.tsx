@@ -19,11 +19,15 @@ export function CommentForm() {
   }
 
   return (
-    <form ref={formRef} action={handleSubmit} className="rounded-3xl bg-foreground/5 p-6 sm:p-8">
+    <form ref={formRef} action={handleSubmit} className="relative rounded-3xl bg-foreground/5 p-6 sm:p-8">
       <h2 className="text-2xl font-extrabold">Add your feedback</h2>
       <p className="mt-1 text-sm text-foreground/60">
-        Submissions are reviewed before they go live, so yours won&apos;t appear immediately.
+        Your comment shows up on this page as soon as you post it.
       </p>
+      <div aria-hidden className="absolute -left-[9999px]">
+        <label htmlFor="website">Leave this empty</label>
+        <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div>
           <label className="text-sm font-medium" htmlFor="name">
@@ -87,7 +91,7 @@ export function CommentForm() {
       {result?.error && <p className="mt-3 text-sm text-rose-600 dark:text-rose-400">{result.error}</p>}
       {result?.ok && (
         <p className="mt-3 text-sm text-emerald-600 dark:text-emerald-400">
-          Thanks — your feedback is in the queue for review.
+          Thanks, your comment is posted.
         </p>
       )}
       <button

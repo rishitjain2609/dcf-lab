@@ -9,8 +9,13 @@ export async function submitCommentAction(formData: FormData): Promise<{ error?:
   const project = String(formData.get("project") ?? "").trim();
   const body = String(formData.get("body") ?? "").trim();
 
+  // Hidden field people never see; bots that fill every input get dropped quietly.
+  if (String(formData.get("website") ?? "").trim()) {
+    return { ok: true };
+  }
+
   if (!name || !project || !body) {
-    return { error: "Name, project, and comment are all required." };
+    return { error: "Please add your name, pick a page, and write a comment." };
   }
   if (body.length > 2000) {
     return { error: "That comment is too long." };
@@ -19,7 +24,7 @@ export async function submitCommentAction(formData: FormData): Promise<{ error?:
   try {
     await submitComment({ name, role: role || undefined, project, body });
   } catch {
-    return { error: "Comments aren't connected to a database yet, so this couldn't be saved." };
+    return { error: "Your comment couldn't be saved. Please try again in a minute." };
   }
 
   revalidatePath("/activity");
@@ -46,5 +51,6 @@ export async function rejectCommentAction(formData: FormData): Promise<void> {
   const id = Number(formData.get("id"));
   if (!checkSecret(key) || !Number.isFinite(id)) return;
   await rejectComment(id);
+  revalidatePath("/activity");
   revalidatePath("/activity/review");
 }

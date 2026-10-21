@@ -58,13 +58,13 @@ export async function getApprovedComments(): Promise<ActivityComment[]> {
   }
 }
 
-export async function getPendingComments(): Promise<ActivityComment[]> {
+/** Every stored comment, newest first, for the owner's removal page. */
+export async function getAllComments(): Promise<ActivityComment[]> {
   if (!hasDatabase()) return [];
   await ensureSchema();
   const { rows } = await sql`
-    SELECT id, name, role, project, body, created_at
+    SELECT id, name, role, project, body, created_at, approved
     FROM activity_comments
-    WHERE approved = FALSE
     ORDER BY created_at DESC
   `;
   return rows.map((r) => ({
@@ -74,7 +74,7 @@ export async function getPendingComments(): Promise<ActivityComment[]> {
     project: r.project,
     body: r.body,
     createdAt: new Date(r.created_at).toISOString().slice(0, 10),
-    approved: false,
+    approved: Boolean(r.approved),
   }));
 }
 
@@ -85,7 +85,7 @@ export async function submitComment(input: { name: string; role?: string; projec
   await ensureSchema();
   await sql`
     INSERT INTO activity_comments (name, role, project, body, approved)
-    VALUES (${input.name}, ${input.role ?? null}, ${input.project}, ${input.body}, FALSE)
+    VALUES (${input.name}, ${input.role ?? null}, ${input.project}, ${input.body}, TRUE)
   `;
 }
 

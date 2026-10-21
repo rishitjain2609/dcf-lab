@@ -1,4 +1,4 @@
-import { getPendingComments, hasDatabase } from "@/lib/activity";
+import { getAllComments, hasDatabase } from "@/lib/activity";
 import { approveCommentAction, rejectCommentAction } from "@/lib/activity-actions";
 
 export const dynamic = "force-dynamic";
@@ -13,9 +13,7 @@ export default async function ActivityReviewPage({
   const authorized = Boolean(secret) && key === secret;
 
   if (!authorized) {
-    return (
-      <div className="mx-auto max-w-5xl px-4 py-20 text-center text-foreground/60">Not found.</div>
-    );
+    return <div className="mx-auto max-w-5xl px-4 py-20 text-center text-foreground/60">Not found.</div>;
   }
 
   if (!hasDatabase()) {
@@ -26,40 +24,43 @@ export default async function ActivityReviewPage({
     );
   }
 
-  const pending = await getPendingComments();
+  const comments = await getAllComments();
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <h1 className="text-3xl font-extrabold">
-        Pending feedback ({pending.length})
-      </h1>
+      <h1 className="text-3xl font-extrabold">All comments ({comments.length})</h1>
       <p className="mt-2 text-sm text-foreground/60">
-        Only visible with the right key. Approve to publish on /activity, or reject to discard.
+        Only visible with the right key. Comments post straight to /activity; remove any you don&apos;t want
+        there.
       </p>
       <div className="mt-8 space-y-4">
-        {pending.length === 0 && <p className="text-foreground/60">Nothing waiting for review.</p>}
-        {pending.map((comment) => (
+        {comments.length === 0 && <p className="text-foreground/60">No comments yet.</p>}
+        {comments.map((comment) => (
           <div key={comment.id} className="rounded-3xl bg-foreground/5 p-6">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold">{comment.name}</p>
                 {comment.role && <p className="text-sm text-foreground/60">{comment.role}</p>}
               </div>
-              <span className="rounded-full bg-background/60 px-3 py-1 text-xs font-medium">{comment.project}</span>
+              <span className="rounded-full bg-background/60 px-3 py-1 text-xs font-medium">
+                {comment.project}
+              </span>
             </div>
             <p className="mt-3 text-base leading-7 text-foreground/80">{comment.body}</p>
             <p className="mt-2 text-xs text-foreground/50">{comment.createdAt}</p>
             <div className="mt-4 flex gap-3">
-              <form action={approveCommentAction}>
-                <input type="hidden" name="key" value={key} />
-                <input type="hidden" name="id" value={comment.id} />
-                <button
-                  type="submit"
-                  className="rounded-full bg-emerald-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-emerald-700"
-                >
-                  Approve
-                </button>
-              </form>
+              {!comment.approved && (
+                <form action={approveCommentAction}>
+                  <input type="hidden" name="key" value={key} />
+                  <input type="hidden" name="id" value={comment.id} />
+                  <button
+                    type="submit"
+                    className="rounded-full bg-emerald-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-emerald-700"
+                  >
+                    Show on /activity
+                  </button>
+                </form>
+              )}
               <form action={rejectCommentAction}>
                 <input type="hidden" name="key" value={key} />
                 <input type="hidden" name="id" value={comment.id} />
@@ -67,7 +68,7 @@ export default async function ActivityReviewPage({
                   type="submit"
                   className="rounded-full bg-rose-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-rose-700"
                 >
-                  Reject
+                  Remove
                 </button>
               </form>
             </div>
