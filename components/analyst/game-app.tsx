@@ -97,8 +97,8 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
     return (
       <QuizStep
         questions={QUIZ_QUESTIONS}
-        heading="A quick concept check before you start"
-        description="Five questions, one at a time. No feedback yet, that comes later."
+        heading="Before you start: five questions"
+        description="One question at a time. You see which ones you got right at the end."
         onComplete={(_score, answers) => {
           setPreAnswers(answers);
           setStep("pick-company");
@@ -142,8 +142,8 @@ export function GameApp({ companies }: { companies: GameCompany[] }) {
     return (
       <QuizStep
         questions={QUIZ_QUESTIONS}
-        heading="Same five questions, one more time"
-        description="Same five questions. Compare your score with the first try."
+        heading="The same five questions again"
+        description="Answer them again, then compare with your first score."
         onComplete={(_score, answers) => {
           setPostAnswers(answers);
           setStep("summary");

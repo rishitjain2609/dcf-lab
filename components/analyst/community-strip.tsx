@@ -9,8 +9,8 @@ export function CommunityStrip() {
       </span>
       <p className="font-semibold">No models published yet</p>
       <p className="max-w-sm text-sm text-muted">
-        Once people start publishing, their models show up here, company, implied price vs. the market, and how
-        much discussion it got. Build one below to be the first.
+        When people publish their models, they appear here with their implied price next to the market
+        price.
       </p>
     </div>
   );

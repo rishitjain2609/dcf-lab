@@ -46,7 +46,7 @@ export function ResultStep({
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div className="rounded-2xl bg-card p-5 ring-1 ring-border">
           <div className="flex items-baseline justify-between">
-            <p className="text-sm font-medium">Your price vs. everyone else</p>
+            <p className="text-sm font-medium">Your price, the market and the reference</p>
             <p
               className={`text-sm font-medium tabular-nums ${result.errorVsMarket >= 0 ? "text-series-up" : "text-series-down"}`}
             >
@@ -59,8 +59,8 @@ export function ResultStep({
         </div>
 
         <div className="rounded-2xl bg-card p-5 ring-1 ring-border">
-          <p className="text-sm font-medium">What drove the gap</p>
-          <p className="text-xs text-muted">Each assumption swapped in on its own, others held at the reference.</p>
+          <p className="text-sm font-medium">Which assumptions moved your price most</p>
+          <p className="text-xs text-muted">Each bar swaps in one of your assumptions and keeps the rest at the reference model.</p>
           <div className="mt-3">
             <TornadoChart rows={tornado} valueFormatter={perShare} />
           </div>

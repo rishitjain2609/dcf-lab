@@ -104,7 +104,7 @@ export function BuilderStep({
               max={0.4}
               step={0.005}
               format={formatPercent}
-              explanation="How fast revenue grows each year for the next 5 years, compounding. A small difference here compounds a lot over 5 years."
+              explanation="How much revenue grows each year for the next five years. Small changes add up: 8% a year is 47% more revenue by year 5, 10% a year is 61% more."
               diagram={<TimeValueIllustration className="h-16 w-32" />}
               historicalValue={undefined}
             />
@@ -120,7 +120,7 @@ export function BuilderStep({
               max={0.5}
               step={0.005}
               format={formatPercent}
-              explanation="Operating profit before depreciation, as a share of revenue. A good starting point is this company's recent history."
+              explanation="EBITDA as a share of revenue: profit before interest, tax, depreciation and amortization. Start from the company's recent margin, shown below."
               historicalValue={company.ebitdaMargin}
               warning={marginWarning}
             />
@@ -136,7 +136,7 @@ export function BuilderStep({
               max={0.4}
               step={0.005}
               format={formatPercent}
-              explanation="The effective tax rate applied to operating profit to get after-tax operating profit (NOPAT)."
+              explanation="The share of operating profit (EBIT) paid in tax. What is left is NOPAT."
               historicalValue={company.taxRate}
             />
           </div>
@@ -151,7 +151,7 @@ export function BuilderStep({
               max={0.15}
               step={0.0025}
               format={formatPercent}
-              explanation="Depreciation and amortization: a non-cash expense, added back to NOPAT to get to free cash flow."
+              explanation="Depreciation and amortization. It lowers taxable profit, but no cash leaves the business, so you add it back when working out free cash flow."
               historicalValue={company.daPct}
             />
           </div>
@@ -166,7 +166,7 @@ export function BuilderStep({
               max={0.2}
               step={0.0025}
               format={formatPercent}
-              explanation="Cash spent on equipment and property to keep the business running and growing. This leaves cash before it becomes free cash flow."
+              explanation="Money spent on equipment, buildings and software to keep the business running and growing. It comes straight out of free cash flow."
               historicalValue={company.capexPct}
             />
           </div>
@@ -181,7 +181,7 @@ export function BuilderStep({
               max={0.2}
               step={0.0025}
               format={formatPercent}
-              explanation="As revenue grows, a business usually needs to fund more inventory and receivables. That cash need also comes out of free cash flow."
+              explanation="A growing business ties up more cash in stock and in money customers still owe it. This is that extra cash, as a share of each year's revenue increase."
               historicalValue={company.nwcPct}
             />
           </div>
@@ -196,7 +196,7 @@ export function BuilderStep({
               max={0.22}
               step={0.0025}
               format={formatPercent}
-              explanation="The discount rate: the return investors require for the risk of this business, blending the cost of equity and after-tax cost of debt."
+              explanation="The return investors expect for the risk of owning this business. Each future year's cash is divided down by this rate, so a higher WACC gives a lower price."
               diagram={<WaccBlendIllustration className="h-16 w-32" />}
               historicalValue={undefined}
             />
@@ -212,7 +212,7 @@ export function BuilderStep({
               max={0.08}
               step={0.0025}
               format={formatPercent}
-              explanation="The growth rate assumed forever after year 5. Usually kept near long-run GDP growth, since nothing can outgrow the economy forever."
+              explanation="How fast cash flow grows each year after year 5, forever. Most analysts keep it near long-run GDP growth: about 2-3% for the US and 5% for India."
               diagram={<TerminalValueIllustration className="h-16 w-32" />}
               historicalValue={undefined}
               error={terminalGuard.valid ? undefined : terminalGuard.message}
@@ -292,7 +292,7 @@ export function BuilderStep({
             </>
           ) : (
             <div className="rounded-2xl bg-card p-5 text-sm text-series-down ring-1 ring-border">
-              {terminalGuard.message ?? "These assumptions don't produce a valid result."}
+              {terminalGuard.message ?? "These numbers don't give a valid price. Check that terminal growth is below WACC."}
             </div>
           )}
         </div>

@@ -222,7 +222,7 @@ export function checkTerminalValueShare(
   if (share > threshold) {
     return {
       warn: true,
-      message: `Terminal value is ${(share * 100).toFixed(0)}% of enterprise value, most of this valuation depends on assumptions about the distant future.`,
+      message: `Terminal value is ${(share * 100).toFixed(0)}% of enterprise value, so most of this price depends on what you assume happens after the forecast years.`,
     };
   }
   return { warn: false };

@@ -28,13 +28,13 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     question: "Why must terminal growth be less than WACC in the Gordon growth formula?",
     options: [
       "It's a regulatory requirement in India",
-      "Otherwise the formula divides by zero or a negative number, giving a nonsensical value",
+      "Otherwise the formula divides by zero or a negative number",
       "Terminal growth doesn't affect the formula",
       "WACC must always be lower than growth for the forecast to be accurate",
     ],
     correctIndex: 1,
     explanation:
-      "TV = FCF × (1+g) / (WACC - g). If g is greater than or equal to WACC, the denominator is zero or negative. The formula breaks, it doesn't just get \"more aggressive.\"",
+      "TV = FCF × (1+g) / (WACC - g). If g is equal to or above WACC, the bottom of the fraction is zero or negative and the formula gives no usable answer.",
   },
   {
     id: "ufcf-excludes",
@@ -43,7 +43,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["Taxes", "Depreciation", "Interest paid to lenders", "Capital expenditure"],
     correctIndex: 2,
     explanation:
-      "UFCF is \"as if debt-free,\" meaning no interest expense, so it can be discounted at WACC and compared across companies regardless of how they're financed.",
+      "UFCF leaves out interest, as if the company had no debt. That lets you discount it at WACC and compare companies however they're financed.",
   },
   {
     id: "ev-vs-equity",
@@ -65,12 +65,12 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     question: "If a DCF's terminal value makes up 70% of total enterprise value, what does that tell you?",
     options: [
       "The model is definitely wrong",
-      "Most of the estimated value depends on assumptions about the distant future, which is worth stress-testing",
+      "Most of the value depends on what you assume happens after the forecast years",
       "The company has too much debt",
       "The explicit forecast period should be shortened to zero",
     ],
     correctIndex: 1,
     explanation:
-      "This is normal for a DCF, not a red flag by itself, but it means the terminal growth rate and WACC deserve the most scrutiny of any assumption in the model.",
+      "That's common in a DCF. It means terminal growth and WACC are the two inputs to check hardest, since small changes in them move the price the most.",
   },
 ];

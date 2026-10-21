@@ -1,12 +1,12 @@
 import { ClipboardList, Building2, SlidersHorizontal, BarChart3, RotateCcw, Share2 } from "lucide-react";
 
 const STEPS = [
-  { icon: ClipboardList, title: "Concept check", description: "5 quick questions, no peeking at the answers yet." },
-  { icon: Building2, title: "Pick a company", description: "A real, listed company across a few different sectors." },
-  { icon: SlidersHorizontal, title: "Build the model", description: "Set every assumption yourself, see the math update live." },
-  { icon: BarChart3, title: "See the results", description: "Your price vs. the market, the reference model, and the community." },
-  { icon: RotateCcw, title: "Same quiz again", description: "See what building the model taught you." },
-  { icon: Share2, title: "Publish", description: "Post your model, or fork someone else's and try your own numbers." },
+  { icon: ClipboardList, title: "Concept check", description: "Five questions to see what you already know." },
+  { icon: Building2, title: "Pick a company", description: "Nike or Zomato, loaded with their latest reported numbers." },
+  { icon: SlidersHorizontal, title: "Build the model", description: "Set each assumption and watch the price change as you go." },
+  { icon: BarChart3, title: "See the results", description: "Your price next to the market price and the reference model." },
+  { icon: RotateCcw, title: "Same quiz again", description: "The same five questions, so you can compare scores." },
+  { icon: Share2, title: "Publish", description: "Save your model with a note on why you picked those numbers." },
 ];
 
 export function JourneyDiagram() {

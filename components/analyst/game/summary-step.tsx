@@ -20,8 +20,8 @@ export function SummaryStep({
 
   return (
     <div>
-      <h2 className="text-xl font-semibold">Your learning gain</h2>
-      <p className="mt-1 text-sm text-muted">Same 5 questions, before and after building the model.</p>
+      <h2 className="text-xl font-semibold">Your score, before and after</h2>
+      <p className="mt-1 text-sm text-muted">The same five questions, answered before and after you built the model.</p>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row">
         <div className="flex-1 rounded-2xl bg-card p-5 text-center ring-1 ring-border">
@@ -65,7 +65,7 @@ export function SummaryStep({
         })}
       </div>
 
-      <p className="mt-6 text-sm text-muted">Scores aren&apos;t saved yet, that lands with accounts.</p>
+      <p className="mt-6 text-sm text-muted">Scores aren&apos;t saved yet.</p>
 
       <div className="mt-4 flex justify-end gap-3">
         <button type="button" onClick={onRestart} className="rounded-full bg-foreground/10 px-5 py-2 text-sm font-medium hover:bg-foreground/15">

@@ -150,7 +150,7 @@ export function PublishStep({
             {!hasSupabase() ? (
               <>
                 <p className="text-sm font-medium">Publishing needs a database</p>
-                <p className="max-w-sm text-xs text-muted">Accounts aren&apos;t connected yet, check back soon.</p>
+                <p className="max-w-sm text-xs text-muted">Publishing isn&apos;t switched on yet.</p>
               </>
             ) : (
               <>

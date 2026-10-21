@@ -14,7 +14,7 @@ export function CompanyPickerStep({
   return (
     <div>
       <h2 className="text-xl font-semibold">Pick a company</h2>
-      <p className="mt-1 text-sm text-muted">Real, listed companies across a few different sectors.</p>
+      <p className="mt-1 text-sm text-muted">Two listed companies, each set up with its latest annual numbers.</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {companies.map((company) => (
@@ -39,10 +39,6 @@ export function CompanyPickerStep({
               <div>
                 <dt className="text-xs text-muted">Last FY revenue</dt>
                 <dd className="tabular-nums">{formatMoneyLarge(company.lastFYRevenue, company.currency)}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-muted">Community DCFs</dt>
-                <dd className="tabular-nums">0</dd>
               </div>
             </dl>
 
